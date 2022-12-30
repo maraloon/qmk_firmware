@@ -17,6 +17,9 @@
 
 #include "config_common.h"
 
+#define TAPPING_TERM 30
+#define RETRO_TAPPING
+
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 12

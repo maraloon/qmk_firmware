@@ -25,10 +25,10 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ALPHA] = LAYOUT_ortho_4x12_1x2uC(
-    KC_SPC,  KC_W,    KC_F,    KC_P,    _______, _______, _______, _______, KC_L,    KC_U,    KC_Y,    _______,
+    _______, KC_W,    KC_F,    KC_P,    _______, _______, _______, _______, KC_L,    KC_U,    KC_Y,    _______,
     KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    _______, _______, KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    _______, _______, KC_Q,    KC_H,    KC_K,    KC_J,    KC_B,
-    _______, _______, _______, PUNCT,   NUMSYM,  _______,          ARRFN,   MODS,    _______, _______, _______
+    _______, _______, _______, LT(_PUNCT, KC_SPC),NUMSYM, _______, ARRFN,   MODS,    _______, _______, _______
 ),
 [_PUNCT] = LAYOUT_ortho_4x12_1x2uC(
     _______, _______, KC_LCBR, KC_RCBR, _______, _______, _______, _______, KC_QUES, KC_EXLM, _______, _______,
