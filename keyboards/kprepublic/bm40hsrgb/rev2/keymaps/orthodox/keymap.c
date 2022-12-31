@@ -9,9 +9,16 @@ enum layers {
 };
 
 #define L1 LT(_PUNCT,KC_SPC) 
-#define L2 _NUMSYM 
+#define L2 LT(_NUMSYM,KC_PSLS)
 #define L3 LT(_ARRFN,KC_COMM) 
 #define L4 LT(_MODS,KC_PDOT) 
+
+#define N_CTL CTL_T(KC_N)
+#define T_CTL CTL_T(KC_T)
+#define E_CMD CMD_T(KC_E)
+#define S_CMD CMD_T(KC_S)
+#define O_RMD RCMD_T(KC_O)
+#define A_RMD RCMD_T(KC_A)
 
 #define ALFRED LCTL(KC_SPC)
 #define BUFFER LCTL(KC_V)
@@ -23,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_ALPHA] = LAYOUT_ortho_4x12_1x2uC(
     _______, KC_W,    KC_F,    KC_P,    _______, _______, _______, _______, KC_L,    KC_U,    KC_Y,    _______,
-    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    _______, _______, KC_M,    CTL_T(KC_N),KC_E,    KC_I,    KC_O,
+    A_RMD,   KC_R,    S_CMD,   T_CTL,   KC_G,    _______, _______, KC_M,    N_CTL,   E_CMD,   KC_I,    O_RMD, 
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    _______, _______, KC_Q,    KC_H,    KC_K,    KC_J,    KC_B,
     _______, _______, _______, L1,      L2,      _______,          L3,      L4,      _______, _______, _______
 ),
@@ -47,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_MODS] = LAYOUT_ortho_4x12_1x2uC(
     _______, KC_TAB,  KC_ESC,  WARPNTAB, _______, _______, _______, _______, KC_HOME, KC_END,  _______, _______,
-    KC_RGUI, TMUX,    KC_LGUI, KC_LCTL,  _______, _______, _______, _______, KC_LCTL, KC_LGUI, _______, KC_RGUI,
+    _______, TMUX,    _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______,
     ALFRED,  _______,LSFT(KC_ENT),KC_ENT,  BUFFER,  _______, _______, _______, KC_PGDN, KC_PGUP, _______, _______,
     _______, _______, _______, KC_BSPC, LALT(KC_BSPC), _______,     QK_BOOT, _______, _______, _______, _______
 ),
