@@ -1,10 +1,10 @@
-/* Copyright 2020 tominabox1
+/* Copyright 2020 1000
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
- *
+ // *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -16,13 +16,6 @@
 #pragma once
 
 #include "config_common.h"
-
-#define TAPPING_TERM 1
-#define RETRO_TAPPING
-#define TAPPING_FORCE_HOLD
-
-// #define IGNORE_MOD_TAP_INTERRUPT
-
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -118,3 +111,14 @@
 #    define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 #endif
+
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM_PER_KEY
+#define RETRO_TAPPING_PER_KEY
+// dual
+// #define TAPPING_TERM 30
+// #define RETRO_TAPPING
+
+// mod
+// #define TAPPING_TERM 200
+// #define IGNORE_MOD_TAP_INTERRUPT
