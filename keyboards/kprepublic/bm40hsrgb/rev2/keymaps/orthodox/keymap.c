@@ -73,9 +73,15 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
             uint8_t index = g_led_config.matrix_co[row][col];
 
-            if (index >= led_min && index < led_max && index != NO_LED &&
-            keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                rgb_matrix_set_color(index, 25, 125, 0);
+            if (index >= led_min && index < led_max && index != NO_LED) {
+                if (keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
+                    // rgb_matrix_set_color(index, 152, 151, 26);
+                    // rgb_matrix_set_color(index, 177, 98, 134);
+                    rgb_matrix_set_color(index, 88, 49, 67);
+                } else {
+                    rgb_matrix_set_color(index, 0, 0, 0);
+                }
+
             }
         }
     }
