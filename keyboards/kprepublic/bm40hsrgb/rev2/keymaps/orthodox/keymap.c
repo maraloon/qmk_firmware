@@ -24,10 +24,10 @@ enum layers {
 #define NEWLINE LSFT(KC_ENT) 
 #define DELWORD LALT(KC_BSPC) 
 
-#define N_CTL CTL_T(KC_N)
-#define T_CTL CTL_T(KC_T)
-#define E_CMD CMD_T(KC_E)
-#define S_CMD CMD_T(KC_S)
+#define N_CMD CMD_T(KC_N)
+#define T_CMD CMD_T(KC_T)
+#define E_CTL CTL_T(KC_E)
+#define S_CTL CTL_T(KC_S)
 #define O_RMD RCMD_T(KC_O)
 #define A_RMD RCMD_T(KC_A)
 
@@ -40,7 +40,7 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT_ortho_4x12_1x2uC(
     _______, KC_W,    KC_F,    KC_P,    _______, _______, _______, _______, KC_L,    KC_U,    KC_Y,    _______,
-    A_RMD,   KC_R,    S_CMD,   T_CTL,   KC_G,    _______, _______, KC_M,    N_CTL,   E_CMD,   KC_I,    O_RMD, 
+    A_RMD,   KC_R,    S_CTL,   T_CMD,   KC_G,    _______, _______, KC_M,    N_CMD,   E_CTL,   KC_I,    O_RMD, 
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    _______, _______, KC_Q,    KC_H,    KC_K,    KC_J,    KC_B,
     _______, _______, _______, LNUMBER, LSYMBOL, ________________, LAPP,    LMOD,    _______, _______, _______
 ),
