@@ -73,25 +73,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_P1,   KC_P2,   KC_P3,   _______, _______, _______, _______, KC_QUES, KC_EXLM, KC_PSLS, _______,
     KC_P0,   KC_P4,   KC_P5,   KC_P6,   _______, _______, _______, KC_AMPR, KC_PDOT, KC_COMM, KC_QUOT, KC_DQUO,
     _______, KC_P7,   KC_P8,   KC_P9,   _______, _______, _______, KC_PIPE, KC_COLN, KC_SCLN, KC_CIRC, KC_DLR,
-    _______, _______, _______, _______, _______, ________________, KC_LALT, KC_LSFT, _______, _______, _______
+    _______, _______, _______, _______, _______, ________________, KC_LALT, KC_LCTL, _______, _______, _______
 ),
 [_SYMBOL] = LAYOUT_ortho_4x12_1x2uC(
     _______, _______, _______, _______, _______, _______, _______, _______, KC_ASTR, KC_PERC, KC_BSLS, _______,
-    _______, TMUX,    KC_LCMD, KC_LCTL, _______, _______, _______, _______, KC_AT,   KC_HASH, KC_TILD, KC_GRV,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_AT,   KC_HASH, KC_TILD, KC_GRV,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_PLUS, KC_MINS, KC_UNDS, KC_EQL,
     _______, _______, _______, _______, _______, ________________, LAPP,    _______, _______, _______, _______
 ),
 [_BRCKTS] = LAYOUT_ortho_4x12_1x2uC(
     _______, _______, KC_LCBR, KC_RCBR, _______, _______, _______, _______, _______, _______, _______, _______,
-    KC_LT,   KC_GT,   KC_LPRN, KC_RPRN, _______, _______, _______, _______, KC_LCMD, KC_LCTL, _______, KC_RCMD,
+    KC_LT,   KC_GT,   KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, KC_LBRC, KC_RBRC, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, LAPP,    ________________, _______, _______, _______, _______, _______
 ),
 [_MOD] = LAYOUT_ortho_4x12_1x2uC(
-    _______, _______, KC_UP,   KC_RSFT, _______, _______, _______, _______, KC_F1,   KC_F2,   _______, _______,
-    _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, KC_ESC,  KC_TAB,  KC_F11,  KC_F12,
+    _______, DELWORD, KC_UP,   KC_RSFT, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F11,  _______,
+    TMUX,    KC_LEFT, KC_DOWN, KC_RGHT, KC_BSPC, _______, _______, _______, KC_ESC,  KC_TAB,  KC_F12,  KC_RCMD,
     ALFRED,  _______, NEWLINE, KC_ENT,  BUFFER,  _______, _______, _______, KC_PGDN, KC_PGUP, KC_HOME, KC_END,
-    _______, _______, _______, KC_BSPC, DELWORD, ________________, _______, _______, _______, _______, _______
+    _______, _______, _______, KC_LCMD, KC_LSFT, ________________, _______, _______, _______, _______, _______
 ),
 [_APP] = LAYOUT_ortho_4x12_1x2uC(
     _______, _______, WARPPTAB,WARPNTAB,_______, _______, _______, _______,DF(_ALPHA),DF(_QWERTY),DF(_NOTES),_______,
@@ -110,7 +110,21 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
             if (index >= led_min && index < led_max && index != NO_LED) {
                 if (keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    rgb_matrix_set_color(index, 210, 170, 0);
+                    switch (layer) {
+                    case _ALPHA:
+                        rgb_matrix_set_color(index, 210, 170, 0);
+                        break;
+                    case _QWERTY:
+                        rgb_matrix_set_color(index, 0, 210, 0);
+                        break;
+                    case _NOTES:
+                        rgb_matrix_set_color(index, 210, 0, 0);
+                        break;
+                    // default: 
+                    //     rgb_matrix_set_color(index, 210, 170, 0);
+                    //     break;
+                    // rgb_matrix_set_color(index, 210, 170, 0);
+                    }
                 } else {
                     rgb_matrix_set_color(index, 0, 0, 0);
                 }
