@@ -46,9 +46,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, LNUMBER, LSYMBOL, ________________, LBRCKTS, LMOD,    _______, _______, _______
 ),
 [_QWERTY] = LAYOUT_ortho_4x12_1x2uC(
-    _______, KC_W,    KC_E,    KC_R,    _______, _______, _______, _______, KC_U,    KC_I,    KC_O,    _______,
-    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_Q,
-    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______, KC_N,    KC_M,    KC_T,    KC_Y,    KC_P,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, KC_F,    _______, _______, _______, _______, KC_J,    _______, _______, _______,
+    _______, KC_F,    _______, _______, _______, _______, _______, _______, _______, _______, KC_J,    _______,
     _______, _______, _______, LNUMBER, LSYMBOL, ________________, LBRCKTS, LMOD,    _______, _______, _______
 ),
 [_NOTES] = LAYOUT_ortho_4x12_1x2uC(
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, KC_LCMD, KC_LSFT, ________________, _______, _______, _______, _______, _______
 ),
 [_APP] = LAYOUT_ortho_4x12_1x2uC(
-    _______, _______, WARPPTAB,WARPNTAB,_______, _______, _______, _______,DF(_ALPHA),DF(_QWERTY),DF(_NOTES),_______,
+    _______, _______, WARPPTAB,WARPNTAB,_______, _______, _______, _______,TO(_ALPHA),TO(_QWERTY),TO(_NOTES),_______,
     _______, DM_REC1, DM_RSTP, DM_PLY1, _______, _______, _______, _______, _______, _______, _______, _______,
     QK_BOOT, PRNTSC1, PRNTSC2, PRNTSC3, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, ________________, _______, _______, _______, _______, _______
@@ -102,6 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+
     uint8_t layer = get_highest_layer(layer_state);
 
     for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
@@ -112,21 +113,24 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 if (keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
                     switch (layer) {
                     case _ALPHA:
-                        rgb_matrix_set_color(index, 210, 170, 0);
+                        rgb_matrix_set_color(index, 200, 20, 20);
                         break;
                     case _QWERTY:
-                        rgb_matrix_set_color(index, 0, 210, 0);
+                        rgb_matrix_set_color(index, 0, 0, 200);
                         break;
                     case _NOTES:
-                        rgb_matrix_set_color(index, 210, 0, 0);
+                        rgb_matrix_set_color(index, 220, 0, 0);
                         break;
-                    // default: 
-                    //     rgb_matrix_set_color(index, 210, 170, 0);
-                    //     break;
-                    // rgb_matrix_set_color(index, 210, 170, 0);
+                    case _VELO:
+                    case _CHNL:
+                        rgb_matrix_set_color(index, 0, 150, 0);
+                        break;
+                    default: 
+                        rgb_matrix_set_color(index, 150, 0, 150);
+                        break;
                     }
                 } else {
-                    rgb_matrix_set_color(index, 0, 0, 0);
+                    rgb_matrix_set_color(index, 20, 120, 200);
                 }
 
             }
