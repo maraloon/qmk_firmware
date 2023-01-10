@@ -12,7 +12,6 @@ MOUSEKEY_ENABLE = no       # Mouse keys
 EXTRAKEY_ENABLE = no       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
-MOUSEKEY_ENABLE = no
 EXTRAKEY_ENABLE = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no 
