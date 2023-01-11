@@ -195,19 +195,21 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     case _ALPHA:
                         rgb_matrix_set_color(index, 0, 20, 20);
                         break;
-                    case _NOTES:
+                    case _MOD:
                         rgb_matrix_set_color(index, 20, 0, 0);
                         break;
-                    case _VELO:
-                    case _CHNL:
+                    case _NUMBER:
                         rgb_matrix_set_color(index, 0, 20, 0);
+                        break;
+                    case _SYMBOL:
+                        rgb_matrix_set_color(index, 0, 0, 20);
                         break;
                     default: 
                         rgb_matrix_set_color(index, 20, 0, 20);
                         break;
                     }
                 } else {
-                    rgb_matrix_set_color(index, 0, 0, 0);
+                    rgb_matrix_set_color(index, 20, 0, 20);
                 }
 
             }
