@@ -193,21 +193,21 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 if (keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
                     switch (layer) {
                     case _ALPHA:
-                        rgb_matrix_set_color(index, 200, 20, 20);
+                        rgb_matrix_set_color(index, 0, 20, 20);
                         break;
                     case _NOTES:
-                        rgb_matrix_set_color(index, 220, 0, 0);
+                        rgb_matrix_set_color(index, 20, 0, 0);
                         break;
                     case _VELO:
                     case _CHNL:
-                        rgb_matrix_set_color(index, 0, 150, 0);
+                        rgb_matrix_set_color(index, 0, 20, 0);
                         break;
                     default: 
-                        rgb_matrix_set_color(index, 150, 0, 150);
+                        rgb_matrix_set_color(index, 20, 0, 20);
                         break;
                     }
                 } else {
-                    rgb_matrix_set_color(index, 20, 120, 200);
+                    rgb_matrix_set_color(index, 0, 0, 0);
                 }
 
             }
