@@ -131,12 +131,14 @@ enum layers {
 #define SoundDec KC_F11
 #define SoundInc KC_F12
 
+#define Tmux LCTL(_A)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _,
+    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, Tmux,
     _A, _R, _S, _T, _G, _, _, _M, _N, _E, _I, _O, 
     _Z, _X, _C, _D, _V, _, _, _K, _H, Alt, _,  _,
-    _, _, _, Space, Command, _, Control, Mod, _, _, _
+    _, _, Control, Space, Command, _, Command, Mod, Control, _, _
 ),
 [_NOTES] = LAYOUT(
     MI_C,    MI_Cs,   MI_D,    MI_D,    MI_Ds,   MI_E,    MI_F,    MI_Fs,   MI_Gs,   MI_A,    MI_As,   MI_B,
