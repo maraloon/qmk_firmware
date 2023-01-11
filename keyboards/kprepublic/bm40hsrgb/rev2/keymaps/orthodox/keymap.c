@@ -132,49 +132,49 @@ enum layers {
 #define SoundInc KC_F12
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-[_ALPHA] = LAYOUT_ortho_4x12_1x2uC(
+[_ALPHA] = LAYOUT(
     _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _,
     _A, _R, _S, _T, _G, _, _, _M, _N, _E, _I, _O, 
     _Z, _X, _C, _D, _V, _, _, _K, _H, Alt, _,  _,
     _, _, _, Space, Command, _, Control, Mod, _, _, _
 ),
-[_NOTES] = LAYOUT_ortho_4x12_1x2uC(
+[_NOTES] = LAYOUT(
     MI_C,    MI_Cs,   MI_D,    MI_D,    MI_Ds,   MI_E,    MI_F,    MI_Fs,   MI_Gs,   MI_A,    MI_As,   MI_B,
     MI_Ds,   MI_E,    MI_F,    MI_Fs,   MI_G,    _______, _______, MI_SOST, MI_OCT_1,MI_OCT_2,MI_OCT_3,MI_OCT_4,
     MI_Gs,   MI_A,    MI_As,   MI_B,    _______, _______, _______, MI_LEG,  MI_OCT_5,MI_OCT_6,MI_OCT_7,_______,
     _______, _______, _______, Velocity,App,    ________________, _______, Channel,   _______, _______, _______
 ),
-[_MOD] = LAYOUT_ortho_4x12_1x2uC(
+[_MOD] = LAYOUT(
     _,         DelWord, Up,      Lang ,   _,       _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     Backspace, Left,    Down,    Right,   _,       _, _, _, Esc,      Tab,      _,        rcmd,
     Alfred,    Buffer,  NewLine, Enter,   _,       _, _, _, PgDn,     PgUp,     Home,     End,
     _,         _,       _,       Numbers, Symbols, _, _, _, _, _, _
 ),
-[_NUMBER] = LAYOUT_ortho_4x12_1x2uC(
+[_NUMBER] = LAYOUT(
     _,  _1, _2, _3, _, _, _, _,         Exlm,     Question,  Slash, _,
     _0, _4, _5, _6, _, _, _, Ampersand, Dot,      Comma,     Quote, DQuote,
     _,  _7, _8, _9, _, _, _, Pipe,      Colon,    Semicolon, Caret, Dollar,
     _,  _,  _,  _,  _, _,    App,       _,        _,         _,     _
 ),
-[_SYMBOL] = LAYOUT_ortho_4x12_1x2uC(
+[_SYMBOL] = LAYOUT(
     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, Asterisk, Percent, BackSlash,  _,
     KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, At,       Hash,    Tilda,      Grave,
     _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, Plus,     Minus,   Underscore, Equal,
     _, _, _, _, _, _, _, _, _, _, _
 ),
-[_APP] = LAYOUT_ortho_4x12_1x2uC(
+[_APP] = LAYOUT(
     _, _, WARPPTAB, WARPNTAB,_, _, _, _, ToAlpha, ToNotes,_,_,
     _, DM_REC1, DM_RSTP, DM_PLY1, _, _, _, _, _, _, _, _,
     QK_BOOT, PRNTSC1, PRNTSC2, PRNTSC3, _, _, _, _, _, _, _, _,
     _, _, _, _, _, _, _, _, _, _, _
 ),
-[_VELO] = LAYOUT_ortho_4x12_1x2uC(
+[_VELO] = LAYOUT(
     _, _, _, _, _, _, _, _, MI_VEL_1,  MI_VEL_2,  MI_VEL_3, _,
     _, _, _, _, _, _, _, MI_VELD, MI_VEL_4,  MI_VEL_5,  MI_VEL_6, MI_VEL_0,
     _, _, _, _, _, _, _, MI_VELU, MI_VEL_7,  MI_VEL_8,  MI_VEL_9, MI_VEL_10,
     _, _, _, _, _, _, _, _, _, _, _
 ),
-[_CHNL] = LAYOUT_ortho_4x12_1x2uC(
+[_CHNL] = LAYOUT(
     _, MI_CH1,  MI_CH2,  MI_CH3,  _, _, _, _, MI_CH11, MI_CH12, MI_CH13, _,
     MI_CH10, MI_CH4,  MI_CH5,  MI_CH6,  _, _, _, _, MI_CH14, MI_CH15, MI_CH16, _,
     _, MI_CH7,  MI_CH8,  MI_CH9,  _, _, _, _, _, _, _, _,
