@@ -36,8 +36,8 @@ enum layers {
 #define NewLine LSFT(KC_ENT) 
 #define DelWord LALT(KC_BSPC) 
 
-#define Alfred LCTL(KC_SPC)
-#define Buffer LCTL(KC_V)
+#define Alfred HYPR(KC_SPC)
+#define Buffer HYPR(KC_V)
 #define WARPPTAB S(C(KC_TAB))
 #define WARPNTAB LCTL(KC_TAB)
 
@@ -132,32 +132,121 @@ enum layers {
 #define SoundInc KC_F12
 
 #define Tmux LCTL(_A)
+#define Smaller LCMD(Minus)
+#define Bigger LCMD(Plus)
+#define Settings LCMD(Comma)
+
+#define nC MI_C
+#define nCs MI_Cs
+#define nD MI_D
+#define nDs MI_Ds
+#define nE MI_E
+#define nF MI_F
+#define nFs MI_Fs
+#define nG MI_G
+#define nGs MI_Gs
+#define nA MI_A
+#define nAs MI_As
+#define nB MI_B
+
+#define nC1 MI_C_1
+#define nCs1 MI_Cs_1
+#define nD1 MI_D_1
+#define nDs1 MI_Ds_1
+#define nE1 MI_E_1
+#define nF1 MI_F_1
+#define nFs1 MI_Fs_1
+#define nG1 MI_G_1
+#define nGs1 MI_Gs_1
+#define nA1 MI_A_1
+#define nAs1 MI_As_1
+#define nB1 MI_B_1
+
+#define nC1 MI_C_1
+#define nCs1 MI_Cs_1
+#define nD1 MI_D_1
+#define nDs1 MI_Ds_1
+#define nE1 MI_E_1
+#define nF1 MI_F_1
+#define nFs1 MI_Fs_1
+#define nG1 MI_G_1
+#define nGs1 MI_Gs_1
+#define nA1 MI_A_1
+#define nAs1 MI_As_1
+#define nB1 MI_B_1
+
+#define nC1 MI_C_1
+#define nCs1 MI_Cs_1
+#define nD1 MI_D_1
+#define nDs1 MI_Ds_1
+#define nE1 MI_E_1
+#define nF1 MI_F_1
+#define nFs1 MI_Fs_1
+#define nG1 MI_G_1
+#define nGs1 MI_Gs_1
+#define nA1 MI_A_1
+#define nAs1 MI_As_1
+#define nB1 MI_B_1
+
+#define nC1 MI_C_1
+#define nCs1 MI_Cs_1
+#define nD1 MI_D_1
+#define nDs1 MI_Ds_1
+#define nE1 MI_E_1
+#define nF1 MI_F_1
+#define nFs1 MI_Fs_1
+#define nG1 MI_G_1
+#define nGs1 MI_Gs_1
+#define nA1 MI_A_1
+#define nAs1 MI_As_1
+#define nB1 MI_B_1
+
+#define nC1 MI_C_1
+#define nCs1 MI_Cs_1
+#define nD1 MI_D_1
+#define nDs1 MI_Ds_1
+#define nE1 MI_E_1
+#define nF1 MI_F_1
+#define nFs1 MI_Fs_1
+#define nG1 MI_G_1
+#define nGs1 MI_Gs_1
+#define nA1 MI_A_1
+#define nAs1 MI_As_1
+#define nB1 MI_B_1
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, Tmux,
-    _A, _R, _S, _T, _G, _, _, _M, _N, _E, _I, _O, 
-    _Z, _X, _C, _D, _V, _, _, _K, _H, Alt, _,  _,
-    _, _, Control, Space, Command, _, Command, Mod, Control, _, _
+    _Q, _W, _F, _P, _B, _, _,       _J, _L, _U, _Y, Tmux,
+    _A, _R, _S, _T, _G, _, _,       _M, _N, _E, _I, _O, 
+    _Z, _X, _C, _D, _V, _, _,       _K, _H, Alfred, _,  Numbers,
+    _,  _,  Control, Space, Alt,_,  Command, Mod, Control, _, _
 ),
-[_NOTES] = LAYOUT(
-    MI_C,    MI_Cs,   MI_D,    MI_D,    MI_Ds,   MI_E,    MI_F,    MI_Fs,   MI_Gs,   MI_A,    MI_As,   MI_B,
-    MI_Ds,   MI_E,    MI_F,    MI_Fs,   MI_G,    _______, _______, MI_SOST, MI_OCT_1,MI_OCT_2,MI_OCT_3,MI_OCT_4,
-    MI_Gs,   MI_A,    MI_As,   MI_B,    _______, _______, _______, MI_LEG,  MI_OCT_5,MI_OCT_6,MI_OCT_7,_______,
-    _______, _______, _______, Velocity,App,    ________________, _______, Channel,   _______, _______, _______
-),
+// [_NOTES] = LAYOUT(
+//     nC,  nCs,  nD,  nDs,  nE,  nF,  nFs,  nG,  nGs,  nA,  nAs,  nB,
+//     nC1, nCs1, nD1, nDs1, nE1, nF1, nFs1, nG1, nGs1, nA1, nAs1, nB1,
+//     nC2, nCs2, nD2, nDs2, nE2, nF2, nFs2, nG2, nGs2, nA2, nAs2, nB2,
+//     _,   _,    _,   _,     _,   Notes2,   _,   _,    _,   _,    _
+// ),
+// [_NOTES2] = LAYOUT(
+//     nC3, nCs3, nD3, nDs3, nE3, nF3, nFs3, nG3, nGs3, nA3, nAs3, nB3,
+//     nC4, nCs4, nD4, nDs4, nE4, nF4, nFs4, nG4, nGs4, nA4, nAs4, nB4,
+//     nC5, nCs5, nD5, nDs5, nE5, nF5, nFs5, nG5, nGs5, nA5, nAs5, nB5,
+//     _, _, _, Velocity,App, _, _, Channel, _, _, _
+// ),
 [_MOD] = LAYOUT(
-    _,         DelWord, Up,      Lang ,   _,       _, _, _, LightDec, LightInc, SoundDec, SoundInc,
+    Settings,  DelWord, Up,      Lang ,   _,       _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     Backspace, Left,    Down,    Right,   _,       _, _, _, Esc,      Tab,      _,        rcmd,
-    Alfred,    Buffer,  NewLine, Enter,   _,       _, _, _, PgDn,     PgUp,     Home,     End,
-    _,         _,       _,       Numbers, Symbols, _, _, _, _, _, _
+    Smaller,   Bigger,  NewLine, Enter,   Buffer,  _, _, _, PgDn,     PgUp,     Home,     End,
+    _,         _,       _,       Numbers, Symbols, _, _,    _,        _,        _,        _
 ),
 [_NUMBER] = LAYOUT(
     _,  _1, _2, _3, _, _, _, _,         Exlm,     Question,  Slash, _,
     _0, _4, _5, _6, _, _, _, Ampersand, Dot,      Comma,     Quote, DQuote,
     _,  _7, _8, _9, _, _, _, Pipe,      Colon,    Semicolon, Caret, Dollar,
-    _,  _,  _,  _,  _, _,    App,       _,        _,         _,     _
+    _,  _,  _,  _,  _, _,    Command,  _,         Control,   _,     App       
 ),
+
 [_SYMBOL] = LAYOUT(
     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, Asterisk, Percent, BackSlash,  _,
     KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, At,       Hash,    Tilda,      Grave,
