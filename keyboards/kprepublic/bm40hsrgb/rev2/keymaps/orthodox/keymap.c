@@ -16,6 +16,7 @@ enum layers {
 
 #undef _______
 #define _ KC_NO
+#define __ KC_NO
 #define _______ KC_NO
 #define ________________ KC_NO
 
@@ -217,10 +218,10 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _Q, _W, _F, _P, _B, _, _,       _J, _L, _U, _Y, Tmux,
-    _A, _R, _S, _T, _G, _, _,       _M, _N, _E, _I, _O, 
-    _Z, _X, _C, _D, _V, _, _,       _K, _H, Alfred, _,  Numbers,
-    _,  _,  Control, Space, Alt,_,  Command, Mod, Control, _, _
+    _,   _Q, _W, _F, _P, _B, _J, _L, _U, _Y, Tmux, _,
+    Alt, _A, _R, _S, _T, _G, _M, _N, _E, _I, _O, _,
+    _,   _Z, _X, _C, _D, _V, _K, _H, Alt, _, _, _,
+    _, _,  _, Command, Numbers,  Space,  Mod, Control, _, _, _
 ),
 // [_NOTES] = LAYOUT(
 //     nC,  nCs,  nD,  nDs,  nE,  nF,  nFs,  nG,  nGs,  nA,  nAs,  nB,
@@ -235,42 +236,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _, _, Velocity,App, _, _, Channel, _, _, _
 // ),
 [_MOD] = LAYOUT(
-    Settings,  DelWord, Up,      Lang ,   _,       _, _, _, LightDec, LightInc, SoundDec, SoundInc,
-    Backspace, Left,    Down,    Right,   _,       _, _, _, Esc,      Tab,      _,        rcmd,
-    Smaller,   Bigger,  NewLine, Enter,   Buffer,  _, _, _, PgDn,     PgUp,     Home,     End,
-    _,         _,       _,       Numbers, Symbols, _, _,    _,        _,        _,        _
+    _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
+    _, Alfred,    Left,    Down,    Right,     _,       _, Esc,      Tab,      _,        rcmd,     _,
+    _, Smaller,   Bigger,  NewLine, Enter,     Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
+    _, _,         _,       _,       __,        Backspace,  _,        _,        _,        _,        _
 ),
 [_NUMBER] = LAYOUT(
-    _,  _1, _2, _3, _, _, _, _,         Exlm,     Question,  Slash, _,
-    _0, _4, _5, _6, _, _, _, Ampersand, Dot,      Comma,     Quote, DQuote,
-    _,  _7, _8, _9, _, _, _, Pipe,      Colon,    Semicolon, Caret, Dollar,
-    _,  _,  _,  _,  _, _,    Command,  _,         Control,   _,     App       
+    _, _,  _1, _2, _3, _,        _,        Exlm,     Question,  Slash, _,      _,
+    _, _0, _4, _5, _6, _,       Ampersand, Dot,      Comma,     Quote, DQuote, _,
+    _, _,  _7, _8, _9, _,       Pipe,      Colon,    Semicolon, Caret, Dollar, _,
+    _, _,  _,  _,  _,      DelWord,        Symbols,  _,         _,     _,      _
 ),
 
 [_SYMBOL] = LAYOUT(
-    _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, Asterisk, Percent, BackSlash,  _,
-    KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, At,       Hash,    Tilda,      Grave,
-    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, Plus,     Minus,   Underscore, Equal,
-    _, _, _, _, _, _, _, _, _, _, _
+    _,_,      _,    KC_LCBR, KC_RCBR, _, _, Asterisk, Percent, BackSlash,  _,_,
+    _,KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, At,       Hash,    Tilda,      Grave,_,
+    _,_,     _,     KC_LBRC, KC_RBRC, _, _, Plus,     Minus,   Underscore, Equal,_,
+    _,_, _, _, _, _, _, _, _, _, _
 ),
-[_APP] = LAYOUT(
-    _, _, WARPPTAB, WARPNTAB,_, _, _, _, ToAlpha, ToNotes,_,_,
-    _, DM_REC1, DM_RSTP, DM_PLY1, _, _, _, _, _, _, _, _,
-    QK_BOOT, PRNTSC1, PRNTSC2, PRNTSC3, _, _, _, _, _, _, _, _,
-    _, _, _, _, _, _, _, _, _, _, _
-),
-[_VELO] = LAYOUT(
-    _, _, _, _, _, _, _, _, MI_VEL_1,  MI_VEL_2,  MI_VEL_3, _,
-    _, _, _, _, _, _, _, MI_VELD, MI_VEL_4,  MI_VEL_5,  MI_VEL_6, MI_VEL_0,
-    _, _, _, _, _, _, _, MI_VELU, MI_VEL_7,  MI_VEL_8,  MI_VEL_9, MI_VEL_10,
-    _, _, _, _, _, _, _, _, _, _, _
-),
-[_CHNL] = LAYOUT(
-    _, MI_CH1,  MI_CH2,  MI_CH3,  _, _, _, _, MI_CH11, MI_CH12, MI_CH13, _,
-    MI_CH10, MI_CH4,  MI_CH5,  MI_CH6,  _, _, _, _, MI_CH14, MI_CH15, MI_CH16, _,
-    _, MI_CH7,  MI_CH8,  MI_CH9,  _, _, _, _, _, _, _, _,
-    _, _, _, _, _, _, _, _, _, _, _
-),
+// [_APP] = LAYOUT(
+//     _, _, WARPPTAB, WARPNTAB,_, _, _, _, ToAlpha, ToNotes,_,_,
+//     _, DM_REC1, DM_RSTP, DM_PLY1, _, _, _, _, _, _, _, _,
+//     QK_BOOT, PRNTSC1, PRNTSC2, PRNTSC3, _, _, _, _, _, _, _, _,
+//     _, _, _, _, _, _, _, _, _, _, _
+// ),
+// [_VELO] = LAYOUT(
+//     _, _, _, _, _, _, _, _, MI_VEL_1,  MI_VEL_2,  MI_VEL_3, _,
+//     _, _, _, _, _, _, _, MI_VELD, MI_VEL_4,  MI_VEL_5,  MI_VEL_6, MI_VEL_0,
+//     _, _, _, _, _, _, _, MI_VELU, MI_VEL_7,  MI_VEL_8,  MI_VEL_9, MI_VEL_10,
+//     _, _, _, _, _, _, _, _, _, _, _
+// ),
+// [_CHNL] = LAYOUT(
+//     _, MI_CH1,  MI_CH2,  MI_CH3,  _, _, _, _, MI_CH11, MI_CH12, MI_CH13, _,
+//     MI_CH10, MI_CH4,  MI_CH5,  MI_CH6,  _, _, _, _, MI_CH14, MI_CH15, MI_CH16, _,
+//     _, MI_CH7,  MI_CH8,  MI_CH9,  _, _, _, _, _, _, _, _,
+//     _, _, _, _, _, _, _, _, _, _, _
+// ),
 };
 
 void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
