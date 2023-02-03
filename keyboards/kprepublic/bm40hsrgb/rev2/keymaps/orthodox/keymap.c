@@ -313,33 +313,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _, _, _, _, _, _, _, _, _, _
 // ),
 };
-
-// void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-//     for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-//         for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-//             uint8_t index = g_led_config.matrix_co[row][col];
-//
-//             if (index >= led_min && index < led_max && index != NO_LED) {
-//                 rgb_matrix_set_color(index, 20, 0, 0);
-//             }
-//         }
-//     }
-// }
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    uint8_t layer = get_highest_layer(state);
-    switch (layer) {
-        case _ALPHA:
-            rgblight_mode_noeeprom(RGB_MATRIX_RAINBOW_BEACON);
-            break;
-        case _MOD:
-            rgblight_mode_noeeprom(RGB_MATRIX_HUE_PENDULUM);
-            break;
-        case _NUMBER:
-            rgblight_mode_noeeprom(RGB_MATRIX_GRADIENT_LEFT_RIGHT);
-            break;
-        default:
-            rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_WIDE);
-    }
-    return state;
-}
