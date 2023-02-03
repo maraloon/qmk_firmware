@@ -15,6 +15,7 @@ enum layers {
   _BRCKTS,
   _MOD,
   _APP,
+  _RGB,
 };
 
 #undef _______
@@ -30,6 +31,7 @@ enum layers {
 #define Brackets MO(_BRCKTS)
 #define Mod MO(_MOD)
 #define App MO(_APP)
+#define Rgb MO(_RGB)
 #define ToAlpha TO(_ALPHA)
 #define ToNotes TO(_NOTES)
 
@@ -230,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,   _Q, _W, _F, _P, _B, _J, _L, _U, _Y, Tmux, _,
     Alt, _A, _R, _S, _T, _G, _M, _N, _E, _I, _O, _,
     _,   _Z, _X, _C, _D, _V, _K, _H, Alt, _, _, _,
-    ToOneHand, _,  _, Command, Numbers,  Space,  Mod, Control, _, _, QK_BOOT
+    ToOneHand, _,  _, Command, Numbers,  Space,  Mod, Control, _, Rgb, QK_BOOT
 ),
 [_OHLEFT] = LAYOUT(
     ToOHNumbers, _Q, _W, _F, _P, _B, _, _, _, _, _, _,
@@ -266,19 +268,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, Alfred,    Left,    Down,    Right,     _,       _, Esc,      Tab,      _,        rcmd,     _,
     _, Smaller,   Bigger,  NewLine, Enter,     Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
-    _, _,         _,       _,       __,        Backspace,  _,        _,        _,        _,        _
+    _, _,         _,       _,       Backspace, DelWord, _,           _,        _,        _,        _
 ),
 [_NUMBER] = LAYOUT(
-    _, _,  _1, _2, _3, _,        _,        Exlm,     Question,  Slash, _,      _,
+    _, _,  _1, _2, _3, _,       _,         Exlm,     Question,  Slash, _,      _,
     _, _0, _4, _5, _6, _,       Ampersand, Dot,      Comma,     Quote, DQuote, _,
     _, _,  _7, _8, _9, _,       Pipe,      Colon,    Semicolon, Caret, Dollar, _,
-    _, _,  _,  _,  _,      DelWord,        Symbols,  _,         _,     _,      _
+    _, _,  _,  _,  _,      __,  Symbols,  _,         _,     _,      _
 ),
 [_SYMBOL] = LAYOUT(
     _,_,      _,    KC_LCBR, KC_RCBR, _, _, Asterisk, Percent, BackSlash,  _,_,
     _,KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, At,       Hash,    Tilda,      Grave,_,
     _,_,     _,     KC_LBRC, KC_RBRC, _, _, Plus,     Minus,   Underscore, Equal,_,
     _,_, _, _, _, _, _, _, _, _, _
+),
+[_OHRIGHT] = LAYOUT(
+    _, _,  _Y, _U, _L, _J, _, _, _, _, _, _,
+    _, _O, _I, _E, _N,_M, _, _, _, _, _, _,
+    _, _, OSControl, OSCommand, _H, _K, _, _, _, _, _, _,
+    _, _,  _, _, _,  Space,  _, _, _, _, _
+),
+[_RGB] = LAYOUT(
+    RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _, _,
+    _, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _,
+    _, RGB_VAI, RGB_VAD, _, _, _, _, _, _, _, _, _,
+    _, _,  _, _, _,  _,  _, _, _, _, _
 ),
 // [_APP] = LAYOUT(
 //     _, _, WARPPTAB, WARPNTAB,_, _, _, _, ToAlpha, ToNotes,_,_,
@@ -300,37 +314,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ),
 };
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    uint8_t layer = get_highest_layer(layer_state);
+// void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+//     for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+//         for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+//             uint8_t index = g_led_config.matrix_co[row][col];
+//
+//             if (index >= led_min && index < led_max && index != NO_LED) {
+//                 rgb_matrix_set_color(index, 20, 0, 0);
+//             }
+//         }
+//     }
+// }
 
-    for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-        for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-            uint8_t index = g_led_config.matrix_co[row][col];
-
-            if (index >= led_min && index < led_max && index != NO_LED) {
-                if (keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-                    switch (layer) {
-                    case _ALPHA:
-                        rgb_matrix_set_color(index, 0, 20, 20);
-                        break;
-                    case _MOD:
-                        rgb_matrix_set_color(index, 20, 0, 0);
-                        break;
-                    case _NUMBER:
-                        rgb_matrix_set_color(index, 0, 20, 0);
-                        break;
-                    case _SYMBOL:
-                        rgb_matrix_set_color(index, 0, 0, 20);
-                        break;
-                    default:
-                        rgb_matrix_set_color(index, 20, 0, 20);
-                        break;
-                    }
-                } else {
-                    rgb_matrix_set_color(index, 20, 0, 20);
-                }
-
-            }
-        }
+layer_state_t layer_state_set_user(layer_state_t state) {
+    uint8_t layer = get_highest_layer(state);
+    switch (layer) {
+        case _ALPHA:
+            rgblight_mode_noeeprom(RGB_MATRIX_RAINBOW_BEACON);
+            break;
+        case _MOD:
+            rgblight_mode_noeeprom(RGB_MATRIX_HUE_PENDULUM);
+            break;
+        case _NUMBER:
+            rgblight_mode_noeeprom(RGB_MATRIX_GRADIENT_LEFT_RIGHT);
+            break;
+        default:
+            rgblight_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_WIDE);
     }
+    return state;
 }
