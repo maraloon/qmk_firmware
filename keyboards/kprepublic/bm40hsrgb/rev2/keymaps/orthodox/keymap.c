@@ -4,17 +4,11 @@ extern MidiDevice midi_device;
 
 enum layers {
   _ALPHA,
-  _OHLEFT,
-  _OHRIGHT,
-  _OHNUMBER,
-  _NOTES,
-  _VELO,
-  _CHNL,
   _NUMBER,
   _SYMBOL,
   _BRCKTS,
   _MOD,
-  _APP,
+  _MOD2,
   _RGB,
 };
 
@@ -26,26 +20,20 @@ enum layers {
 
 #define Numbers MO(_NUMBER)
 #define Symbols MO(_SYMBOL)
-#define Velocity MO(_VELO)
-#define Channel MO(_CHNL)
 #define Brackets MO(_BRCKTS)
 #define Mod MO(_MOD)
-#define App MO(_APP)
+#define Mod2 MO(_MOD2)
 #define Rgb MO(_RGB)
-#define ToAlpha TO(_ALPHA)
-#define ToNotes TO(_NOTES)
 
-#define PRNTSC1 LCAG(KC_1)
-#define PRNTSC2 LCAG(KC_2)
-#define PRNTSC3 LCAG(KC_3)
+#define PrntSc1 LCAG(KC_1)
+#define PrntSc2 LCAG(KC_2)
+#define PrntSc3 LCAG(KC_3)
 
 #define NewLine LSFT(KC_ENT)
 #define DelWord LALT(KC_BSPC)
 
 #define Alfred HYPR(KC_SPC)
 #define Buffer HYPR(KC_V)
-#define WARPPTAB S(C(KC_TAB))
-#define WARPNTAB LCTL(KC_TAB)
 
 #define _Q KC_Q
 #define _W KC_W
@@ -142,24 +130,24 @@ enum layers {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 
-#define ToOneHand TO(_OHLEFT)
-#define RightHand MO(_OHRIGHT)
-#define ToOHNumbers TO(_OHNUMBER)
-#define OSControl OSM(MOD_LCTL)
-#define OSCommand OSM(MOD_LGUI)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    Alt,     _Q, _W, _F, _P, _B, _J, _L, _U, _Y, Tmux, _,
-    Command, _A, _R, _S, _T, _G, _M, _N, _E, _I, _O, Command,
-    Control, _Z, _X, _C, _D, _V, _K, _H, Alt, _, Alt, Control,
-    _, _,  _, _, Numbers,  Space,  Mod, Alt, _, _, Rgb
+    _, _Q, _W, _F, _P, _B, _J, _L, _U, _Y, Tmux, _,
+    _, _A, _R, _S, _T, _G, _M, _N, _E, _I, _O, _,
+    _, _Z, _X, _C, _D, _V, _K, _H, _, _, Alt, _,
+    _, _,  _, Mod2, Numbers,  Space,  Mod, Mod2, _, _, _
 ),
 [_MOD] = LAYOUT(
     _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, Alfred,    Left,    Down,    Right,     _,       _, Esc,      Tab,      _,        rcmd,     _,
     _, Smaller,   Bigger,  NewLine, Enter,     Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
-    _, _,         _,       _,       Backspace, DelWord, _,           _,        _,        _,        QK_BOOT
+    _, _,         _,       _,       Backspace, DelWord, _,           _,        _,        _,        _
+),
+[_MOD2] = LAYOUT(
+    _, QK_BOOT, _, _, _, _, _, _, _, _, _, _,
+    _, _, _, _, _, _, _, _, _, _, _, _,
+    _, _, PrntSc3, PrntSc2, PrntSc1, _, _, _, _, _, _, _,
+    _, _, _, _, Control,  __,  Command, Rgb, _, _, _
 ),
 [_NUMBER] = LAYOUT(
     _, _,  _1, _2, _3, _,       _,         Exlm,     Question,  Slash, _,      _,
@@ -174,15 +162,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,_, _, _, _, _, _, _, _, _, _
 ),
 [_RGB] = LAYOUT(
-    RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _, _,
+    _, RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _,
     _, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _,
     _, RGB_VAI, RGB_VAD, _, _, _, _, _, _, _, _, _,
     _, _,  _, _, _,  _,  _, _, _, _, _
 ),
-// [_APP] = LAYOUT(
-//     _, _, WARPPTAB, WARPNTAB,_, _, _, _, ToAlpha, ToNotes,_,_,
-//     _, DM_REC1, DM_RSTP, DM_PLY1, _, _, _, _, _, _, _, _,
-//     QK_BOOT, PRNTSC1, PRNTSC2, PRNTSC3, _, _, _, _, _, _, _, _,
-//     _, _, _, _, _, _, _, _, _, _, _
-// ),
 };
