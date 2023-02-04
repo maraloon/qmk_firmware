@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
-
-extern MidiDevice midi_device;
+#include "g/keymap_combo.h"
 
 enum layers {
   _ALPHA,
@@ -141,19 +140,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, Alfred,    Left,    Down,    Right,     _,       _, Esc,      Tab,      _,        rcmd,     _,
     _, Smaller,   Bigger,  NewLine, Enter,     Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
-    _, _,         _,       _,       Backspace, DelWord, _,           _,        _,        _,        _
+    _, _,         _,       _,       Command,   __,         _,        _,        _,        _,        _
 ),
 [_MOD2] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, _, _, _, _,
     _, _, _, _, _, _, _, _, _, _, _, _,
     _, _, PrntSc3, PrntSc2, PrntSc1, _, _, _, _, _, _, _,
-    _, _, _, _, Control,  __,  Command, Rgb, _, _, _
+    _, _, _, _, Control,  __,  _, Rgb, _, _, _
 ),
 [_NUMBER] = LAYOUT(
     _, _,  _1, _2, _3, _,       _,         Exlm,     Question,  Slash, _,      _,
     _, _0, _4, _5, _6, _,       Ampersand, Dot,      Comma,     Quote, DQuote, _,
     _, _,  _7, _8, _9, _,       Pipe,      Colon,    Semicolon, Caret, Dollar, _,
-    _, _,  _,  _,  _,      __,  Symbols,  _,         _,     _,      _
+    _, _,  _,  _,  _,      __,  Symbols,   _,        _,     _,      _
 ),
 [_SYMBOL] = LAYOUT(
     _,_,      _,    KC_LCBR, KC_RCBR, _, _, Asterisk, Percent, BackSlash,  _,_,

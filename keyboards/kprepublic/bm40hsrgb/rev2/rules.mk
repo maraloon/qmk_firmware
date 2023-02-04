@@ -14,7 +14,7 @@ CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
 EXTRAKEY_ENABLE = no
 SPACE_CADET_ENABLE = no
-GRAVE_ESC_ENABLE = no 
+GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 NKRO_ENABLE = no            # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
@@ -32,5 +32,8 @@ LAYOUTS_HAS_RGB = yes
 
 LTO_ENABLE = yes
 AUTO_SHIFT_ENABLE = yes
-DYNAMIC_MACRO_ENABLE = yes
-MIDI_ENABLE = yes
+DYNAMIC_MACRO_ENABLE = no
+MIDI_ENABLE = no
+
+COMBO_ENABLE = yes
+VPATH += keyboards/gboards
