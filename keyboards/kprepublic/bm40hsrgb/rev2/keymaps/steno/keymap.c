@@ -1,10 +1,7 @@
 #include QMK_KEYBOARD_H
-#include "g/keymap_combo.h"
 
 enum layers {
   _ALPHA,
-  _A15,
-  _A30,
   _NUMBER,
   _SYMBOL,
   _BRCKTS,
@@ -131,18 +128,51 @@ enum layers {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 
+const uint16_t PROGMEM space[] = {KC_G, KC_M, COMBO_END};
+const uint16_t PROGMEM backspace[] = {KC_G, KC_T, COMBO_END};
+const uint16_t PROGMEM delword[] = {KC_G, KC_S, COMBO_END};
+const uint16_t PROGMEM enter[] = {KC_G, KC_E, COMBO_END};
+const uint16_t PROGMEM tab[] = {KC_G, KC_A, COMBO_END};
+const uint16_t PROGMEM esc[] = {KC_M, KC_A, COMBO_END};
+const uint16_t PROGMEM reset[] = {KC_R, KC_S, KC_T, COMBO_END};
+
+const uint16_t PROGMEM cmd[] = {KC_F, KC_T, COMBO_END};
+const uint16_t PROGMEM cmd2[] = {KC_A, KC_U, COMBO_END};
+const uint16_t PROGMEM control[] = {KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM control2[] = {KC_E, KC_I, COMBO_END};
+
+const uint16_t PROGMEM number_layer[] = {KC_Q, KC_Z, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(space, KC_SPC),
+    COMBO(backspace, KC_BSPC),
+    COMBO(delword, LALT(KC_BSPC)),
+    COMBO(enter, KC_ENT),
+    COMBO(tab, KC_TAB),
+    COMBO(esc, KC_ESC),
+    COMBO(reset, QK_BOOT),
+
+    COMBO(cmd, KC_LCMD),
+    COMBO(cmd2, KC_LCMD),
+    COMBO(control, KC_LCTL),
+    COMBO(control2, KC_LCTL),
+
+    COMBO(number_layer, MO(_NUMBER)),
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _, _Q, _W, _F, _P, _B, _J, _L, _U, _Y, Tmux, _,
-    _, _A, _R, _S, _T, _G, _M, _N, _E, _I, _O, _,
-    _, _Z, _X, _C, _D, _V, _K, _H, _, TO(_A15), Alt, _,
-    _, _,  _, Mod2, Numbers,  Space,  Mod, Mod2, _, _, _
+    _,  _W, _F, _P, _,  _, _, _,  _J, _U, _Y, _,
+    _N, _R, _S, _T, _,  _, _, _,  _A, _E, _I, _O,
+    _,  _X, _C, _D, _V, _, _, _K, _H, _Q, _Z, _,
+    _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
 ),
 [_MOD] = LAYOUT(
     _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
-    _, Alfred,    Left,    Down,    Right,     _,       _, Esc,      Tab,      _,        rcmd,     _,
-    _, Smaller,   Bigger,  NewLine, Enter,     Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
-    _, _,         _,       _,       Command,   __,         _,        _,        _,        _,        _
+    _, Alfred,    Left,    Down,    Right,     _,       _, _,        _,        _,        rcmd,     _,
+    _, Smaller,   Bigger,  _,       _,         Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
+    _, _,         _,       _,       _,      __,         _,        _,        _,        _,        _
 ),
 [_MOD2] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, _, _, _, _,
