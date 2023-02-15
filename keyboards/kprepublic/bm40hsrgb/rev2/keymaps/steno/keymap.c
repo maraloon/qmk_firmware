@@ -4,24 +4,26 @@ enum layers {
   _ALPHA,
   _NUMBER,
   _SYMBOL,
-  _BRCKTS,
-  _MOD,
-  _MOD2,
+  _SYMBOL2,
+  _BRACKETS,
+  _NAVIGATION,
+  _APP,
   _RGB,
 };
 
 #undef _______
 #define _ KC_NO
 #define __ KC_NO
+#define ____ KC_NO
 #define _______ KC_NO
 #define ________________ KC_NO
 
-#define Numbers MO(_NUMBER)
-#define Symbols MO(_SYMBOL)
-#define Brackets MO(_BRCKTS)
-#define Mod MO(_MOD)
-#define Mod2 MO(_MOD2)
-#define Rgb MO(_RGB)
+// #define Numbers MO(_NUMBER)
+// #define Symbols MO(_SYMBOL)
+// #define Brackets MO(_BRCKTS)
+// #define Mod MO(_MOD)
+// #define Mod2 MO(_MOD2)
+// #define Rgb MO(_RGB)
 
 #define PrntSc1 LCAG(KC_1)
 #define PrntSc2 LCAG(KC_2)
@@ -76,10 +78,12 @@ enum layers {
 #define Left KC_LEFT
 #define Right KC_RIGHT
 
+#define LeftClick KC_BTN1
+
 #define Space SFT_T(KC_SPC)
 #define Backspace KC_BSPC
 #define Command KC_LCMD
-#define rcmd KC_RCMD
+#define ChangeApp KC_RCMD
 #define Lang KC_RSFT
 #define Control KC_LCTL
 #define Alt KC_LALT
@@ -128,36 +132,64 @@ enum layers {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 
-const uint16_t PROGMEM space[] = {KC_G, KC_M, COMBO_END};
-const uint16_t PROGMEM backspace[] = {KC_G, KC_T, COMBO_END};
-const uint16_t PROGMEM delword[] = {KC_G, KC_S, COMBO_END};
-const uint16_t PROGMEM enter[] = {KC_G, KC_E, COMBO_END};
-const uint16_t PROGMEM tab[] = {KC_G, KC_A, COMBO_END};
-const uint16_t PROGMEM esc[] = {KC_M, KC_A, COMBO_END};
-const uint16_t PROGMEM reset[] = {KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM space[] =     {KC_A, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM enter[] =     {KC_H, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM newline[] =   {KC_J, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM backspace[] = {KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM delword[] =   {KC_R, KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM esc[] =       {KC_W, KC_F, KC_T, COMBO_END};
+const uint16_t PROGMEM tab[] =       {KC_W, KC_F, KC_P, COMBO_END};
 
-const uint16_t PROGMEM cmd[] = {KC_F, KC_T, COMBO_END};
-const uint16_t PROGMEM cmd2[] = {KC_A, KC_U, COMBO_END};
-const uint16_t PROGMEM control[] = {KC_R, KC_S, COMBO_END};
-const uint16_t PROGMEM control2[] = {KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM cmd[] =       {KC_N, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM cmd2[] =      {KC_E, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM control[] =   {KC_R, KC_S, KC_T, KC_G, COMBO_END};
+const uint16_t PROGMEM control2[] =  {KC_A, KC_E, KC_I, KC_M, COMBO_END};
+const uint16_t PROGMEM alt[] =       {KC_H, KC_M, COMBO_END};
+const uint16_t PROGMEM rcmd[] =      {KC_M, KC_E, KC_I, COMBO_END};
 
-const uint16_t PROGMEM number_layer[] = {KC_Q, KC_Z, COMBO_END};
+const uint16_t PROGMEM tmux[] =       {KC_R, KC_F, KC_T, COMBO_END};
+const uint16_t PROGMEM alfred[] =     {KC_H, KC_Q, KC_Z, COMBO_END};
+const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
+
+const uint16_t PROGMEM app_layer[] =        {KC_G, KC_T, KC_F, COMBO_END};
+const uint16_t PROGMEM symbol_layer[] =     {KC_G, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM symbol2_layer[] =    {KC_G, KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM navigation_layer[] = {KC_M, KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM number_layer[] =     {KC_M, KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM brackets_layer[] =   {KC_M, KC_A, KC_U, COMBO_END};
+const uint16_t PROGMEM rgb_layer[] =        {KC_K, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(space, KC_SPC),
-    COMBO(backspace, KC_BSPC),
-    COMBO(delword, LALT(KC_BSPC)),
-    COMBO(enter, KC_ENT),
-    COMBO(tab, KC_TAB),
-    COMBO(esc, KC_ESC),
+    COMBO(space, Space),
+    COMBO(backspace, Backspace),
+    COMBO(delword, DelWord),
+    COMBO(enter, Enter),
+    COMBO(newline, NewLine),
+    COMBO(tab, Tab),
+    COMBO(esc, Esc),
     COMBO(reset, QK_BOOT),
 
-    COMBO(cmd, KC_LCMD),
-    COMBO(cmd2, KC_LCMD),
-    COMBO(control, KC_LCTL),
-    COMBO(control2, KC_LCTL),
+    COMBO(cmd, Command),
+    COMBO(cmd2, Command),
+    COMBO(control, Control),
+    COMBO(control2, Control),
+    COMBO(rcmd, ChangeApp),
+    COMBO(alt, Alt),
 
+    COMBO(tmux, Tmux),
+    COMBO(alfred, Alfred),
+    COMBO(buffer, Buffer),
+    COMBO(language, Lang),
+
+    COMBO(app_layer, MO(_APP)),
+    COMBO(symbol_layer, MO(_SYMBOL)),
+    COMBO(symbol2_layer, MO(_SYMBOL2)),
+    COMBO(navigation_layer, MO(_NAVIGATION)),
     COMBO(number_layer, MO(_NUMBER)),
+    COMBO(brackets_layer, MO(_BRACKETS)),
+    COMBO(rgb_layer, MO(_RGB)),
 };
 
 
@@ -168,33 +200,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,  _X, _C, _D, _V, _, _, _K, _H, _Q, _Z, _,
     _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
 ),
-[_MOD] = LAYOUT(
-    _, Settings,  _,       Up,      Lang ,     _,       _, LightDec, LightInc, SoundDec, SoundInc, _,
-    _, Alfred,    Left,    Down,    Right,     _,       _, _,        _,        _,        rcmd,     _,
-    _, Smaller,   Bigger,  _,       _,         Buffer,  _, PgDn,     PgUp,     Home,     End,      _,
-    _, _,         _,       _,       _,      __,         _,        _,        _,        _,        _
+[_APP] = LAYOUT(
+    _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
+    _, _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
+    _, _, _, _, _, _, _, _, Smaller, Bigger, Settings, _,
+    _, _, _, _,    __,   _, _, _, _, _, _
 ),
-[_MOD2] = LAYOUT(
-    _, QK_BOOT, _, _, _, _, _, _, _, _, _, _,
-    _, _, _, _, _, _, _, _, _, _, _, _,
-    _, _, PrntSc3, PrntSc2, PrntSc1, _, _, _, _, _, _, _,
-    _, _, _, _, Control,  __,  _, Rgb, _, _, _
+[_NAVIGATION] = LAYOUT(
+    _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
+    LeftClick, Left, Down,  Right,  _, _, _, _, _, _, _, _,
+    _,         _0,   Caret, Dollar, _, _, _, _, _, _, _, _,
+    _,         _,    Home,  End,    __,   _, _, _, _, _, _
 ),
 [_NUMBER] = LAYOUT(
-    _, _,  _1, _2, _3, _,       _,         Exlm,     Question,  Slash, _,      _,
-    _, _0, _4, _5, _6, _,       Ampersand, Dot,      Comma,     Quote, DQuote, _,
-    _, _,  _7, _8, _9, _,       Pipe,      Colon,    Semicolon, Caret, Dollar, _,
-    _, _,  _,  _,  _,      __,  Symbols,   _,        _,     _,      _
+    _,  _1, _2, _3, _, _, _, _, _, _, _, _,
+    _0, _4, _5, _6, _, _, _, _, _, _, _, _,
+    _,  _7, _8, _9, Equal, _, _, _, _, _, _, _,
+    _,  _,  _,  Plus, Minus,   __,  _, _, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
-    _,_,      _,    KC_LCBR, KC_RCBR, _, _, Asterisk, Percent, BackSlash,  _,_,
-    _,KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, At,       Hash,    Tilda,      Grave,_,
-    _,_,     _,     KC_LBRC, KC_RBRC, _, _, Plus,     Minus,   Underscore, Equal,_,
-    _,_, _, _, _, _, _, _, _, _, _
+    _, _, _, _, _, _, _, _, Exlm,  Question, Underscore,     _,
+    _, _, _, _, _, _, _, _, Dot,   Comma,    Quote, DQuote,
+    _, _, _, _, _, _, _, _, Colon, Semicolon, _,    _,
+    _, _, _, _, _, __,  _, _, _, _, _
+),
+[_SYMBOL2] = LAYOUT(
+    _, _, _, _, _, _, _, _,    Asterisk,  Percent,   Slash,  _,
+    _, _, _, _, _, _, _, _,    At,        Hash,      Caret, Dollar,
+    _, _, _, _, _, _, _, _,    BackSlash, Tilda,     Grave,  _,
+    _, _, _, _, _, ____, Pipe, Ampersand, _,         _,      _
+),
+[_BRACKETS] = LAYOUT(
+    _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, _, _, _, _,
+    KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, _, _, _, _,
+    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, _, _, _, _,
+    _, _, _, _, _, _, _, _, _, _, _
 ),
 [_RGB] = LAYOUT(
     _, RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _,
-    _, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _,
+    RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _, _,
     _, RGB_VAI, RGB_VAD, _, _, _, _, _, _, _, _, _,
     _, _,  _, _, _,  _,  _, _, _, _, _
 ),
