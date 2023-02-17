@@ -18,23 +18,6 @@ enum layers {
 #define _______ KC_NO
 #define ________________ KC_NO
 
-// #define Numbers MO(_NUMBER)
-// #define Symbols MO(_SYMBOL)
-// #define Brackets MO(_BRCKTS)
-// #define Mod MO(_MOD)
-// #define Mod2 MO(_MOD2)
-// #define Rgb MO(_RGB)
-
-#define PrntSc1 LCAG(KC_1)
-#define PrntSc2 LCAG(KC_2)
-#define PrntSc3 LCAG(KC_3)
-
-#define NewLine LSFT(KC_ENT)
-#define DelWord LALT(KC_BSPC)
-
-#define Alfred HYPR(KC_SPC)
-#define Buffer HYPR(KC_V)
-
 #define _Q KC_Q
 #define _W KC_W
 #define _F KC_F
@@ -80,13 +63,15 @@ enum layers {
 
 #define LeftClick KC_BTN1
 
-#define Space SFT_T(KC_SPC)
+#define Space KC_SPC
 #define Backspace KC_BSPC
+#define Delete KC_DEL
 #define Command KC_LCMD
 #define ChangeApp KC_RCMD
 #define Lang KC_RSFT
 #define Control KC_LCTL
 #define Alt KC_LALT
+#define Shift KC_LSFT
 #define Enter KC_ENT
 #define Esc KC_ESC
 #define Tab KC_TAB
@@ -127,10 +112,20 @@ enum layers {
 #define SoundDec KC_F11
 #define SoundInc KC_F12
 
+#define PrntSc1 LCAG(_1)
+#define PrntSc2 LCAG(_2)
+#define PrntSc3 LCAG(_3)
+
+#define NewLine LSFT(Enter)
+#define DelWord LALT(Backspace)
+
+#define Alfred HYPR(Space)
+#define Buffer HYPR(_V)
 #define Tmux LCTL(_A)
 #define Smaller LCMD(Minus)
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
+#define MoveToBin LCMD(Backspace)
 
 const uint16_t PROGMEM space[] =     {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM enter[] =     {KC_H, KC_E, KC_I, COMBO_END};
@@ -140,26 +135,32 @@ const uint16_t PROGMEM delword[] =   {KC_R, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_W, KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, KC_P, COMBO_END};
 
-const uint16_t PROGMEM cmd[] =       {KC_N, KC_R, KC_S, COMBO_END};
-const uint16_t PROGMEM cmd2[] =      {KC_E, KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM control[] =   {KC_R, KC_S, KC_T, KC_G, COMBO_END};
-const uint16_t PROGMEM control2[] =  {KC_A, KC_E, KC_I, KC_M, COMBO_END};
-const uint16_t PROGMEM alt[] =       {KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM rcmd[] =      {KC_M, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM cmd[] =         {KC_R, KC_S, KC_D, KC_G, COMBO_END};
+const uint16_t PROGMEM cmd2[] =        {KC_I, KC_E, KC_H, KC_M, COMBO_END};
+const uint16_t PROGMEM control[] =     {KC_N, KC_R, KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM control2[] =    {KC_O, KC_I, KC_E, KC_H, COMBO_END};
+const uint16_t PROGMEM cmdcontrol[] =  {KC_N, KC_R, KC_S, KC_D, KC_G, COMBO_END};
+const uint16_t PROGMEM cmdcontrol2[] = {KC_O, KC_I, KC_E, KC_H, KC_M, COMBO_END};
+const uint16_t PROGMEM shiftcmd[] =    {KC_R, KC_S, KC_D, KC_B, COMBO_END};
+const uint16_t PROGMEM shiftcmd2[] =   {KC_I, KC_E, KC_H, KC_L, COMBO_END};
+const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
+const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-const uint16_t PROGMEM tmux[] =       {KC_R, KC_F, KC_T, COMBO_END};
-const uint16_t PROGMEM alfred[] =     {KC_H, KC_Q, KC_Z, COMBO_END};
+const uint16_t PROGMEM tmux[] =       {KC_N, KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
-const uint16_t PROGMEM app_layer[] =        {KC_G, KC_T, KC_F, COMBO_END};
-const uint16_t PROGMEM symbol_layer[] =     {KC_G, KC_S, KC_T, COMBO_END};
-const uint16_t PROGMEM symbol2_layer[] =    {KC_G, KC_S, KC_R, COMBO_END};
-const uint16_t PROGMEM navigation_layer[] = {KC_M, KC_A, KC_E, COMBO_END};
-const uint16_t PROGMEM number_layer[] =     {KC_M, KC_I, KC_E, COMBO_END};
-const uint16_t PROGMEM brackets_layer[] =   {KC_M, KC_A, KC_U, COMBO_END};
-const uint16_t PROGMEM rgb_layer[] =        {KC_K, KC_H, COMBO_END};
+const uint16_t PROGMEM app_layer[] =              {KC_G, KC_T, KC_F, COMBO_END};
+const uint16_t PROGMEM symbol_layer[] =           {KC_G, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM symbol2_layer[] =          {KC_G, KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
+const uint16_t PROGMEM number_layer[] =           {KC_M, KC_H, KC_Z, COMBO_END};
+const uint16_t PROGMEM number_layer_block[] =     {KC_L, KC_H, KC_Z, COMBO_END};
+const uint16_t PROGMEM brackets_layer[] =         {KC_M, KC_Z, KC_Q, COMBO_END};
+const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(space, Space),
@@ -175,6 +176,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmd2, Command),
     COMBO(control, Control),
     COMBO(control2, Control),
+    COMBO(cmdcontrol, C(KC_LCMD)),
+    COMBO(cmdcontrol2, C(KC_LCMD)),
+    COMBO(shiftcmd, S(KC_LCMD)),
+    COMBO(shiftcmd2, S(KC_LCMD)),
     COMBO(rcmd, ChangeApp),
     COMBO(alt, Alt),
 
@@ -187,7 +192,9 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(symbol_layer, MO(_SYMBOL)),
     COMBO(symbol2_layer, MO(_SYMBOL2)),
     COMBO(navigation_layer, MO(_NAVIGATION)),
+    COMBO(navigation_layer_block, TG(_NAVIGATION)),
     COMBO(number_layer, MO(_NUMBER)),
+    COMBO(number_layer_block, TG(_NUMBER)),
     COMBO(brackets_layer, MO(_BRACKETS)),
     COMBO(rgb_layer, MO(_RGB)),
 };
@@ -197,31 +204,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _,  _W, _F, _P, _,  _, _, _,  _J, _U, _Y, _,
     _N, _R, _S, _T, _,  _, _, _,  _A, _E, _I, _O,
-    _,  _X, _C, _D, _V, _, _, _K, _H, _Q, _Z, _,
+    _,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
     _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
 ),
 [_APP] = LAYOUT(
     _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     _, _, _, _, _, _, _, _, Smaller, Bigger, Settings, _,
-    _, _, _, _,    __,   _, _, _, _, _, _
+    _, _, _, _,    __,   _, _, MoveToBin, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
     _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
-    LeftClick, Left, Down,  Right,  _, _, _, _, _, _, _, _,
-    _,         _0,   Caret, Dollar, _, _, _, _, _, _, _, _,
-    _,         _,    Home,  End,    __,   _, _, _, _, _, _
+    LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
+    _,         _0,   Caret, Dollar, _, _, _, _, Control, _,     _,   _,
+    _,         _,    _,     Home,   End,    __,   _, _, _, _, _
 ),
 [_NUMBER] = LAYOUT(
     _,  _1, _2, _3, _, _, _, _, _, _, _, _,
-    _0, _4, _5, _6, _, _, _, _, _, _, _, _,
+    _0, _4, _5, _6, _, _, _, _, Comma, Dot, _, TG(_NUMBER),
     _,  _7, _8, _9, Equal, _, _, _, _, _, _, _,
-    _,  _,  _,  Plus, Minus,   __,  _, _, _, _, _
+    _,  _,  _,  Plus, Minus,   __,  Slash, Asterisk, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
-    _, _, _, _, _, _, _, _, Exlm,  Question, Underscore,     _,
-    _, _, _, _, _, _, _, _, Dot,   Comma,    Quote, DQuote,
-    _, _, _, _, _, _, _, _, Colon, Semicolon, _,    _,
+    _, _, _, _, _, _, _, _, Question,  Exlm,  Underscore,     _,
+    _, _, _, _, _, _, _, _, Comma,     Dot,   Quote, DQuote,
+    _, _, _, _, _, _, _, _, Semicolon, Colon, _,    _,
     _, _, _, _, _, __,  _, _, _, _, _
 ),
 [_SYMBOL2] = LAYOUT(
