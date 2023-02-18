@@ -67,8 +67,8 @@ enum layers {
 #define Backspace KC_BSPC
 #define Delete KC_DEL
 #define Command KC_LCMD
-#define ChangeApp KC_RCMD
-#define Lang KC_RSFT
+#define ChangeApp RSFT(RALT(KC_RCMD))
+#define Lang LCMD(Space)
 #define Control KC_LCTL
 #define Alt KC_LALT
 #define Shift KC_LSFT
@@ -217,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
     _,         _0,   Caret, Dollar, _, _, _, _, Control, _,     _,   _,
-    _,         _,    _,     Home,   End,    __,   _, _, _, _, _
+    _,         _,    _,     Home,   End,    __,   Space, Enter, _, _, _
 ),
 [_NUMBER] = LAYOUT(
     _,  _1, _2, _3, _, _, _, _, _, _, _, _,
