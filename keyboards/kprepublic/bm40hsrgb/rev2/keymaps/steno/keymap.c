@@ -135,18 +135,20 @@ const uint16_t PROGMEM delword[] =   {KC_R, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_W, KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, KC_P, COMBO_END};
 
-const uint16_t PROGMEM cmd[] =         {KC_R, KC_S, KC_D, KC_G, COMBO_END};
-const uint16_t PROGMEM cmd2[] =        {KC_I, KC_E, KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM control[] =     {KC_N, KC_R, KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM control2[] =    {KC_O, KC_I, KC_E, KC_H, COMBO_END};
-const uint16_t PROGMEM cmdcontrol[] =  {KC_N, KC_R, KC_S, KC_D, KC_G, COMBO_END};
-const uint16_t PROGMEM cmdcontrol2[] = {KC_O, KC_I, KC_E, KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM shiftcmd[] =    {KC_R, KC_S, KC_D, KC_B, COMBO_END};
-const uint16_t PROGMEM shiftcmd2[] =   {KC_I, KC_E, KC_H, KC_L, COMBO_END};
+const uint16_t PROGMEM cmd[] =         {KC_B, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM control[] =     {KC_B, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM cmdcontrol[] =  {KC_B, KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM shiftcmd[] =    {KC_B, KC_S, KC_D, COMBO_END};
+
+const uint16_t PROGMEM cmd2[] =        {KC_L, KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
+
 const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-const uint16_t PROGMEM tmux[] =       {KC_N, KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM tmux[] =       {KC_L, KC_A, KC_U, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
