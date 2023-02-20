@@ -7,6 +7,7 @@ enum layers {
   _SYMBOL2,
   _BRACKETS,
   _NAVIGATION,
+  _CP,
   _APP,
   _RGB,
 };
@@ -119,6 +120,11 @@ enum layers {
 #define NewLine LSFT(Enter)
 #define DelWord LALT(Backspace)
 
+#define SelectAll LCMD(_A)
+#define Cut LCMD(_X)
+#define Copy LCMD(_C)
+#define Paste LCMD(_V)
+
 #define Alfred HYPR(Space)
 #define Buffer HYPR(_V)
 #define Tmux LCTL(_A)
@@ -162,6 +168,7 @@ const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_M, KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM number_layer_block[] =     {KC_L, KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM brackets_layer[] =         {KC_M, KC_Z, KC_Q, COMBO_END};
+const uint16_t PROGMEM cp_layer[] =               {KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -198,6 +205,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(number_layer, MO(_NUMBER)),
     COMBO(number_layer_block, TG(_NUMBER)),
     COMBO(brackets_layer, MO(_BRACKETS)),
+    COMBO(cp_layer, MO(_CP)),
     COMBO(rgb_layer, MO(_RGB)),
 };
 
@@ -238,6 +246,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, _, _, _,       At,        Hash,      Caret, Dollar,
     _, _, _, _, _, _, _, Percent, BackSlash, Tilda,     Grave,  _,
     _, _, _, _, _, ____, Pipe,    Ampersand, _,         _,      _
+),
+[_CP] = LAYOUT(
+    _, _, _, _, _, _, _, _, _, _, _, _,
+    SelectAll, Cut, Copy, Paste, _, _, _, _, _, _, _, _,
+    _,  _, _, _, _, _, _, _, _, _, _, _,
+    _, _, _, _, _, _, _, _, _, _, _
 ),
 [_BRACKETS] = LAYOUT(
     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, _, _, _, _,

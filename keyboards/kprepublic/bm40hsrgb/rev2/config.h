@@ -124,5 +124,5 @@
 #define MIDI_ADVANCED
 #define AUTO_SHIFT_TIMEOUT 150
 #define COMBO_TERM 30
-#define COMBO_COUNT 31
+#define COMBO_COUNT 32
 
