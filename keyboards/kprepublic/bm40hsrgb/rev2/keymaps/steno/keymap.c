@@ -129,7 +129,7 @@ enum layers {
 
 const uint16_t PROGMEM space[] =     {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM enter[] =     {KC_H, KC_E, KC_I, COMBO_END};
-const uint16_t PROGMEM newline[] =   {KC_J, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM newline[] =   {KC_K, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM backspace[] = {KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM delword[] =   {KC_R, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_W, KC_F, KC_T, COMBO_END};
@@ -148,8 +148,8 @@ const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-const uint16_t PROGMEM tmux[] =       {KC_L, KC_A, KC_U, COMBO_END};
-const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
+const uint16_t PROGMEM tmux[] =       {KC_H, KC_Z, KC_Q, COMBO_END};
+const uint16_t PROGMEM alfred[] =     {KC_J, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
@@ -216,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    __,   _, _, MoveToBin, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
+    _,         PgUp, Up,    PgDn,   _, _, _, _, Esc, Tab, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
     _,         _0,   Caret, Dollar, _, _, _, _, Control, _,     _,   _,
     _,         _,    _,     Home,   End,    __,   Space, Enter, _, _, _
