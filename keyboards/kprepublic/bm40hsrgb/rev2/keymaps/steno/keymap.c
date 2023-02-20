@@ -234,10 +234,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, __,  _, _, _, _, _
 ),
 [_SYMBOL2] = LAYOUT(
-    _, _, _, _, _, _, _, _,    Asterisk,  Percent,   Slash,  _,
-    _, _, _, _, _, _, _, _,    At,        Hash,      Caret, Dollar,
-    _, _, _, _, _, _, _, _,    BackSlash, Tilda,     Grave,  _,
-    _, _, _, _, _, ____, Pipe, Ampersand, _,         _,      _
+    _, _, _, _, _, _, _, _,       Asterisk,  Slash,     Minus,  _,
+    _, _, _, _, _, _, _, _,       At,        Hash,      Caret, Dollar,
+    _, _, _, _, _, _, _, Percent, BackSlash, Tilda,     Grave,  _,
+    _, _, _, _, _, ____, Pipe,    Ampersand, _,         _,      _
 ),
 [_BRACKETS] = LAYOUT(
     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, _, _, _, _,
