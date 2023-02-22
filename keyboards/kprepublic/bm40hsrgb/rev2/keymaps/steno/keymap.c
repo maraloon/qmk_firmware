@@ -154,20 +154,20 @@ const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-const uint16_t PROGMEM tmux[] =       {KC_H, KC_Z, KC_Q, COMBO_END};
-const uint16_t PROGMEM alfred[] =     {KC_J, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
-const uint16_t PROGMEM app_layer[] =              {KC_G, KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM symbol_layer[] =           {KC_G, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM symbol2_layer[] =          {KC_G, KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM brackets_layer[] =         {KC_G, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_M, KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM number_layer_block[] =     {KC_L, KC_H, KC_Z, COMBO_END};
-const uint16_t PROGMEM brackets_layer[] =         {KC_M, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM cp_layer[] =               {KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
@@ -254,9 +254,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, _, _, _, _, _, _
 ),
 [_BRACKETS] = LAYOUT(
-    _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, _, _, _, _,
-    KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, _, _, _, _,
-    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, _, _, _, _,
+    _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
+    KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
+    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, _, _,
     _, _, _, _, _, _, _, _, _, _, _
 ),
 [_RGB] = LAYOUT(
