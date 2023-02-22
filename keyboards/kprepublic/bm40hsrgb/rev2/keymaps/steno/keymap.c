@@ -160,7 +160,7 @@ const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
-const uint16_t PROGMEM app_layer[] =              {KC_G, KC_T, KC_F, COMBO_END};
+const uint16_t PROGMEM app_layer[] =              {KC_G, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM symbol_layer[] =           {KC_G, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM symbol2_layer[] =          {KC_G, KC_S, KC_R, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
@@ -230,10 +230,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,         _,    _,     Home,   End,    __,   Space, Enter, _, _, _
 ),
 [_NUMBER] = LAYOUT(
-    _,  _1, _2, _3, _, _, _, _, _, _, _, _,
+    _,  _1, _2, _3, _, _, _, _, Asterisk, Slash, Minus, _,
     _0, _4, _5, _6, _, _, _, _, Comma, Dot, _, TG(_NUMBER),
-    _,  _7, _8, _9, Equal, _, _, _, _, _, _, _,
-    _,  _,  _,  Plus, Minus,   __,  Slash, Asterisk, _, _, _
+    _,  _7, _8, _9, Equal, _, _, _, Semicolon, Colon, _, _,
+    _,  _,  _,  Plus, Minus,   __,  Backspace, Space, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, _, _, _, _, _, _, _, Question,  Exlm,  Underscore,     _,
