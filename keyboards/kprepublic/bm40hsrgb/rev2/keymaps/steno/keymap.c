@@ -98,7 +98,7 @@ enum layers {
 #define Question KC_QUES
 #define Slash KC_PSLS
 #define Ampersand KC_AMPR
-#define Dot KC_PDOT
+#define Dot KC_DOT
 #define Comma KC_COMM
 #define Quote KC_QUOT
 #define DQuote KC_DQUO
@@ -132,6 +132,8 @@ enum layers {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 #define MoveToBin LCMD(Backspace)
+#define WinLeft LCTL(Comma)
+#define WinRight LCTL(Dot)
 
 const uint16_t PROGMEM space[] =     {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM enter[] =     {KC_H, KC_E, KC_I, COMBO_END};
@@ -218,10 +220,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
 ),
 [_APP] = LAYOUT(
+// todo fix PrntSc buttons
     _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
-    _, _, _, _, _, _, _, _, Smaller, Bigger, Settings, _,
-    _, _, _, _,    __,   _, _, MoveToBin, _, _, _
+    _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
+    _, _, _, _,    _,   __, WinLeft, WinRight, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
     _,         PgUp, Up,    PgDn,   _, _, _, _, Esc, Tab, _, _,
@@ -256,7 +259,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BRACKETS] = LAYOUT(
     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
     KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
-    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, _, _,
+    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, _, _, _,
     _, _, _, _, _, _, _, _, _, _, _
 ),
 [_RGB] = LAYOUT(
