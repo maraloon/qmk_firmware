@@ -99,7 +99,7 @@ enum layers {
 #define Question KC_QUES
 #define Slash KC_PSLS
 #define Ampersand KC_AMPR
-#define Dot KC_DOT
+#define Dot KC_PDOT
 #define Comma KC_COMM
 #define Quote KC_QUOT
 #define DQuote KC_DQUO
@@ -133,8 +133,8 @@ enum layers {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 #define MoveToBin LCMD(Backspace)
-#define WinLeft LCTL(Comma)
-#define WinRight LCTL(Dot)
+#define WinLeft LCTL(Left)
+#define WinRight LCTL(Right)
 
 #define PrevDisplay LCAG(_P)
 #define NextDisplay LCAG(_N)
