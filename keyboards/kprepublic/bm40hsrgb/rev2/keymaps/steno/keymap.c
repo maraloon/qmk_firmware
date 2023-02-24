@@ -9,6 +9,7 @@ enum layers {
   _NAVIGATION,
   _CP,
   _APP,
+  _RECTANGLE,
   _RGB,
 };
 
@@ -135,6 +136,17 @@ enum layers {
 #define WinLeft LCTL(Comma)
 #define WinRight LCTL(Dot)
 
+#define PrevDisplay LCAG(_P)
+#define NextDisplay LCAG(_N)
+#define LeftHalf LCAG(Left)
+#define RightHalf LCAG(Right)
+#define TopHalf LCAG(Up)
+#define BottomHalf LCAG(Down)
+#define Maximixe LCAG(_M)
+#define Center LCAG(_C)
+#define WinSmaller LCAG(Minus)
+#define WinLarger LCAG(Equal)
+
 const uint16_t PROGMEM space[] =     {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM enter[] =     {KC_H, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM newline[] =   {KC_K, KC_A, KC_E, COMBO_END};
@@ -171,6 +183,7 @@ const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_M, KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM number_layer_block[] =     {KC_L, KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM cp_layer[] =               {KC_H, KC_Z, COMBO_END};
+const uint16_t PROGMEM rectangle_layer[] =        {KC_L, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -208,6 +221,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(number_layer_block, TG(_NUMBER)),
     COMBO(brackets_layer, MO(_BRACKETS)),
     COMBO(cp_layer, MO(_CP)),
+    COMBO(rectangle_layer, MO(_RECTANGLE)),
     COMBO(rgb_layer, MO(_RGB)),
 };
 
@@ -218,6 +232,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _N, _R, _S, _T, _,  _, _, _,  _A, _E, _I, _O,
     _,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
     _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
+),
+[_RECTANGLE] = LAYOUT(
+    _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
+    _, LeftHalf, BottomHalf, RightHalf, _,  _, _, _,  _, _, _, _,
+    _,  Maximixe, Center, _, _, _, _, _, _, _, _, _,
+    _,  _,  _,  WinSmaller, WinLarger,   __, _, _, _,  _,  _
 ),
 [_APP] = LAYOUT(
 // todo fix PrntSc buttons
