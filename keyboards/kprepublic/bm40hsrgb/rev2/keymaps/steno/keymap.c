@@ -165,8 +165,15 @@ const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 
-const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
+// const uint16_t PROGMEM alt[] =         {KC_H, KC_M, COMBO_END};
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
+
+const uint16_t PROGMEM ru_f[] =        {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM ru_p[] =        {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM ru_s[] =        {KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM ru_t[] =        {KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM ru_c[] =        {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM ru_d[] =        {KC_C, KC_D, COMBO_END};
 
 const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
@@ -205,7 +212,14 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(shiftcmd, S(KC_LCMD)),
     COMBO(shiftcmd2, S(KC_LCMD)),
     COMBO(rcmd, ChangeApp),
-    COMBO(alt, Alt),
+    // COMBO(alt, Alt),
+
+    COMBO(ru_f, LALT(KC_F)), // ш
+    COMBO(ru_p, LALT(KC_P)), // щ
+    COMBO(ru_s, LALT(KC_S)), // ы
+    COMBO(ru_t, LALT(KC_T)), // й
+    COMBO(ru_c, LALT(KC_C)), // ъ
+    COMBO(ru_d, LALT(KC_D)), // ь
 
     COMBO(tmux, Tmux),
     COMBO(alfred, Alfred),
