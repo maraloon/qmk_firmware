@@ -175,6 +175,30 @@ const uint16_t PROGMEM ru_t[] =        {KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM ru_c[] =        {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM ru_d[] =        {KC_C, KC_D, COMBO_END};
 
+const uint16_t PROGMEM question[] =      {KC_G, KC_S, KC_J, COMBO_END};
+const uint16_t PROGMEM exlm[] =          {KC_G, KC_S, KC_U, COMBO_END};
+const uint16_t PROGMEM underscore[] =    {KC_G, KC_S, KC_Y, COMBO_END};
+const uint16_t PROGMEM comma[] =         {KC_G, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM dot[] =           {KC_G, KC_S, KC_E, COMBO_END};
+const uint16_t PROGMEM quote[] =         {KC_G, KC_S, KC_I, COMBO_END};
+const uint16_t PROGMEM dquote[] =        {KC_G, KC_S, KC_O, COMBO_END};
+const uint16_t PROGMEM semicolon[] =     {KC_G, KC_S, KC_H, COMBO_END};
+const uint16_t PROGMEM colon[] =         {KC_G, KC_S, KC_Z, COMBO_END};
+
+const uint16_t PROGMEM asterisk[] =      {KC_R, KC_S, KC_J, COMBO_END};
+const uint16_t PROGMEM slash[] =         {KC_R, KC_S, KC_U, COMBO_END};
+const uint16_t PROGMEM minus[] =         {KC_R, KC_S, KC_Y, COMBO_END};
+const uint16_t PROGMEM at[] =            {KC_R, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM hash[] =          {KC_R, KC_S, KC_E, COMBO_END};
+const uint16_t PROGMEM caret[] =         {KC_R, KC_S, KC_I, COMBO_END};
+const uint16_t PROGMEM dollar[] =        {KC_R, KC_S, KC_O, COMBO_END};
+const uint16_t PROGMEM percent[] =       {KC_R, KC_S, KC_K, COMBO_END};
+const uint16_t PROGMEM backslash[] =     {KC_R, KC_S, KC_H, COMBO_END};
+const uint16_t PROGMEM tilda[] =         {KC_R, KC_S, KC_Z, COMBO_END};
+const uint16_t PROGMEM grave[] =         {KC_R, KC_S, KC_Q, COMBO_END};
+const uint16_t PROGMEM pipe[] =          {KC_R, KC_S, KC_L, COMBO_END};
+const uint16_t PROGMEM ampersand[] =     {KC_R, KC_S, KC_M, COMBO_END};
+
 const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
@@ -220,6 +244,30 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ru_t, LALT(KC_T)), // й
     COMBO(ru_c, LALT(KC_C)), // ъ
     COMBO(ru_d, LALT(KC_D)), // ь
+
+    COMBO(question, Question),
+    COMBO(exlm, Exlm),
+    COMBO(underscore, Underscore),
+    COMBO(comma, Comma),
+    COMBO(dot, Dot),
+    COMBO(quote, Quote),
+    COMBO(dquote, DQuote),
+    COMBO(semicolon, Semicolon),
+    COMBO(colon, Colon),
+
+    COMBO(asterisk, Asterisk),
+    COMBO(slash, Slash),
+    COMBO(minus, Minus),
+    COMBO(at, At),
+    COMBO(hash, Hash),
+    COMBO(caret, Caret),
+    COMBO(dollar, Dollar),
+    COMBO(percent, Percent),
+    COMBO(backslash, BackSlash),
+    COMBO(tilda, Tilda),
+    COMBO(grave, Grave),
+    COMBO(pipe, Pipe),
+    COMBO(ampersand, Ampersand),
 
     COMBO(tmux, Tmux),
     COMBO(alfred, Alfred),
