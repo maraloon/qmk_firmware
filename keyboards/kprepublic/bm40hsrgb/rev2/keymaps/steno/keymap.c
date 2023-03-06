@@ -64,6 +64,7 @@ enum layers {
 #define Right KC_RIGHT
 
 #define LeftClick KC_BTN1
+#define RightClick KC_BTN2
 
 #define Space KC_SPC
 #define Backspace KC_BSPC
@@ -311,7 +312,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _,         PgUp, Up,    PgDn,   _, _, _, _, Esc, Tab, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
-    _,         _0,   Caret, Dollar, _, _, _, _, Control, _,     _,   _,
+    _,         _0,   Caret, Dollar, RightClick, _, _, _, Control, _,     _,   _,
     _,         _,    _,     Home,   End,    __,   Space, Enter, _, _, _
 ),
 [_NUMBER] = LAYOUT(
