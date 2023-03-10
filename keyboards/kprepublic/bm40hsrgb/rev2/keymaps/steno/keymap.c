@@ -253,6 +253,15 @@ const uint16_t PROGMEM grave[] =         {KC_R, KC_S, KC_Q, COMBO_END};
 const uint16_t PROGMEM pipe[] =          {KC_R, KC_S, KC_L, COMBO_END};
 const uint16_t PROGMEM ampersand[] =     {KC_R, KC_S, KC_M, COMBO_END};
 
+const uint16_t PROGMEM lCBr[] =          {KC_S, KC_D, KC_J, COMBO_END};
+const uint16_t PROGMEM rCBr[] =          {KC_S, KC_D, KC_U, COMBO_END};
+const uint16_t PROGMEM lBr[] =           {KC_S, KC_D, KC_H, COMBO_END};
+const uint16_t PROGMEM rBr[] =           {KC_S, KC_D, KC_Z, COMBO_END};
+const uint16_t PROGMEM lPrn[] =          {KC_S, KC_D, KC_A, COMBO_END};
+const uint16_t PROGMEM rPrn[] =          {KC_S, KC_D, KC_E, COMBO_END};
+const uint16_t PROGMEM lTag[] =          {KC_S, KC_D, KC_I, COMBO_END};
+const uint16_t PROGMEM rTag[] =          {KC_S, KC_D, KC_O, COMBO_END};
+
 const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
@@ -343,6 +352,15 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(grave, Grave),
     COMBO(pipe, Pipe),
     COMBO(ampersand, Ampersand),
+
+    COMBO(lCBr, KC_LCBR),
+    COMBO(rCBr, KC_RCBR),
+    COMBO(lBr, KC_LBRC),
+    COMBO(rBr, KC_RBRC),
+    COMBO(lPrn, KC_LPRN),
+    COMBO(rPrn, KC_RPRN),
+    COMBO(lTag, KC_LT),
+    COMBO(rTag, KC_GT),
 
     COMBO(tmux, Tmux),
     COMBO(alfred, Alfred),
