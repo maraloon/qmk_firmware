@@ -192,11 +192,13 @@ const uint16_t PROGMEM cmd[] =         {KC_B, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM control[] =     {KC_B, KC_R, KC_S, COMBO_END};
 const uint16_t PROGMEM cmdcontrol[] =  {KC_B, KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM shiftcmd[] =    {KC_B, KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM shift[] =       {KC_C, KC_G, COMBO_END};
 
 const uint16_t PROGMEM cmd2[] =        {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
+const uint16_t PROGMEM shift2[] =       {KC_Z, KC_M, COMBO_END};
 
 const uint16_t PROGMEM quit[] =        {KC_H, KC_Z, KC_F, COMBO_END};
 const uint16_t PROGMEM close[] =       {KC_H, KC_Z, KC_W, COMBO_END};
@@ -224,10 +226,13 @@ const uint16_t PROGMEM n6[] =            {KC_E, KC_I, KC_T, COMBO_END};
 const uint16_t PROGMEM n7[] =            {KC_E, KC_I, KC_X, COMBO_END};
 const uint16_t PROGMEM n8[] =            {KC_E, KC_I, KC_C, COMBO_END};
 const uint16_t PROGMEM n9[] =            {KC_E, KC_I, KC_D, COMBO_END};
+const uint16_t PROGMEM equal[] =         {KC_E, KC_I, KC_V, COMBO_END};
+const uint16_t PROGMEM minus[] =         {KC_E, KC_I, KC_G, COMBO_END};
+const uint16_t PROGMEM plus[] =          {KC_E, KC_I, KC_B, COMBO_END};
 
 const uint16_t PROGMEM question[] =      {KC_S, KC_T, KC_J, COMBO_END};
 const uint16_t PROGMEM exlm[] =          {KC_S, KC_T, KC_U, COMBO_END};
-const uint16_t PROGMEM minus[] =         {KC_S, KC_T, KC_Y, COMBO_END};
+const uint16_t PROGMEM minus2[] =         {KC_S, KC_T, KC_Y, COMBO_END};
 const uint16_t PROGMEM comma[] =         {KC_S, KC_T, KC_A, COMBO_END};
 const uint16_t PROGMEM dot[] =           {KC_S, KC_T, KC_E, COMBO_END};
 const uint16_t PROGMEM quote[] =         {KC_S, KC_T, KC_I, COMBO_END};
@@ -298,6 +303,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmdcontrol2, C(KC_LCMD)),
     COMBO(shiftcmd, S(KC_LCMD)),
     COMBO(shiftcmd2, S(KC_LCMD)),
+    COMBO(shift, Shift),
+    COMBO(shift2, Shift),
     COMBO(rcmd, ChangeApp),
 
     COMBO(quit, Quit),
@@ -324,6 +331,9 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(n7, _7),
     COMBO(n8, _8),
     COMBO(n9, _9),
+    COMBO(equal, Equal),
+    COMBO(minus, Minus),
+    COMBO(plus, Plus),
 
     COMBO(question, Question),
     COMBO(exlm, Exlm),
@@ -341,7 +351,7 @@ combo_t key_combos[COMBO_COUNT] = {
 
     COMBO(asterisk, Asterisk),
     COMBO(slash, Slash),
-    COMBO(minus, Minus),
+    COMBO(minus2, Minus),
     COMBO(at, At),
     COMBO(hash, Hash),
     COMBO(caret, Caret),
