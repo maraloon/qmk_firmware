@@ -411,10 +411,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, WinLeft, WinRight, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    _,         PgUp, Up,    PgDn,   _, _, _, _, Esc, Tab, _, _,
+    _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
     _,         _0,   Caret, Dollar, RightClick, _, _, _, Control, _,     _,   _,
-    _,         _,    _,     Home,   End,    __,   Space, Enter, _, _, _
+    _,         _,    _,     Home,   End,    __,   _, _, _, _, _
 ),
 [_MOUSE] = LAYOUT(
     _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
@@ -426,7 +426,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,  _1, _2, _3, _, _, _, _, Asterisk, Slash, Underscore, _,
     _0, _4, _5, _6, _, _, _, _, Comma, Dot, _, TG(_NUMBER),
     _,  _7, _8, _9, Equal, _, _, _, Semicolon, Colon, _, _,
-    _,  _,  _,  Plus, Minus,   __,  Backspace, Space, _, _, _
+    _,  _,  _,  Plus, Minus,   __,  _, _, _, _, _
 ),
 // [_SYMBOL] = LAYOUT(
 //     _, _, _, _, _, _, _, _, Question,  Exlm,  Minus,     _,
