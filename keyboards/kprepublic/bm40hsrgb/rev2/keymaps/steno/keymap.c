@@ -209,12 +209,17 @@ const uint16_t PROGMEM paste[] =       {KC_H, KC_Z, KC_T, COMBO_END};
 
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-// const uint16_t PROGMEM ru_f[] =        {KC_W, KC_F, COMBO_END};
-// const uint16_t PROGMEM ru_p[] =        {KC_F, KC_P, COMBO_END};
-// const uint16_t PROGMEM ru_s[] =        {KC_R, KC_S, COMBO_END};
-// const uint16_t PROGMEM ru_t[] =        {KC_S, KC_T, COMBO_END};
-// const uint16_t PROGMEM ru_c[] =        {KC_X, KC_C, COMBO_END};
-// const uint16_t PROGMEM ru_d[] =        {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM ru_sh[] =       {KC_R, KC_J, COMBO_END};
+const uint16_t PROGMEM ru_sch[] =      {KC_R, KC_U, COMBO_END};
+const uint16_t PROGMEM ru_uei[] =      {KC_R, KC_A, COMBO_END};
+const uint16_t PROGMEM ru_i[] =        {KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM ru_soft[] =     {KC_R, KC_H, COMBO_END};
+const uint16_t PROGMEM ru_hard[] =     {KC_R, KC_Z, COMBO_END};
+
+const uint16_t PROGMEM left[] =          {KC_G, KC_A, COMBO_END};
+const uint16_t PROGMEM down[] =          {KC_G, KC_E, COMBO_END};
+const uint16_t PROGMEM up[] =            {KC_G, KC_I, COMBO_END};
+const uint16_t PROGMEM right[] =         {KC_G, KC_O, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -314,12 +319,17 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(copy, Copy),
     COMBO(paste, Paste),
 
-    // COMBO(ru_f, LALT(KC_F)), // ш
-    // COMBO(ru_p, LALT(KC_P)), // щ
-    // COMBO(ru_s, LALT(KC_S)), // ы
-    // COMBO(ru_t, LALT(KC_T)), // й
-    // COMBO(ru_c, LALT(KC_C)), // ъ
-    // COMBO(ru_d, LALT(KC_D)), // ь
+    COMBO(ru_sh, LALT(KC_F)),   // ш
+    COMBO(ru_sch, LALT(KC_P)),  // щ
+    COMBO(ru_uei, LALT(KC_S)),  // ы
+    COMBO(ru_i, LALT(KC_T)),    // й
+    COMBO(ru_soft, LALT(KC_C)), // ъ
+    COMBO(ru_hard, LALT(KC_D)), // ь
+
+    COMBO(up, Up),
+    COMBO(down, Down),
+    COMBO(left, Left),
+    COMBO(right, Right),
 
     COMBO(n0, _0),
     COMBO(n1, _1),
@@ -413,7 +423,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
-    _,         _0,   Caret, Dollar, RightClick, _, _, _, Control, _,     _,   _,
+    _,         _,    _,     _, RightClick, _, _, _, Control, _,     _,   _,
     _,         _,    _,     Home,   End,    __,   _, _, _, _, _
 ),
 [_MOUSE] = LAYOUT(
