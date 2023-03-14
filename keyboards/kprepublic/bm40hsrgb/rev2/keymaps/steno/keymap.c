@@ -5,7 +5,7 @@ enum layers {
   _NUMBER,
   // _SYMBOL,
   // _SYMBOL2,
-  _BRACKETS,
+  // _BRACKETS,
   _NAVIGATION,
   _MOUSE,
   _APP,
@@ -281,7 +281,7 @@ const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
 // const uint16_t PROGMEM symbol_layer[] =           {KC_G, KC_S, KC_T, COMBO_END};
 // const uint16_t PROGMEM symbol2_layer[] =          {KC_G, KC_S, KC_R, COMBO_END};
-const uint16_t PROGMEM brackets_layer[] =         {KC_G, KC_S, KC_D, COMBO_END};
+// const uint16_t PROGMEM brackets_layer[] =         {KC_G, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
@@ -395,7 +395,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(mouse_layer_block, TG(_MOUSE)),
     COMBO(number_layer, MO(_NUMBER)),
     COMBO(number_layer_block, TG(_NUMBER)),
-    COMBO(brackets_layer, MO(_BRACKETS)),
+    // COMBO(brackets_layer, MO(_BRACKETS)),
     COMBO(rectangle_layer, MO(_RECTANGLE)),
     COMBO(rgb_layer, MO(_RGB)),
 };
@@ -450,12 +450,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _, _, _, _, _, _, Percent, BackSlash, Tilda,     Grave,  _,
 //     _, _, _, _, _, ____, Pipe,    Ampersand, _,         _,      _
 // ),
-[_BRACKETS] = LAYOUT(
-    _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
-    KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
-    _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, KC_RBRC, _, _,
-    _, _, _, _, _, _, _, _, _, _, _
-),
+// [_BRACKETS] = LAYOUT(
+//     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
+//     KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
+//     _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, KC_RBRC, _, _,
+//     _, _, _, _, _, _, _, _, _, _, _
+// ),
 [_RGB] = LAYOUT(
     _, RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _,
     RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _, _,
