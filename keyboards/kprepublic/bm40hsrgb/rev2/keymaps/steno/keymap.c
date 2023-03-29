@@ -216,10 +216,10 @@ const uint16_t PROGMEM ru_i[] =        {KC_R, KC_E, COMBO_END};
 const uint16_t PROGMEM ru_soft[] =     {KC_R, KC_H, COMBO_END};
 const uint16_t PROGMEM ru_hard[] =     {KC_R, KC_Z, COMBO_END};
 
-const uint16_t PROGMEM left[] =          {KC_G, KC_A, COMBO_END};
-const uint16_t PROGMEM down[] =          {KC_G, KC_E, COMBO_END};
-const uint16_t PROGMEM up[] =            {KC_G, KC_I, COMBO_END};
-const uint16_t PROGMEM right[] =         {KC_G, KC_O, COMBO_END};
+// const uint16_t PROGMEM left[] =          {KC_G, KC_A, COMBO_END};
+// const uint16_t PROGMEM down[] =          {KC_G, KC_E, COMBO_END};
+// const uint16_t PROGMEM up[] =            {KC_G, KC_I, COMBO_END};
+// const uint16_t PROGMEM right[] =         {KC_G, KC_O, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -275,7 +275,7 @@ const uint16_t PROGMEM rTag[] =          {KC_B, KC_O, COMBO_END};
 const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
@@ -325,10 +325,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ru_soft, LALT(KC_C)), // ъ
     COMBO(ru_hard, LALT(KC_D)), // ь
 
-    COMBO(up, Up),
-    COMBO(down, Down),
-    COMBO(left, Left),
-    COMBO(right, Right),
+    // COMBO(up, Up),
+    // COMBO(down, Down),
+    // COMBO(left, Left),
+    // COMBO(right, Right),
 
     COMBO(n0, _0),
     COMBO(n1, _1),
