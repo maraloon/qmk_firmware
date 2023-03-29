@@ -192,13 +192,13 @@ const uint16_t PROGMEM cmd[] =         {KC_B, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM control[] =     {KC_B, KC_R, KC_S, COMBO_END};
 const uint16_t PROGMEM cmdcontrol[] =  {KC_B, KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM shiftcmd[] =    {KC_B, KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM shift[] =       {KC_C, KC_G, COMBO_END};
+const uint16_t PROGMEM shift[] =       {KC_S, KC_G, COMBO_END};
 
 const uint16_t PROGMEM cmd2[] =        {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM shift2[] =      {KC_Z, KC_M, COMBO_END};
+const uint16_t PROGMEM shift2[] =      {KC_E, KC_M, COMBO_END};
 
 const uint16_t PROGMEM quit[] =        {KC_H, KC_Z, KC_F, COMBO_END};
 const uint16_t PROGMEM close[] =       {KC_H, KC_Z, KC_W, COMBO_END};
@@ -285,8 +285,7 @@ const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
-const uint16_t PROGMEM number_layer[] =           {KC_M, KC_E, KC_I, COMBO_END};
-const uint16_t PROGMEM number_layer_block[] =     {KC_M, KC_Z, KC_I, COMBO_END};
+const uint16_t PROGMEM number_layer[] =           {KC_D, KC_G, COMBO_END};
 const uint16_t PROGMEM rectangle_layer[] =        {KC_L, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
@@ -394,7 +393,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(navigation_layer_block, TG(_NAVIGATION)),
     COMBO(mouse_layer_block, TG(_MOUSE)),
     COMBO(number_layer, MO(_NUMBER)),
-    COMBO(number_layer_block, TG(_NUMBER)),
     // COMBO(brackets_layer, MO(_BRACKETS)),
     COMBO(rectangle_layer, MO(_RECTANGLE)),
     COMBO(rgb_layer, MO(_RGB)),
@@ -433,10 +431,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
 ),
 [_NUMBER] = LAYOUT(
-    _,  _1, _2, _3, _, _, _, _, Asterisk, Slash, Underscore, _,
-    _0, _4, _5, _6, _, _, _, _, Comma, Dot, _, TG(_NUMBER),
-    _,  _7, _8, _9, Equal, _, _, _, Semicolon, Colon, _, _,
-    _,  _,  _,  Plus, Minus,   __,  _, _, _, _, _
+    _,  _, _, _, _, _, _, _, _1, _2, _3, _,
+    _, _, _, _, _, _, _, _, _4, _5, _6, _0,
+    _,  _, _, _, _, _, _, Equal, _7, _8, _9, _,
+    _,  _,  _,  _, _,   __,  Minus, Plus, _, _, _
 ),
 // [_SYMBOL] = LAYOUT(
 //     _, _, _, _, _, _, _, _, Question,  Exlm,  Minus,     _,
