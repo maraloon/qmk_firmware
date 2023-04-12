@@ -3,14 +3,10 @@
 enum layers {
   _ALPHA,
   _NUMBER,
-  // _SYMBOL,
-  // _SYMBOL2,
-  // _BRACKETS,
   _NAVIGATION,
   _MOUSE,
   _APP,
   _RECTANGLE,
-  _RGB,
 };
 
 #undef _______
@@ -164,6 +160,7 @@ enum custom_keycodes {
   CODE_TO,
   CODE_NOT_EQ,
   CODE_START,
+  RU_II,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
@@ -176,6 +173,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
       if (record->event.pressed) { SEND_STRING("!=="); } return false;
     case CODE_START:
       if (record->event.pressed) { SEND_STRING("<?"); } return false;
+    case RU_II:
+      if (record->event.pressed) {
+          register_code(KC_LALT);
+          tap_code(KC_S);
+          tap_code(KC_T);
+          unregister_code(KC_LALT);
+      }
+      return false;
   }
   return true;
 }
@@ -188,13 +193,13 @@ const uint16_t PROGMEM delword[] =   {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
 
-const uint16_t PROGMEM cmd[] =         {KC_B, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM cmd[] =         {KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM control[] =     {KC_B, KC_R, KC_S, COMBO_END};
 const uint16_t PROGMEM cmdcontrol[] =  {KC_B, KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM shiftcmd[] =    {KC_B, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM shift[] =       {KC_S, KC_G, COMBO_END};
 
-const uint16_t PROGMEM cmd2[] =        {KC_L, KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM cmd2[] =        {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
@@ -209,17 +214,13 @@ const uint16_t PROGMEM paste[] =       {KC_H, KC_Z, KC_T, COMBO_END};
 
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
-const uint16_t PROGMEM ru_sh[] =       {KC_R, KC_J, COMBO_END};
-const uint16_t PROGMEM ru_sch[] =      {KC_R, KC_U, COMBO_END};
+const uint16_t PROGMEM ru_sh[] =       {KC_R, KC_I, COMBO_END};
+const uint16_t PROGMEM ru_sch[] =      {KC_R, KC_O, COMBO_END};
 const uint16_t PROGMEM ru_uei[] =      {KC_R, KC_A, COMBO_END};
 const uint16_t PROGMEM ru_i[] =        {KC_R, KC_E, COMBO_END};
+const uint16_t PROGMEM ru_ii[] =       {KC_R, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM ru_soft[] =     {KC_R, KC_H, COMBO_END};
 const uint16_t PROGMEM ru_hard[] =     {KC_R, KC_Z, COMBO_END};
-
-// const uint16_t PROGMEM left[] =          {KC_G, KC_A, COMBO_END};
-// const uint16_t PROGMEM down[] =          {KC_G, KC_E, COMBO_END};
-// const uint16_t PROGMEM up[] =            {KC_G, KC_I, COMBO_END};
-// const uint16_t PROGMEM right[] =         {KC_G, KC_O, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -279,9 +280,6 @@ const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
-// const uint16_t PROGMEM symbol_layer[] =           {KC_G, KC_S, KC_T, COMBO_END};
-// const uint16_t PROGMEM symbol2_layer[] =          {KC_G, KC_S, KC_R, COMBO_END};
-// const uint16_t PROGMEM brackets_layer[] =         {KC_G, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
@@ -322,13 +320,9 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ru_sch, LALT(KC_P)),  // щ
     COMBO(ru_uei, LALT(KC_S)),  // ы
     COMBO(ru_i, LALT(KC_T)),    // й
+    COMBO(ru_ii, RU_II),        // ый
     COMBO(ru_soft, LALT(KC_C)), // ъ
     COMBO(ru_hard, LALT(KC_D)), // ь
-
-    // COMBO(up, Up),
-    // COMBO(down, Down),
-    // COMBO(left, Left),
-    // COMBO(right, Right),
 
     COMBO(n0, _0),
     COMBO(n1, _1),
@@ -387,13 +381,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(language, Lang),
 
     COMBO(app_layer, MO(_APP)),
-    // COMBO(symbol_layer, MO(_SYMBOL)),
-    // COMBO(symbol2_layer, MO(_SYMBOL2)),
     COMBO(navigation_layer, MO(_NAVIGATION)),
     COMBO(navigation_layer_block, TG(_NAVIGATION)),
     COMBO(mouse_layer_block, TG(_MOUSE)),
     COMBO(number_layer, MO(_NUMBER)),
-    // COMBO(brackets_layer, MO(_BRACKETS)),
     COMBO(rectangle_layer, MO(_RECTANGLE)),
     COMBO(rgb_layer, MO(_RGB)),
 };
@@ -422,7 +413,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
     LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
     _,         _,    _,     _, RightClick, _, _, _, Control, _,     _,   _,
-    _,         _,    _,     Home,   End,    __,   _, _, _, _, _
+    _,         _,    _,     Home,   End,    __,   Cut, Backspace, _, _, _
 ),
 [_MOUSE] = LAYOUT(
     _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
@@ -435,29 +426,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, _, _, _, _4, _5, _6, _0,
     _,  _, _, _, _, _, _, Equal, _7, _8, _9, _,
     _,  _,  _,  _, _,   __,  Minus, Plus, _, _, _
-),
-// [_SYMBOL] = LAYOUT(
-//     _, _, _, _, _, _, _, _, Question,  Exlm,  Minus,     _,
-//     _, _, _, _, _, _, _, _, Comma,     Dot,   Quote, DQuote,
-//     _, _, _, _, _, _, _, CODE_NOT_EQ, Semicolon, Colon, CODE_START,    _,
-//     _, _, _, _, _, __,  CODE_ARRAY, CODE_TO, _, _, _
-// ),
-// [_SYMBOL2] = LAYOUT(
-//     _, _, _, _, _, _, _, _,       Asterisk,  Slash,     Minus,  _,
-//     _, _, _, _, _, _, _, _,       At,        Hash,      Caret, Dollar,
-//     _, _, _, _, _, _, _, Percent, BackSlash, Tilda,     Grave,  _,
-//     _, _, _, _, _, ____, Pipe,    Ampersand, _,         _,      _
-// ),
-// [_BRACKETS] = LAYOUT(
-//     _,      _,    KC_LCBR, KC_RCBR, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
-//     KC_LT, KC_GT, KC_LPRN, KC_RPRN, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
-//     _,     _,     KC_LBRC, KC_RBRC, _, _, _, _, KC_LBRC, KC_RBRC, _, _,
-//     _, _, _, _, _, _, _, _, _, _, _
-// ),
-[_RGB] = LAYOUT(
-    _, RGB_TOG, RGB_MOD, RGB_RMOD, _, _, _, _, _, _, _, _,
-    RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _, _, _, _, _, _, _, _,
-    _, RGB_VAI, RGB_VAD, _, _, _, _, _, _, _, _, _,
-    _, _,  _, _, _,  _,  _, _, _, _, _
 ),
 };
