@@ -4,6 +4,7 @@ enum layers {
   _ALPHA,
   _NUMBER,
   _NAVIGATION,
+  _TG,
   _MOUSE,
   _APP,
   _RECTANGLE,
@@ -58,6 +59,11 @@ enum layers {
 #define Down KC_DOWN
 #define Left KC_LEFT
 #define Right KC_RIGHT
+
+#define SCUp LSFT(LCTL(Up))
+#define SCDown LSFT(LCTL(Down))
+#define SCLeft LSFT(LCTL(Left))
+#define SCRight LSFT(LCTL(Right))
 
 #define LeftClick KC_BTN1
 #define RightClick KC_BTN2
@@ -205,13 +211,6 @@ const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM shift2[] =      {KC_E, KC_M, COMBO_END};
 
-const uint16_t PROGMEM quit[] =        {KC_H, KC_Z, KC_F, COMBO_END};
-const uint16_t PROGMEM close[] =       {KC_H, KC_Z, KC_W, COMBO_END};
-const uint16_t PROGMEM select_all[] =  {KC_H, KC_Z, KC_N, COMBO_END};
-const uint16_t PROGMEM cut[] =         {KC_H, KC_Z, KC_R, COMBO_END};
-const uint16_t PROGMEM copy[] =        {KC_H, KC_Z, KC_S, COMBO_END};
-const uint16_t PROGMEM paste[] =       {KC_H, KC_Z, KC_T, COMBO_END};
-
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
 
 const uint16_t PROGMEM ru_sh[] =       {KC_R, KC_I, COMBO_END};
@@ -282,10 +281,10 @@ const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
+const uint16_t PROGMEM tg_layer[] =               {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_D, KC_G, COMBO_END};
 const uint16_t PROGMEM rectangle_layer[] =        {KC_L, KC_U, KC_Y, COMBO_END};
-const uint16_t PROGMEM rgb_layer[] =              {KC_K, KC_H, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(space, Space),
@@ -308,13 +307,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(shift, Shift),
     COMBO(shift2, Shift),
     COMBO(rcmd, ChangeApp),
-
-    COMBO(quit, Quit),
-    COMBO(close, Close),
-    COMBO(select_all, SelectAll),
-    COMBO(cut, Cut),
-    COMBO(copy, Copy),
-    COMBO(paste, Paste),
 
     COMBO(ru_sh, LALT(KC_F)),   // ш
     COMBO(ru_sch, LALT(KC_P)),  // щ
@@ -383,10 +375,10 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(app_layer, MO(_APP)),
     COMBO(navigation_layer, MO(_NAVIGATION)),
     COMBO(navigation_layer_block, TG(_NAVIGATION)),
+    COMBO(tg_layer, MO(_TG)),
     COMBO(mouse_layer_block, TG(_MOUSE)),
     COMBO(number_layer, MO(_NUMBER)),
     COMBO(rectangle_layer, MO(_RECTANGLE)),
-    COMBO(rgb_layer, MO(_RGB)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -415,16 +407,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,         _,    _,     _, RightClick, _, _, _, Control, _,     _,   _,
     _,         _,    _,     Home,   End,    __,   Cut, Backspace, _, _, _
 ),
+[_TG] = LAYOUT(
+    _,         _, SCUp,    _,   _, _, _, _, _, _, _, _,
+    WheelDown, SCLeft, SCDown,  SCRight,  _, _, _, _, _, _, _, _,
+    _,         _,    _,     WheelUp, _, _, _, _, _, _,     _,   _,
+    _,         _,    _,     _,   _,    __,   _, _, _, _, _
+),
 [_MOUSE] = LAYOUT(
     _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
-    WheelDown, MLeft, MDown, MRight,    _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
-    _,       _,     _,     WheelUp, _, _, _, _, _, _, _, _,
+    _, MLeft, MDown, MRight,    _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
+    _,       _,     _,     _, _, _, _, _, _, _, _, _,
     _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
 ),
 [_NUMBER] = LAYOUT(
     _,  _, _, _, _, _, _, _, _1, _2, _3, _,
     _, _, _, _, _, _, _, _, _4, _5, _6, _0,
     _,  _, _, _, _, _, _, Equal, _7, _8, _9, _,
-    _,  _,  _,  _, _,   __,  Minus, Plus, _, _, _
+    _,  _,  _,  _, _,   __,  Plus, Minus, _, _, _
 ),
 };
