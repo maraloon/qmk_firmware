@@ -161,6 +161,13 @@ enum layers {
 #define WinSmaller LCAG(Minus)
 #define WinLarger LCAG(Equal)
 
+#define _RF LALT(KC_S) // ф
+#define _RU LALT(KC_T) // ю
+#define _RH LALT(KC_F) // ш
+#define _RC LALT(KC_P) // щ
+#define _RT LALT(KC_C) // ъ
+#define _RE LALT(KC_D) // э
+
 enum custom_keycodes {
   CODE_ARRAY = SAFE_RANGE,
   CODE_TO,
@@ -212,14 +219,6 @@ const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM shift2[] =      {KC_E, KC_M, COMBO_END};
 
 const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
-
-const uint16_t PROGMEM ru_sh[] =       {KC_R, KC_I, COMBO_END};
-const uint16_t PROGMEM ru_sch[] =      {KC_R, KC_O, COMBO_END};
-const uint16_t PROGMEM ru_uei[] =      {KC_R, KC_A, COMBO_END};
-const uint16_t PROGMEM ru_i[] =        {KC_R, KC_E, COMBO_END};
-const uint16_t PROGMEM ru_ii[] =       {KC_R, KC_A, KC_E, COMBO_END};
-const uint16_t PROGMEM ru_soft[] =     {KC_R, KC_H, COMBO_END};
-const uint16_t PROGMEM ru_hard[] =     {KC_R, KC_Z, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -308,14 +307,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(shift2, Shift),
     COMBO(rcmd, ChangeApp),
 
-    COMBO(ru_sh, LALT(KC_F)),   // ш
-    COMBO(ru_sch, LALT(KC_P)),  // щ
-    COMBO(ru_uei, LALT(KC_S)),  // ы
-    COMBO(ru_i, LALT(KC_T)),    // й
-    COMBO(ru_ii, RU_II),        // ый
-    COMBO(ru_soft, LALT(KC_C)), // ъ
-    COMBO(ru_hard, LALT(KC_D)), // ь
-
     COMBO(n0, _0),
     COMBO(n1, _1),
     COMBO(n2, _2),
@@ -383,10 +374,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _,  _W, _F, _P, _,  _, _, _,  _J, _U, _Y, _,
-    _N, _R, _S, _T, _,  _, _, _,  _A, _E, _I, _O,
+    _,  _W, _F, _P, _RC,_, _, _RU,_J, _U, _Y, _,
+    _N, _R, _S, _T, _RH,_, _, _RE,_A, _E, _I, _O,
     _,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
-    _,  _,  _,  _G, _B,   __, _L, _M, _,  _,  _
+    _,  _,  _RF,_G, _B,   __, _L, _M, _RT,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
