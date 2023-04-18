@@ -198,7 +198,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   return true;
 }
 
-const uint16_t PROGMEM space[] =     {KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM enter[] =     {KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM newline[] =   {KC_K, KC_A, COMBO_END};
 const uint16_t PROGMEM backspace[] = {KC_R, KC_S, COMBO_END};
@@ -234,15 +233,15 @@ const uint16_t PROGMEM equal[] =         {KC_D, KC_K, COMBO_END};
 const uint16_t PROGMEM minus[] =         {KC_D, KC_M, COMBO_END};
 const uint16_t PROGMEM plus[] =          {KC_D, KC_L, COMBO_END};
 
-const uint16_t PROGMEM question[] =      {KC_T, KC_J, COMBO_END};
-const uint16_t PROGMEM exlm[] =          {KC_T, KC_U, COMBO_END};
+const uint16_t PROGMEM exlm[] =      {KC_T, KC_J, COMBO_END};
+const uint16_t PROGMEM question[] =          {KC_T, KC_U, COMBO_END};
 const uint16_t PROGMEM minus2[] =        {KC_T, KC_Y, COMBO_END};
-const uint16_t PROGMEM comma[] =         {KC_T, KC_A, COMBO_END};
-const uint16_t PROGMEM dot[] =           {KC_T, KC_E, COMBO_END};
+const uint16_t PROGMEM dot[] =         {KC_T, KC_A, COMBO_END};
+const uint16_t PROGMEM comma[] =           {KC_T, KC_E, COMBO_END};
 const uint16_t PROGMEM quote[] =         {KC_T, KC_I, COMBO_END};
 const uint16_t PROGMEM dquote[] =        {KC_T, KC_O, COMBO_END};
-const uint16_t PROGMEM semicolon[] =     {KC_T, KC_H, COMBO_END};
-const uint16_t PROGMEM colon[] =         {KC_T, KC_Z, COMBO_END};
+const uint16_t PROGMEM colon[] =     {KC_T, KC_H, COMBO_END};
+const uint16_t PROGMEM semicolon[] =         {KC_T, KC_Z, COMBO_END};
 const uint16_t PROGMEM code_to[] =       {KC_T, KC_M, COMBO_END};
 const uint16_t PROGMEM code_array[] =    {KC_T, KC_L, COMBO_END};
 const uint16_t PROGMEM code_start[] =    {KC_T, KC_Q, COMBO_END};
@@ -278,7 +277,6 @@ const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM navigation_layer[] =       {KC_M, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM tg_layer[] =               {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
@@ -286,7 +284,6 @@ const uint16_t PROGMEM number_layer[] =           {KC_D, KC_G, COMBO_END};
 const uint16_t PROGMEM rectangle_layer[] =        {KC_L, KC_U, KC_Y, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(space, Space),
     COMBO(backspace, Backspace),
     COMBO(delword, DelWord),
     COMBO(enter, Enter),
@@ -364,7 +361,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(language, Lang),
 
     COMBO(app_layer, MO(_APP)),
-    COMBO(navigation_layer, MO(_NAVIGATION)),
     COMBO(navigation_layer_block, TG(_NAVIGATION)),
     COMBO(tg_layer, MO(_TG)),
     COMBO(mouse_layer_block, TG(_MOUSE)),
@@ -374,10 +370,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _RH,  _W, _F, _P, _RC,_, _, _RU,_J, _U, _Y, Tmux,
+    _RT,  _W, _F, _P, _RH,_, _, _RU,_J, _U, _Y, Tmux,
     _N, _R, _S, _T, _B, _, _, _RE,_A, _E, _I, _O,
-    _,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
-    _,  _,  _RF,_G, Space,   __, _L, _M, _RT,_,  _
+    Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, MO(_NAVIGATION),
+    _,  _,  _RF,_G, Space,   __, _L, _M, _RC,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
