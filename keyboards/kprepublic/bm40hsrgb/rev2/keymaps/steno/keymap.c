@@ -217,7 +217,7 @@ const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM shift2[] =      {KC_E, KC_M, COMBO_END};
 
-const uint16_t PROGMEM rcmd[] =        {KC_Z, KC_Q, COMBO_END};
+const uint16_t PROGMEM rcmd[] =        {KC_M, KC_U, KC_Y, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -270,10 +270,8 @@ const uint16_t PROGMEM rPrn[] =          {KC_B, KC_E, COMBO_END};
 const uint16_t PROGMEM lTag[] =          {KC_B, KC_I, COMBO_END};
 const uint16_t PROGMEM rTag[] =          {KC_B, KC_O, COMBO_END};
 
-const uint16_t PROGMEM tmux[] =       {KC_M, KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM language[] =   {KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
@@ -355,10 +353,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(lTag, KC_LT),
     COMBO(rTag, KC_GT),
 
-    COMBO(tmux, Tmux),
     COMBO(alfred, Alfred),
     COMBO(buffer, Buffer),
-    COMBO(language, Lang),
 
     COMBO(app_layer, MO(_APP)),
     COMBO(navigation_layer_block, TG(_NAVIGATION)),
