@@ -374,10 +374,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _,  _W, _F, _P, _RC,_, _, _RU,_J, _U, _Y, _,
-    _N, _R, _S, _T, _RH,_, _, _RE,_A, _E, _I, _O,
+    _RH,  _W, _F, _P, _RC,_, _, _RU,_J, _U, _Y, Tmux,
+    _N, _R, _S, _T, _B, _, _, _RE,_A, _E, _I, _O,
     _,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
-    _,  _,  _RF,_G, _B,   __, _L, _M, _RT,_,  _
+    _,  _,  _RF,_G, Space,   __, _L, _M, _RT,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
