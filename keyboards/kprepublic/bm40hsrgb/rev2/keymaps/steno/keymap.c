@@ -206,9 +206,9 @@ const uint16_t PROGMEM esc[] =       {KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
 
 const uint16_t PROGMEM cmd[] =         {KC_H, KC_Z, COMBO_END};
-const uint16_t PROGMEM control[] =     {KC_B, KC_R, KC_S, COMBO_END};
-const uint16_t PROGMEM cmdcontrol[] =  {KC_B, KC_R, KC_S, KC_T, COMBO_END};
-const uint16_t PROGMEM shiftcmd[] =    {KC_B, KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM control[] =     {Space, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM cmdcontrol[] =  {Space, KC_R, KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM shiftcmd[] =    {Space, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM shift[] =       {KC_S, KC_G, COMBO_END};
 
 const uint16_t PROGMEM cmd2[] =        {KC_C, KC_D, COMBO_END};
