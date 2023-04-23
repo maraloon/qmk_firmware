@@ -126,9 +126,9 @@ enum layers {
 #define SoundDec KC_F11
 #define SoundInc KC_F12
 
-#define PrntSc1 LCAG(_1)
-#define PrntSc2 LCAG(_2)
-#define PrntSc3 LCAG(_3)
+#define PrntSc1 LCAG(KC_1)
+#define PrntSc2 LCAG(KC_2)
+#define PrntSc3 LCAG(KC_3)
 
 #define NewLine LSFT(Enter)
 #define DelWord LALT(Backspace)
@@ -209,13 +209,11 @@ const uint16_t PROGMEM cmd[] =         {KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM control[] =     {Space, KC_R, KC_S, COMBO_END};
 const uint16_t PROGMEM cmdcontrol[] =  {Space, KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM shiftcmd[] =    {Space, KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM shift[] =       {KC_S, KC_G, COMBO_END};
 
 const uint16_t PROGMEM cmd2[] =        {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM shift2[] =      {KC_E, KC_M, COMBO_END};
 
 const uint16_t PROGMEM rcmd[] =        {KC_M, KC_U, KC_Y, COMBO_END};
 
@@ -261,14 +259,14 @@ const uint16_t PROGMEM grave[] =         {KC_S, KC_Q, COMBO_END};
 const uint16_t PROGMEM pipe[] =          {KC_S, KC_L, COMBO_END};
 const uint16_t PROGMEM ampersand[] =     {KC_S, KC_M, COMBO_END};
 
-const uint16_t PROGMEM lCBr[] =          {KC_B, KC_J, COMBO_END};
-const uint16_t PROGMEM rCBr[] =          {KC_B, KC_U, COMBO_END};
-const uint16_t PROGMEM lBr[] =           {KC_B, KC_H, COMBO_END};
-const uint16_t PROGMEM rBr[] =           {KC_B, KC_Z, COMBO_END};
-const uint16_t PROGMEM lPrn[] =          {KC_B, KC_A, COMBO_END};
-const uint16_t PROGMEM rPrn[] =          {KC_B, KC_E, COMBO_END};
-const uint16_t PROGMEM lTag[] =          {KC_B, KC_I, COMBO_END};
-const uint16_t PROGMEM rTag[] =          {KC_B, KC_O, COMBO_END};
+const uint16_t PROGMEM lCBr[] =          {Space, KC_J, COMBO_END};
+const uint16_t PROGMEM rCBr[] =          {Space, KC_U, COMBO_END};
+const uint16_t PROGMEM lBr[] =           {Space, KC_H, COMBO_END};
+const uint16_t PROGMEM rBr[] =           {Space, KC_Z, COMBO_END};
+const uint16_t PROGMEM lPrn[] =          {Space, KC_A, COMBO_END};
+const uint16_t PROGMEM rPrn[] =          {Space, KC_E, COMBO_END};
+const uint16_t PROGMEM lTag[] =          {Space, KC_I, COMBO_END};
+const uint16_t PROGMEM rTag[] =          {Space, KC_O, COMBO_END};
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
@@ -298,8 +296,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmdcontrol2, C(KC_LCMD)),
     COMBO(shiftcmd, S(KC_LCMD)),
     COMBO(shiftcmd2, S(KC_LCMD)),
-    COMBO(shift, Shift),
-    COMBO(shift2, Shift),
     COMBO(rcmd, ChangeApp),
 
     COMBO(n0, _0),
@@ -366,10 +362,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _RT,  _W, _F, _P, _RH,_, _, _RU,_J, _U, _Y, Tmux,
+    _RT,  _W, _F, _P, _RF,_, _, _RU,_J, _U, _Y, Tmux,
     _N, _R, _S, _T, _B, _, _, _RE,_A, _E, _I, _O,
     Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, MO(_NAVIGATION),
-    _,  _,  _RF,_G, Space,   __, _L, _M, _RC,_,  _
+    _,  _,  _RH,_G, MT(MOD_LSFT, Space),   __, _L, _M, _RC,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
