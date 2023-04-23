@@ -207,15 +207,17 @@ const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
 
 const uint16_t PROGMEM cmd[] =         {KC_H, KC_Z, COMBO_END};
 const uint16_t PROGMEM control[] =     {Space, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM shift[] =       {KC_S, KC_G, COMBO_END};
 const uint16_t PROGMEM cmdcontrol[] =  {Space, KC_R, KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM shiftcmd[] =    {Space, KC_S, KC_D, COMBO_END};
 
 const uint16_t PROGMEM cmd2[] =        {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM control2[] =    {KC_L, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM shift2[] =      {KC_M, KC_E, COMBO_END};
 const uint16_t PROGMEM cmdcontrol2[] = {KC_L, KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM shiftcmd2[] =   {KC_L, KC_H, KC_E, COMBO_END};
 
-const uint16_t PROGMEM rcmd[] =        {KC_M, KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM rcmd[] =        {KC_A, KC_E, KC_I, COMBO_END};
 
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_J, COMBO_END};
@@ -292,6 +294,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmd2, Command),
     COMBO(control, Control),
     COMBO(control2, Control),
+    COMBO(shift, Shift),
+    COMBO(shift2, Shift),
     COMBO(cmdcontrol, C(KC_LCMD)),
     COMBO(cmdcontrol2, C(KC_LCMD)),
     COMBO(shiftcmd, S(KC_LCMD)),
@@ -365,7 +369,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _RT,  _W, _F, _P, _RF,_, _, _RU,_J, _U, _Y, Tmux,
     _N, _R, _S, _T, _B, _, _, _RE,_A, _E, _I, _O,
     Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, MO(_NAVIGATION),
-    _,  _,  _RH,_G, MT(MOD_LSFT, Space),   __, _L, _M, _RC,_,  _
+    _,  _,  _RH,_G, Space,   __, _L, _M, _RC,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
