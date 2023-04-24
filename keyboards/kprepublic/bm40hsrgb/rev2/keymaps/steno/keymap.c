@@ -368,8 +368,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RT,  _W, _F, _P, _B,_, _, _J,_L,_U, _Y, Tmux,
     _N, _R, _S, _T, _G, _, _, _M,_A, _E, _I, _O,
-    Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, MO(_NAVIGATION),
-    _,  _,  _RH,_, Space,   __, _, _, _RC,_,  _
+    Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
+    _,  _,  _RH,_, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), _, _RC,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
