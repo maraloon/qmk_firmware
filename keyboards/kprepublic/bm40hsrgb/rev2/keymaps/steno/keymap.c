@@ -274,7 +274,7 @@ const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {KC_L, KC_M, COMBO_END};
 
-const uint16_t PROGMEM app_layer[] =              {KC_G, KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM app_layer[] =              {_RH, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM navigation_layer_block[] = {KC_M, KC_H, KC_E, COMBO_END};
 const uint16_t PROGMEM tg_layer[] =               {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, KC_M, COMBO_END};
@@ -368,8 +368,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RT,  _W, _F, _P, _B,_, _, _J,_L,_U, _Y, Tmux,
     _N, _R, _S, _T, _G, _, _, _M,_A, _E, _I, _O,
-    Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
-    _,  _,  _RH,_, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), _, _RC,_,  _
+    Lang,  _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _RU,
+    _,  _,  _RF,_RH, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), _RE, _RC,_,  _
 ),
 [_RECTANGLE] = LAYOUT(
     _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
