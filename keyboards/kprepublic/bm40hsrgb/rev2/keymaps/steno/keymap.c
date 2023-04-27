@@ -250,8 +250,8 @@ const uint16_t PROGMEM percent[] =       {KC_S, KC_K, COMBO_END};
 const uint16_t PROGMEM backslash[] =     {KC_S, KC_H, COMBO_END};
 const uint16_t PROGMEM tilda[] =         {KC_S, KC_Z, COMBO_END};
 const uint16_t PROGMEM grave[] =         {KC_S, KC_Q, COMBO_END};
-const uint16_t PROGMEM ampersand[] =     {KC_S, KC_M, COMBO_END};
-const uint16_t PROGMEM pipe[] =          {KC_S, KC_K, COMBO_END};
+const uint16_t PROGMEM ampersand[] =     {KC_S, _RE, COMBO_END};
+const uint16_t PROGMEM pipe[] =          {KC_S, _RC, COMBO_END};
 
 const uint16_t PROGMEM lCBr[] =          {KC_F, KC_L, COMBO_END};
 const uint16_t PROGMEM rCBr[] =          {KC_F, KC_U, COMBO_END};
