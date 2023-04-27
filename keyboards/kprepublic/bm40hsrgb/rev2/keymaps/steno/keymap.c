@@ -205,10 +205,8 @@ const uint16_t PROGMEM delword[] =   {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
 
-const uint16_t PROGMEM cmd[] =         {KC_S, KC_T, COMBO_END};
-const uint16_t PROGMEM cmd2[] =        {KC_A, KC_E, COMBO_END};
-const uint16_t PROGMEM control[] =     {KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM control2[] =    {KC_H, KC_Z, COMBO_END};
+const uint16_t PROGMEM cmd[] =       {_RH, _RE, COMBO_END};
+const uint16_t PROGMEM control[] =   {_RH, _RC, COMBO_END};
 
 const uint16_t PROGMEM rcmd[] =        {KC_A, KC_E, KC_I, COMBO_END};
 
@@ -283,9 +281,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(reset, QK_BOOT),
 
     COMBO(cmd, Command),
-    COMBO(cmd2, Command),
     COMBO(control, Control),
-    COMBO(control2, Control),
 
     COMBO(rcmd, ChangeApp),
 
