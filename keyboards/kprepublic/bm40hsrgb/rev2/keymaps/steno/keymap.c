@@ -265,8 +265,6 @@ const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {_RE, _RC, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =              {_RH, KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM navigation_layer_block[] = {_RE, KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM tg_layer[] =               {KC_L, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM mouse_layer_block[] =      {KC_H, _RE, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_D, _RH, COMBO_END};
 const uint16_t PROGMEM rectangle_layer[] =        {KC_L, KC_U, KC_Y, COMBO_END};
@@ -339,8 +337,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(buffer, Buffer),
 
     COMBO(app_layer, MO(_APP)),
-    COMBO(navigation_layer_block, TG(_NAVIGATION)),
-    COMBO(tg_layer, MO(_TG)),
     COMBO(mouse_layer_block, TG(_MOUSE)),
     COMBO(number_layer, MO(_NUMBER)),
     COMBO(rectangle_layer, MO(_RECTANGLE)),
@@ -367,15 +363,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, WinLeft, WinRight, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    _,         PgUp, Up,    PgDn,   _, _, _, _, _, _, _, _,
-    LeftClick, Left, Down,  Right,  _, _, _, _, Command, Shift, Alt, TG(_NAVIGATION),
-    _,         _,    _,     _, RightClick, _, _, _, Control, _,     _,   _,
-    _,         _,    _,     Home,   End,    __,   Cut, Backspace, _, _, _
+    _,         PgUp, Up,        PgDn,    _,          _, _, _, _,       MO(_TG), _,   _,
+    LeftClick, Left, Down,      Right,   RightClick, _, _, _, Command, Shift,   Alt, _,
+    _,         _,    WheelDown, WheelUp, _,_, _, _,           Control, _,        _,  _,
+    _,         _,    _,         Home,    End,    __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
-    _,         _, SCUp,    _,   _, _, _, _, _, _, _, _,
-    WheelDown, SCLeft, SCDown,  SCRight,  _, _, _, _, _, _, _, _,
-    _,         _,    _,     WheelUp, _, _, _, _, _, _,     _,   _,
+    _,  _,     SCUp,   _,   _, _, _, _, _, _, _, _,
+    _, SCLeft, SCDown, SCRight,  _, _, _, _, _, _, _, _,
+    _,         _,    _,     _, _, _, _, _, _, _,     _,   _,
     _,         _,    _,     _,   _,    __,   _, _, _, _, _
 ),
 [_MOUSE] = LAYOUT(
