@@ -264,7 +264,7 @@ const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {_RE, _RC, COMBO_END};
 
-const uint16_t PROGMEM app_layer[] =              {_RH, KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM app_layer[] =              {Control, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM number_layer[] =           {KC_D, _RH, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
