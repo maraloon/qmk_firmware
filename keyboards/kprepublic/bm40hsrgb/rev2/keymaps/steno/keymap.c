@@ -205,11 +205,6 @@ const uint16_t PROGMEM delword[] =   {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM esc[] =       {KC_F, KC_T, COMBO_END};
 const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
 
-const uint16_t PROGMEM cmd[] =       {_RH, _RE, COMBO_END};
-const uint16_t PROGMEM control[] =   {_RH, _RC, COMBO_END};
-
-const uint16_t PROGMEM rcmd[] =        {KC_A, KC_E, KC_I, COMBO_END};
-
 const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
 const uint16_t PROGMEM n1[] =            {KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM n2[] =            {KC_D, KC_U, COMBO_END};
@@ -232,10 +227,11 @@ const uint16_t PROGMEM quote[] =         {KC_T, KC_I, COMBO_END};
 const uint16_t PROGMEM dquote[] =        {KC_T, KC_O, COMBO_END};
 const uint16_t PROGMEM colon[] =         {KC_T, KC_H, COMBO_END};
 const uint16_t PROGMEM semicolon[] =     {KC_T, KC_Z, COMBO_END};
-const uint16_t PROGMEM code_to[] =       {KC_T, KC_M, COMBO_END};
-const uint16_t PROGMEM code_array[] =    {KC_T, KC_J, COMBO_END};
-const uint16_t PROGMEM code_not_eq[] =   {KC_T, KC_K, COMBO_END};
-const uint16_t PROGMEM code_start[] =    {KC_T, KC_Q, COMBO_END};
+
+const uint16_t PROGMEM code_array[] =    {KC_C, KC_A, COMBO_END};
+const uint16_t PROGMEM code_to[] =       {KC_C, KC_E, COMBO_END};
+const uint16_t PROGMEM code_not_eq[] =   {KC_C, KC_H, COMBO_END};
+const uint16_t PROGMEM code_start[] =    {KC_C, KC_Z, COMBO_END};
 
 const uint16_t PROGMEM asterisk[] =      {KC_S, KC_L, COMBO_END};
 const uint16_t PROGMEM slash[] =         {KC_S, KC_U, COMBO_END};
@@ -244,28 +240,25 @@ const uint16_t PROGMEM at[] =            {KC_S, KC_A, COMBO_END};
 const uint16_t PROGMEM hash[] =          {KC_S, KC_E, COMBO_END};
 const uint16_t PROGMEM caret[] =         {KC_S, KC_I, COMBO_END};
 const uint16_t PROGMEM dollar[] =        {KC_S, KC_O, COMBO_END};
-const uint16_t PROGMEM percent[] =       {KC_S, KC_K, COMBO_END};
 const uint16_t PROGMEM backslash[] =     {KC_S, KC_H, COMBO_END};
 const uint16_t PROGMEM tilda[] =         {KC_S, KC_Z, COMBO_END};
 const uint16_t PROGMEM grave[] =         {KC_S, KC_Q, COMBO_END};
-const uint16_t PROGMEM ampersand[] =     {KC_S, _RE, COMBO_END};
-const uint16_t PROGMEM pipe[] =          {KC_S, _RC, COMBO_END};
+const uint16_t PROGMEM pipe[] =          {KC_S, KC_J, COMBO_END};
+const uint16_t PROGMEM ampersand[] =     {KC_S, KC_M, COMBO_END};
+const uint16_t PROGMEM percent[] =       {KC_S, KC_K, COMBO_END};
 
-const uint16_t PROGMEM lCBr[] =          {KC_F, KC_L, COMBO_END};
-const uint16_t PROGMEM rCBr[] =          {KC_F, KC_U, COMBO_END};
-const uint16_t PROGMEM lBr[] =           {KC_F, KC_H, COMBO_END};
-const uint16_t PROGMEM rBr[] =           {KC_F, KC_Z, COMBO_END};
-const uint16_t PROGMEM lPrn[] =          {KC_F, KC_A, COMBO_END};
-const uint16_t PROGMEM rPrn[] =          {KC_F, KC_E, COMBO_END};
-const uint16_t PROGMEM lTag[] =          {KC_F, KC_I, COMBO_END};
-const uint16_t PROGMEM rTag[] =          {KC_F, KC_O, COMBO_END};
+const uint16_t PROGMEM lPrn[] =          {KC_F, KC_A, COMBO_END}; // (
+const uint16_t PROGMEM rPrn[] =          {KC_F, KC_E, COMBO_END}; // )
+const uint16_t PROGMEM lBr[] =           {KC_F, KC_H, COMBO_END}; // [
+const uint16_t PROGMEM rBr[] =           {KC_F, KC_Z, COMBO_END}; // ]
+const uint16_t PROGMEM lCBr[] =          {KC_F, KC_U, COMBO_END}; // {
+const uint16_t PROGMEM rCBr[] =          {KC_F, KC_Y, COMBO_END}; // }
+const uint16_t PROGMEM lTag[] =          {KC_F, KC_M, COMBO_END}; // <
+const uint16_t PROGMEM rTag[] =          {KC_F, KC_K, COMBO_END}; // >
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM reset[] =      {_RE, _RC, COMBO_END};
-
-const uint16_t PROGMEM app_layer[] =              {Control, KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM number_layer[] =           {KC_D, _RH, COMBO_END};
+const uint16_t PROGMEM reset[] =      {_RC, _RH, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(backspace, Backspace),
@@ -275,11 +268,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(tab, Tab),
     COMBO(esc, Esc),
     COMBO(reset, QK_BOOT),
-
-    COMBO(cmd, Command),
-    COMBO(control, Control),
-
-    COMBO(rcmd, ChangeApp),
 
     COMBO(n0, _0),
     COMBO(n1, _1),
@@ -333,9 +321,6 @@ combo_t key_combos[COMBO_COUNT] = {
 
     COMBO(alfred, Alfred),
     COMBO(buffer, Buffer),
-
-    COMBO(app_layer, MO(_APP)),
-    COMBO(number_layer, MO(_NUMBER)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -349,13 +334,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
-    _, _, _, _,    _,   __, WinLeft, WinRight, _, _, _
+    _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    _,         PgUp, Up,        PgDn,    _,          _, _, _, _,       MO(_TG), MO(_RECTANGLE),   _,
+    Home,         PgUp, Up,        PgDn,    End,          _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     LeftClick, Left, Down,      Right,   RightClick, _, _, _, Command, Shift,   Alt, ChangeApp,
-    _,         _,    WheelDown, WheelUp, _,_, _, _,           Control, _,        _,  _,
-    _,         _,    _,         Home,    End,    __, _, _, _, _, _
+    MO(_NUMBER),MO(_APP),WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
+    _,         _,    _,         WinLeft, WinRight,    __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _,  _,     SCUp,   _,   _, _, _, _, _, _, _, _,
