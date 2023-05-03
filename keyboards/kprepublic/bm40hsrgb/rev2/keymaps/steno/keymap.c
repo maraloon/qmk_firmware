@@ -260,6 +260,9 @@ const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {_RC, _RH, COMBO_END};
 
+const uint16_t PROGMEM app_layer[] =     {Control, KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM num_layer[] =     {Control, KC_D, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(backspace, Backspace),
     COMBO(delword, DelWord),
@@ -321,6 +324,9 @@ combo_t key_combos[COMBO_COUNT] = {
 
     COMBO(alfred, Alfred),
     COMBO(buffer, Buffer),
+
+    COMBO(app_layer, MO(_APP)),
+    COMBO(num_layer, MO(_NUMBER)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -339,7 +345,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     Home,         PgUp, Up,        PgDn,    End,          _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     LeftClick, Left, Down,      Right,   RightClick, _, _, _, Command, Shift,   Alt, ChangeApp,
-    MO(_NUMBER),MO(_APP),WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
+    _, _,      WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
     _,         _,    _,         WinLeft, WinRight,    __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
