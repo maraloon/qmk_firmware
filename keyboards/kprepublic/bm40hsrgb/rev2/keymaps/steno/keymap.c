@@ -253,8 +253,8 @@ const uint16_t PROGMEM lBr[] =           {KC_F, KC_H, COMBO_END}; // [
 const uint16_t PROGMEM rBr[] =           {KC_F, KC_Z, COMBO_END}; // ]
 const uint16_t PROGMEM lCBr[] =          {KC_F, KC_U, COMBO_END}; // {
 const uint16_t PROGMEM rCBr[] =          {KC_F, KC_Y, COMBO_END}; // }
-const uint16_t PROGMEM lTag[] =          {KC_F, KC_M, COMBO_END}; // <
-const uint16_t PROGMEM rTag[] =          {KC_F, KC_K, COMBO_END}; // >
+const uint16_t PROGMEM lTag[] =          {KC_F, KC_I, COMBO_END}; // <
+const uint16_t PROGMEM rTag[] =          {KC_F, KC_O, COMBO_END}; // >
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
