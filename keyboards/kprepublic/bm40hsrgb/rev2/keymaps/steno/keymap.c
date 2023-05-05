@@ -161,39 +161,30 @@ enum layers {
 #define WinSmaller LCAG(Minus)
 #define WinLarger LCAG(Equal)
 
-#define _RF LALT(KC_S) // ф
-#define _RU LALT(KC_T) // ю
-#define _RH LALT(KC_F) // ш
-#define _RC LALT(KC_P) // щ
-#define _RT LALT(KC_C) // ъ
-#define _RE LALT(KC_D) // э
+#define _RF LALT(KC_1) // ф
+#define _RU LALT(KC_2) // ю
+#define _RH LALT(KC_3) // ш
+#define _RC LALT(KC_4) // щ
+#define _RT LALT(KC_5) // ъ
+#define _RE LALT(KC_6) // э
 
 enum custom_keycodes {
   CODE_ARRAY = SAFE_RANGE,
   CODE_TO,
   CODE_NOT_EQ,
   CODE_START,
-  RU_II,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   switch (keycode) {
     case CODE_ARRAY:
-      if (record->event.pressed) { SEND_STRING("=>"); } return false;
+      if (record->event.pressed) { SEND_STRING(" => "); } return false;
     case CODE_TO:
       if (record->event.pressed) { SEND_STRING("->"); } return false;
     case CODE_NOT_EQ:
-      if (record->event.pressed) { SEND_STRING("!=="); } return false;
+      if (record->event.pressed) { SEND_STRING(" !== "); } return false;
     case CODE_START:
-      if (record->event.pressed) { SEND_STRING("<?"); } return false;
-    case RU_II:
-      if (record->event.pressed) {
-          register_code(KC_LALT);
-          tap_code(KC_S);
-          tap_code(KC_T);
-          unregister_code(KC_LALT);
-      }
-      return false;
+      if (record->event.pressed) { SEND_STRING("<?php\n"); } return false;
   }
   return true;
 }
