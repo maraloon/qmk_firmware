@@ -323,9 +323,9 @@ combo_t key_combos[COMBO_COUNT] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RE, _W, _F, _P, _B,_, _, _J,_L,_U, _Y, Tmux,
-    _N, _R, _S, _T, _G, _RF, _RT, _M,_A, _E, _I, _O,
-    Lang,  _X, _C, _D, _V ,_RH, _RC, _K, _H, _Z, _Q, _RU,
-    _,  _,  _,Control, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), Command, _,_,  _
+    _N, _R, _S, _T, _G, _, _, _M,_A, _E, _I, _O,
+    Lang,  _X, _C, _D, _V ,_RF, _RT, _K, _H, _Z, _Q, _RU,
+    _,  _,  _RH,Control, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), Command, _RC,_,  _
 ),
 [_APP] = LAYOUT(
     _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
