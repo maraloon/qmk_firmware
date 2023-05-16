@@ -162,11 +162,11 @@ enum layers {
 #define WinLarger LCAG(Equal)
 
 #define _RF LALT(KC_1) // ф
-#define _RU LALT(KC_2) // ю
+#define _RY LALT(KC_2) // ю
 #define _RH LALT(KC_3) // ш
-#define _RC LALT(KC_4) // щ
+#define _RZ LALT(KC_4) // щ
 #define _RT LALT(KC_5) // ъ
-#define _RE LALT(KC_6) // э
+#define _RI LALT(KC_6) // э
 
 enum custom_keycodes {
   CODE_ARRAY = SAFE_RANGE,
@@ -249,7 +249,7 @@ const uint16_t PROGMEM rTag[] =          {KC_F, KC_O, COMBO_END}; // >
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM reset[] =      {_RC, _RH, COMBO_END};
+const uint16_t PROGMEM reset[] =      {_RF, _RT, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =     {Control, KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM num_layer[] =     {Control, KC_D, COMBO_END};
@@ -322,10 +322,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _RE, _W, _F, _P, _B,_, _, _J,_L,_U, _Y, Tmux,
+    _RI, _W, _F, _P, _B,_, _, _J,_L,_U, _Y, _RZ,
     _N, _R, _S, _T, _G, _, _, _M,_A, _E, _I, _O,
-    Lang,  _X, _C, _D, _V ,_RF, _RT, _K, _H, _Z, _Q, _RU,
-    _,  _,  _RH,Control, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), Command, _RC,_,  _
+    _RY, _X, _C, _D, _V ,_RF, _RT, _K, _H, _Z, _Q, _RH,
+    _,  _, _,Control, MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), Command,_,_,_
 ),
 [_APP] = LAYOUT(
     _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
@@ -336,7 +336,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     Home,         PgUp, Up,        PgDn,    End,          _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     LeftClick, Left, Down,      Right,   RightClick, _, _, _, Command, Shift,   Alt, ChangeApp,
-    _, _,      WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
+    Lang, _,      WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
     _,         _,    _,         WinLeft, WinRight,    __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
