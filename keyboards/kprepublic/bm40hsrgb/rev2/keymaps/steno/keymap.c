@@ -206,8 +206,6 @@ const uint16_t PROGMEM n6[] =            {KC_D, KC_I, COMBO_END};
 const uint16_t PROGMEM n7[] =            {KC_D, KC_H, COMBO_END};
 const uint16_t PROGMEM n8[] =            {KC_D, KC_Z, COMBO_END};
 const uint16_t PROGMEM n9[] =            {KC_D, KC_Q, COMBO_END};
-const uint16_t PROGMEM equal[] =         {KC_D, KC_M, COMBO_END};
-const uint16_t PROGMEM plus[] =          {KC_D, KC_K, COMBO_END};
 
 const uint16_t PROGMEM exlm[] =          {KC_T, KC_L, COMBO_END};
 const uint16_t PROGMEM question[] =      {KC_T, KC_U, COMBO_END};
@@ -218,6 +216,8 @@ const uint16_t PROGMEM quote[] =         {KC_T, KC_I, COMBO_END};
 const uint16_t PROGMEM dquote[] =        {KC_T, KC_O, COMBO_END};
 const uint16_t PROGMEM colon[] =         {KC_T, KC_H, COMBO_END};
 const uint16_t PROGMEM semicolon[] =     {KC_T, KC_Z, COMBO_END};
+const uint16_t PROGMEM equal[] =         {KC_T, KC_M, COMBO_END};
+const uint16_t PROGMEM plus[] =          {KC_T, KC_K, COMBO_END};
 
 const uint16_t PROGMEM code_array[] =    {KC_C, KC_A, COMBO_END};
 const uint16_t PROGMEM code_to[] =       {KC_C, KC_E, COMBO_END};
@@ -273,8 +273,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(n7, _7),
     COMBO(n8, _8),
     COMBO(n9, _9),
-    COMBO(equal, Equal),
-    COMBO(plus, Plus),
 
     COMBO(question, Question),
     COMBO(exlm, Exlm),
@@ -285,10 +283,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(dquote, DQuote),
     COMBO(semicolon, Semicolon),
     COMBO(colon, Colon),
-    COMBO(code_array, CODE_ARRAY),
-    COMBO(code_start, CODE_START),
-    COMBO(code_not_eq, CODE_NOT_EQ),
-    COMBO(code_to, CODE_TO),
+    COMBO(equal, Equal),
+    COMBO(plus, Plus),
 
     COMBO(asterisk, Asterisk),
     COMBO(slash, Slash),
@@ -303,6 +299,11 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(grave, Grave),
     COMBO(pipe, Pipe),
     COMBO(ampersand, Ampersand),
+
+    COMBO(code_array, CODE_ARRAY),
+    COMBO(code_start, CODE_START),
+    COMBO(code_not_eq, CODE_NOT_EQ),
+    COMBO(code_to, CODE_TO),
 
     COMBO(lCBr, KC_LCBR),
     COMBO(rCBr, KC_RCBR),
