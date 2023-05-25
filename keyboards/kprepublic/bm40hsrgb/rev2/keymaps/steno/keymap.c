@@ -86,6 +86,7 @@ enum layers {
 #define Delete KC_DEL
 #define Command KC_LCMD
 #define ChangeApp RSFT(RALT(KC_RCMD))
+#define PrevApp LCMD(KC_TAB)
 #define Lang LCMD(Space)
 #define Control KC_LCTL
 #define Alt KC_LALT
@@ -253,10 +254,9 @@ const uint16_t PROGMEM code_start[] =    {KC_C, KC_Z, COMBO_END};
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM reset[] =      {_RF, _RT, COMBO_END};
+const uint16_t PROGMEM reset[] =      {Command, Control, KC_T, COMBO_END};
 
 const uint16_t PROGMEM app_layer[] =     {MO(_SYMBOL), KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM num_layer[] =     {MO(_SYMBOL), KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(backspace, Backspace),
@@ -322,21 +322,20 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(buffer, Buffer),
 
     COMBO(app_layer, MO(_APP)),
-    COMBO(num_layer, MO(_NUMBER)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _RI, _W, _F, _P, _B,_, _, _J,_L,_U, _Y, _RZ,
-    _N, _R, _S, _T, _G, _, _, _M,_A, _E, _I, _O,
-    _RY, _X, _C, _D, _V ,_RF, _RT, _K, _H, _Z, _Q, _RH,
-    _,  _, _,MO(_SYMBOL), MT(MOD_LSFT, Space),   __, MO(_NAVIGATION), Control,Command,_,_
+    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ,Tmux,
+    MO(_BRACKET), _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, Command,
+    _RF, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH,_RT,
+    _,  _, _,MO(_NUMBER), MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
 ),
 [_SYMBOL] = LAYOUT(
-    KC_LT, Underscore, Slash, Asterisk,   KC_RCBR, _, _, KC_LCBR,   Exlm, Question, Minus, KC_GT,
-    At, Hash, Caret, Dollar,              KC_RPRN, _, _, KC_LPRN,   Dot, Comma, Quote, DQuote,
-    Percent, Grave, Tilda, BackSlash,     KC_RBRC, _, _, KC_LBRC,   Colon, Semicolon, Plus, Equal,
-    _, _, _, _, _,  __,  Pipe, Ampersand,  _, _, _
+    _,KC_LT, Underscore, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Minus, KC_GT,_,
+    _,At, Hash, Caret, Dollar,              KC_LPRN, KC_RPRN,   Dot, Comma, Quote, DQuote,_,
+    _,Percent, Grave, Tilda, BackSlash,     KC_LBRC, KC_RBRC,   Colon, Semicolon, Plus, Equal,_,
+    _, _, _, _, _,  __,  Ampersand, Pipe,  _, _, _
 ),
 // [_SYMBOL2] = LAYOUT(
 //     _, _, _, _, _, _, _, Pipe, Asterisk, Slash, Underscore, _,
@@ -345,9 +344,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _, _, _, _,  __,  _, _, _, _, _
 // ),
 [_BRACKET] = LAYOUT(
-    _, _, _, _, _, _, _, _, _, KC_LCBR, KC_RCBR, _,
-    _, _, _, _, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT,
-    _, _, _, _, _, _, _, _, KC_LBRC, KC_RBRC, _, _,
+    _, _, _, _, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
+    _, _, _, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
+    _, _, _, _, _, _, _, KC_LBRC, KC_RBRC, _, _, _,
     _, _, _, _, _,  __,  _, _, _, _, _
 ),
 // [_LAYER] = LAYOUT(
@@ -357,39 +356,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _, _, _,    _,   __, _, Command, _, _, _
 // ),
 [_APP] = LAYOUT(
-    _, _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
-    _, _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
-    _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
+    _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
+    _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
+    _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _, _,
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    Home,         PgUp, Up,        PgDn,    End,          _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    LeftClick, Left, Down,      Right,   RightClick, _, _, _, Command, Shift,   Alt, ChangeApp,
-    Lang, _,      WheelDown, WheelUp,_,_, _, _,           Control, _,        _,  _,
+    _, Home,         PgUp, Up,        PgDn,    End,           _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
+    _, LeftClick, Left, Down,      Right,   RightClick,  _, PrevApp, Alt,   Command, ChangeApp,_,
+    _, Lang, _,      WheelDown, WheelUp, _, _,           Shift, _,        _,  _,_,
     _,         _,    _,         WinLeft, WinRight,    __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
-    _,  _,     SCUp,   _,   _, _, _, _, _, _, _, _,
-    _, SCLeft, SCDown, SCRight,  _, _, _, _, _, _, _, _,
-    _,         _,    _,     _, _, _, _, _, _, _,     _,   _,
-    _,         _,    _,     _,   _,    __,   _, _, _, _, _
+    _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
+    _, _, SCLeft, SCDown, SCRight,   _, _,   _, _, _, _, _,
+    _, _, _,      _,      _,         _, _,   _, _, _, _, _,
+    _, _, _,      _,      _,          __,    _, _, _, _, _
 ),
 [_RECTANGLE] = LAYOUT(
-    _,  PrevDisplay, TopHalf, NextDisplay, _,  _, _, _,  _, _, _, _,
-    _, LeftHalf, BottomHalf, RightHalf, _,  _, _, _,  _, _, _, _,
-    _,  Maximixe, Center, _, _, _, _, _, _, _, _, _,
+    _, _,  PrevDisplay, TopHalf, NextDisplay, _,  _,  _, _, _, _, _,
+    _, _, LeftHalf, BottomHalf, RightHalf, _,  _,  _, _, _, _, _,
+    _, _,  Maximixe, Center, _, _, _, _, _, _, _, _,
     _,  _,  _,  WinSmaller, WinLarger,   __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
-    _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
-    _, MLeft, MDown, MRight,    _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
-    _,       _,     _,     _, _, _, _, _, _, _, _, _,
+    _, _,       _,     MUp,   _,         _, _, _, _, _, _, _,
+    _, _, MLeft, MDown, MRight,    _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE), _,
+    _, _,       _,     _,     _,  _, _, _, _, _, _, _,
     _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
 ),
 [_NUMBER] = LAYOUT(
-    _,  _, _, _, _, _, _, _, _1, _2, _3, _,
-    _, _, _, _, _, _, _, _, _4, _5, _6, _0,
-    _,  _, _, _, _, _, _, Equal, _7, _8, _9, _,
-    _,  _,  _,  _, _,   __,  Plus, Minus, _, _, _
+    _, Quit,  Close, Up, _,  _, _, _1, _2, _3, _,_,
+    _, SelectAll, Left, Down, Right,  _, _, _4, _5, _6, _0,_,
+    _, _,  Cut, Copy, Paste, _, _, _7, _8, _9, _,_,
+    _,  _,  _,  _, _,   __,  _, _, _, _, _
 ),
 };
