@@ -326,16 +326,16 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ,Tmux,
-    MO(_BRACKET), _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, Command,
+    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ,Command,
+    MO(_BRACKET), _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, MO(_NUMBER),
     _RF, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH,_RT,
-    _,  _, _,MO(_NUMBER), MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
+    _,  _, _,Command, MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
 ),
 [_SYMBOL] = LAYOUT(
     _,KC_LT, Underscore, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Minus, KC_GT,_,
     _,At, Hash, Caret, Dollar,              KC_LPRN, Ampersand,   Dot, Comma, Quote, DQuote,_,
     _,Percent, Grave, Tilda, BackSlash,     KC_LBRC, Pipe,   Colon, Semicolon, Plus, Equal,_,
-    _, _, _, _, _,  __,  Enter, _,  _, _, _
+    _, _, _, _, _,  NewLine,  Enter, _,  _, _, _
 ),
 // [_SYMBOL2] = LAYOUT(
 //     _, _, _, _, _, _, _, Pipe, Asterisk, Slash, Underscore, _,
@@ -363,9 +363,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight,
-    _, Home,         PgUp, Up,        PgDn,    End,           _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
-    _, LeftClick, Left, Down,      Right,   RightClick,  _, PrevApp, Alt,   Command, ChangeApp,_,
-    _, Lang, _,      WheelDown, WheelUp, _, _,           Shift, _,        _,  _,_,
+    _, Home,         PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
+    _, LeftClick, Left, Down,      Right,   RightClick,  _, Esc, Tab, PrevApp, ChangeApp,_,
+    _, Lang, _,      WheelDown, WheelUp, _, _,           Shift, Alt,  Command,  _,_,
     _,         _,    _,         _, DelWord,    Backspace, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
@@ -386,10 +386,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,       _,     _,     _,  _, _, _, _, _, _, _,
     _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
 ),
+// [_NUMBER] = LAYOUT(
+//     _, Quit,  Close, Up, _,  _, _, _1, _2, _3, _,_,
+//     _, SelectAll, Left, Down, Right,  _, _, _4, _5, _6, _0,_,
+//     _, _,  Cut, Copy, Paste, _, _, _7, _8, _9, _,_,
+//     _,  _,  _,  _, _,   __,  _, _, _, _, _
+// ),
 [_NUMBER] = LAYOUT(
-    _, Quit,  Close, Up, _,  _, _, _1, _2, _3, _,_,
-    _, SelectAll, Left, Down, Right,  _, _, _4, _5, _6, _0,_,
-    _, _,  Cut, Copy, Paste, _, _, _7, _8, _9, _,_,
-    _,  _,  _,  _, _,   __,  _, _, _, _, _
+    _, _, _1,  _2, _3, _, _, _1, _2, _3, _,_,
+    _, _0, _4, _5, _6, _, _, _4, _5, _6, _0,_,
+    _, _, _7,  _8, _9, _, _, _7, _8, _9, _,_,
+    _,  _,  _,  _, _,   __,  Down, Up, _, _, _
 ),
 };
