@@ -208,10 +208,10 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ,Command,
-    MO(_BRACKET), _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, MO(_NUMBER),
+    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
+    Command, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, MO(_NUMBER),
     _RF, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH,_RT,
-    _,  _, _,Command, MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
+    _,  _, _,MO(_NUMBER), MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
 ),
 [_SYMBOL] = LAYOUT(
     _,KC_LT, Minus, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Underscore, KC_GT,_,
@@ -227,8 +227,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // ),
 [_BRACKET] = LAYOUT(
     _, _, _, _, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
-    _, _, _, _, _, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
-    _, _, _, _, _, _, _, KC_LBRC, KC_RBRC, _, _, _,
+    _, _, _, _, _, _, _,    KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
+    _, _, _, _, _, _, _,    KC_LBRC, KC_RBRC, _, _, _,
     _, _, _, _, _,  __,  _, _, _, _, _
 ),
 // [_LAYER] = LAYOUT(
@@ -274,10 +274,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     _, _,  Cut, Copy, Paste, _, _, _7, _8, _9, _,_,
 //     _,  _,  _,  _, _,   __,  _, _, _, _, _
 // ),
+// [_NUMBER] = LAYOUT(
+//     _, _, _1,  _2, _3, _, _, _1, _2, _3, _,_,
+//     _, _0, _4, _5, _6, _, _, _4, _5, _6, _0,_,
+//     _, _, _7,  _8, _9, _, _, _7, _8, _9, _,_,
+//     _,  _,  _,  _, _,   __,  Down, Up, _, _, _
+// ),
 [_NUMBER] = LAYOUT(
-    _, _, _1,  _2, _3, _, _, _1, _2, _3, _,_,
-    _, _0, _4, _5, _6, _, _, _4, _5, _6, _0,_,
-    _, _, _7,  _8, _9, _, _, _7, _8, _9, _,_,
+    _, _, _1,  _2, _3, _, _, KC_LCBR, KC_RCBR, Up, _, _,
+    _, _0, _4, _5, _6, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
+    _, _, _7,  _8, _9, _, _, KC_LBRC, KC_RBRC, _, _,_,
     _,  _,  _,  _, _,   __,  Down, Up, _, _, _
 ),
 };
