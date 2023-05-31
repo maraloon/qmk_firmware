@@ -194,133 +194,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   return true;
 }
 
-const uint16_t PROGMEM enter[] =     {KC_H, KC_E, COMBO_END};
-const uint16_t PROGMEM newline[] =   {KC_K, KC_A, COMBO_END};
-const uint16_t PROGMEM backspace[] = {KC_R, KC_S, COMBO_END};
-const uint16_t PROGMEM delword[] =   {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM esc[] =       {KC_F, KC_T, COMBO_END};
-const uint16_t PROGMEM tab[] =       {KC_W, KC_F, COMBO_END};
-
-const uint16_t PROGMEM n0[] =            {KC_D, KC_O, COMBO_END};
-const uint16_t PROGMEM n1[] =            {KC_D, KC_L, COMBO_END};
-const uint16_t PROGMEM n2[] =            {KC_D, KC_U, COMBO_END};
-const uint16_t PROGMEM n3[] =            {KC_D, KC_Y, COMBO_END};
-const uint16_t PROGMEM n4[] =            {KC_D, KC_A, COMBO_END};
-const uint16_t PROGMEM n5[] =            {KC_D, KC_E, COMBO_END};
-const uint16_t PROGMEM n6[] =            {KC_D, KC_I, COMBO_END};
-const uint16_t PROGMEM n7[] =            {KC_D, KC_H, COMBO_END};
-const uint16_t PROGMEM n8[] =            {KC_D, KC_Z, COMBO_END};
-const uint16_t PROGMEM n9[] =            {KC_D, KC_Q, COMBO_END};
-
-// const uint16_t PROGMEM exlm[] =          {KC_T, KC_L, COMBO_END};
-// const uint16_t PROGMEM question[] =      {KC_T, KC_U, COMBO_END};
-// const uint16_t PROGMEM minus2[] =        {KC_T, KC_Y, COMBO_END};
-// const uint16_t PROGMEM dot[] =           {KC_T, KC_A, COMBO_END};
-// const uint16_t PROGMEM comma[] =         {KC_T, KC_E, COMBO_END};
-// const uint16_t PROGMEM quote[] =         {KC_T, KC_I, COMBO_END};
-// const uint16_t PROGMEM dquote[] =        {KC_T, KC_O, COMBO_END};
-// const uint16_t PROGMEM colon[] =         {KC_T, KC_H, COMBO_END};
-// const uint16_t PROGMEM semicolon[] =     {KC_T, KC_Z, COMBO_END};
-// const uint16_t PROGMEM equal[] =         {KC_T, KC_M, COMBO_END};
-// const uint16_t PROGMEM plus[] =          {KC_T, KC_K, COMBO_END};
-
-const uint16_t PROGMEM code_array[] =    {KC_C, KC_A, COMBO_END};
-const uint16_t PROGMEM code_to[] =       {KC_C, KC_E, COMBO_END};
-const uint16_t PROGMEM code_not_eq[] =   {KC_C, KC_H, COMBO_END};
-const uint16_t PROGMEM code_start[] =    {KC_C, KC_Z, COMBO_END};
-
-// const uint16_t PROGMEM asterisk[] =      {KC_W, KC_L, COMBO_END};
-// const uint16_t PROGMEM slash[] =         {KC_W, KC_U, COMBO_END};
-// const uint16_t PROGMEM underscore[] =    {KC_W, KC_Y, COMBO_END};
-// const uint16_t PROGMEM at[] =            {KC_W, KC_A, COMBO_END};
-// const uint16_t PROGMEM hash[] =          {KC_W, KC_E, COMBO_END};
-// const uint16_t PROGMEM caret[] =         {KC_W, KC_I, COMBO_END};
-// const uint16_t PROGMEM dollar[] =        {KC_W, KC_O, COMBO_END};
-// const uint16_t PROGMEM backslash[] =     {KC_W, KC_H, COMBO_END};
-// const uint16_t PROGMEM tilda[] =         {KC_W, KC_Z, COMBO_END};
-// const uint16_t PROGMEM grave[] =         {KC_W, KC_Q, COMBO_END};
-// const uint16_t PROGMEM pipe[] =          {KC_W, KC_J, COMBO_END};
-// const uint16_t PROGMEM ampersand[] =     {KC_W, KC_M, COMBO_END};
-// const uint16_t PROGMEM percent[] =       {KC_W, KC_K, COMBO_END};
-
-// const uint16_t PROGMEM lPrn[] =          {KC_P, KC_A, COMBO_END}; // (
-// const uint16_t PROGMEM rPrn[] =          {KC_P, KC_E, COMBO_END}; // )
-// const uint16_t PROGMEM lBr[] =           {KC_P, KC_H, COMBO_END}; // [
-// const uint16_t PROGMEM rBr[] =           {KC_P, KC_Z, COMBO_END}; // ]
-// const uint16_t PROGMEM lCBr[] =          {KC_P, KC_U, COMBO_END}; // {
-// const uint16_t PROGMEM rCBr[] =          {KC_P, KC_Y, COMBO_END}; // }
-// const uint16_t PROGMEM lTag[] =          {KC_P, KC_I, COMBO_END}; // <
-// const uint16_t PROGMEM rTag[] =          {KC_P, KC_O, COMBO_END}; // >
-
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {Command, Control, KC_T, COMBO_END};
-
 const uint16_t PROGMEM app_layer[] =     {MO(_SYMBOL), KC_W, KC_F, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(backspace, Backspace),
-    COMBO(delword, DelWord),
-    COMBO(enter, Enter),
-    COMBO(newline, NewLine),
-    COMBO(tab, Tab),
-    COMBO(esc, Esc),
-    COMBO(reset, QK_BOOT),
-
-    COMBO(n0, _0),
-    COMBO(n1, _1),
-    COMBO(n2, _2),
-    COMBO(n3, _3),
-    COMBO(n4, _4),
-    COMBO(n5, _5),
-    COMBO(n6, _6),
-    COMBO(n7, _7),
-    COMBO(n8, _8),
-    COMBO(n9, _9),
-
-    // COMBO(question, Question),
-    // COMBO(exlm, Exlm),
-    // COMBO(underscore, Underscore),
-    // COMBO(comma, Comma),
-    // COMBO(dot, Dot),
-    // COMBO(quote, Quote),
-    // COMBO(dquote, DQuote),
-    // COMBO(semicolon, Semicolon),
-    // COMBO(colon, Colon),
-    // COMBO(equal, Equal),
-    // COMBO(plus, Plus),
-
-    // COMBO(asterisk, Asterisk),
-    // COMBO(slash, Slash),
-    // COMBO(minus2, Minus),
-    // COMBO(at, At),
-    // COMBO(hash, Hash),
-    // COMBO(caret, Caret),
-    // COMBO(dollar, Dollar),
-    // COMBO(percent, Percent),
-    // COMBO(backslash, BackSlash),
-    // COMBO(tilda, Tilda),
-    // COMBO(grave, Grave),
-    // COMBO(pipe, Pipe),
-    // COMBO(ampersand, Ampersand),
-
-    COMBO(code_array, CODE_ARRAY),
-    COMBO(code_start, CODE_START),
-    COMBO(code_not_eq, CODE_NOT_EQ),
-    COMBO(code_to, CODE_TO),
-
-    // COMBO(lCBr, KC_LCBR),
-    // COMBO(rCBr, KC_RCBR),
-    // COMBO(lBr, KC_LBRC),
-    // COMBO(rBr, KC_RBRC),
-    // COMBO(lPrn, KC_LPRN),
-    // COMBO(rPrn, KC_RPRN),
-    // COMBO(lTag, KC_LT),
-    // COMBO(rTag, KC_GT),
-
     COMBO(alfred, Alfred),
     COMBO(buffer, Buffer),
-
+    COMBO(reset, QK_BOOT),
     COMBO(app_layer, MO(_APP)),
 };
 
@@ -332,9 +214,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,  _, _,Command, MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
 ),
 [_SYMBOL] = LAYOUT(
-    _,KC_LT, Underscore, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Minus, KC_GT,_,
-    _,At, Hash, Caret, Dollar,              KC_LPRN, Ampersand,   Dot, Comma, Quote, DQuote,_,
-    _,Percent, Grave, Tilda, BackSlash,     KC_LBRC, Pipe,   Colon, Semicolon, Plus, Equal,_,
+    _,KC_LT, Minus, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Underscore, KC_GT,_,
+    _,Tilda, BackSlash, Hash, At,      KC_LPRN, Ampersand,   Dot, Comma, Quote, DQuote,_,
+    _,Percent, Grave, Caret, Dollar,   KC_LBRC, Pipe,   Colon, Semicolon, Plus, Equal,_,
     _, _, _, _, _,  NewLine,  Enter, _,  _, _, _
 ),
 // [_SYMBOL2] = LAYOUT(
@@ -366,7 +248,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Home,         PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
     _, LeftClick, Left, Down,      Right,   RightClick,  _, Esc, Tab, PrevApp, ChangeApp,_,
     _, Lang, _,      WheelDown, WheelUp, _, _,           Shift, Alt,  Command,  _,_,
-    _,         _,    _,         _, DelWord,    Backspace, _, _, _, _, _
+    _,         _,    _,         _, Backspace,    DelWord, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
