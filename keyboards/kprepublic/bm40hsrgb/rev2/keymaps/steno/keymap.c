@@ -196,8 +196,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
 const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
 const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM reset[] =      {Command, Control, KC_T, COMBO_END};
-const uint16_t PROGMEM app_layer[] =     {MO(_SYMBOL), KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM reset[] =      {MO(_NUMBER), KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM app_layer[] =  {MO(_NUMBER), KC_W, KC_F, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(alfred, Alfred),
@@ -208,35 +208,23 @@ combo_t key_combos[COMBO_COUNT] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, Tmux,
-    Command, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, Control,
+    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
+    _, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, _,
     _RF, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH,_RT,
-    _,  _, MO(_APP),MO(_NUMBER), MO(_SYMBOL),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), MO(_NUMBER),_,_,_
+    _,  _, MO(_APP), _, MO(_NUMBER),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
+),
+[_NUMBER] = LAYOUT(
+    _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
+    _, KC_LBRC, _1, _2, _3, _, _, _5, _6, _7, KC_RBRC, _,
+    _, KC_LT, _,  _, _4, _, _, _8, _, _, KC_GT, _,
+    _,  _,  _,  _, _,  Control,  MO(_SYMBOL), _, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
-    _,KC_LT, Minus, Slash, Asterisk,   KC_LCBR, KC_RCBR,   Exlm, Question, Underscore, KC_GT,_,
-    _,Tilda, BackSlash, Hash, At,      KC_LPRN, Ampersand,   Dot, Comma, Quote, DQuote,_,
-    _,Percent, Grave, Caret, Dollar,   KC_LBRC, Pipe,   Colon, Semicolon, Plus, Equal,_,
-    _, _, _, _, _,  NewLine,  Enter, _,  _, _, _
+    _, _, Minus, Slash, Asterisk,   _, _,   Exlm, Question, Underscore, _,_,
+    _, Tilda, BackSlash, Hash, At, _, Ampersand,   Dot, Comma, Quote, DQuote,_,
+    _, Percent, Grave, Caret, Dollar, _, Pipe,   Colon, Semicolon, Plus, Equal,_,
+    _, _, _, _, _,  _,  _, _,  _, _, _
 ),
-// [_SYMBOL2] = LAYOUT(
-//     _, _, _, _, _, _, _, Pipe, Asterisk, Slash, Underscore, _,
-//     _, _, _, _, _, _, _, Ampersand, At, Hash, Caret, Dollar,
-//     _, _, _, _, _, _, _, Percent, BackSlash, Tilda, Grave, _,
-//     _, _, _, _, _,  __,  _, _, _, _, _
-// ),
-[_BRACKET] = LAYOUT(
-    _, _, _, _, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
-    _, _, _, _, _, _, _,    KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
-    _, _, _, _, _, _, _,    KC_LBRC, KC_RBRC, _, _, _,
-    _, _, _, _, _,  __,  _, _, _, _, _
-),
-// [_LAYER] = LAYOUT(
-//     _, MO(_SYMBOL2), MO(_APP), MO(_BRACKET), _, _, _, _, _, _, _, _,
-//     _, _, MO(_NUMBER), MO(_SYMBOL), _, _, _, _, _, _, _, _,
-//     _, _, _, _, _, _, _, _, _, _, _, _,
-//     _, _, _, _,    _,   __, _, Command, _, _, _
-// ),
 [_APP] = LAYOUT(
     _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
     _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
@@ -244,11 +232,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-        // WinLeft, WinRight,
-    _, Home,         PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
-    _, LeftClick, Left, Down,      Right,   RightClick,  _, Esc, Tab, PrevApp, ChangeApp,_,
-    _, Lang, _,      WheelDown, WheelUp, _, _,           Shift, Alt,  Command,  _,_,
-    _,         _,    _,         _, Backspace,    DelWord, _, _, _, _, _
+        // WinLeft, WinRight, LeftClick, RightClick
+    _, Home, PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
+    _, DelWord, Left, Down,      Right,   _,  _, Esc, Tab, PrevApp, ChangeApp,_,
+    _, Lang, WheelDown, WheelUp, Enter,  NewLine, _,           Shift, Alt,  Command,  _,_,
+    _,         _,    _,         _, Backspace,    Command, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
@@ -267,23 +255,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, MLeft, MDown, MRight,    _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE), _,
     _, _,       _,     _,     _,  _, _, _, _, _, _, _,
     _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
-),
-// [_NUMBER] = LAYOUT(
-//     _, Quit,  Close, Up, _,  _, _, _1, _2, _3, _,_,
-//     _, SelectAll, Left, Down, Right,  _, _, _4, _5, _6, _0,_,
-//     _, _,  Cut, Copy, Paste, _, _, _7, _8, _9, _,_,
-//     _,  _,  _,  _, _,   __,  _, _, _, _, _
-// ),
-// [_NUMBER] = LAYOUT(
-//     _, _, _1,  _2, _3, _, _, _1, _2, _3, _,_,
-//     _, _0, _4, _5, _6, _, _, _4, _5, _6, _0,_,
-//     _, _, _7,  _8, _9, _, _, _7, _8, _9, _,_,
-//     _,  _,  _,  _, _,   __,  Down, Up, _, _, _
-// ),
-[_NUMBER] = LAYOUT(
-    _, _, _1,  _2, _3, _, _, KC_LCBR, KC_RCBR, Up, _, _,
-    _, _0, _4, _5, _6, _, _, KC_LPRN, KC_RPRN, KC_LT, KC_GT, _,
-    _, _, _7,  _8, _9, _, _, KC_LBRC, KC_RBRC, _, _,_,
-    _,  _,  _,  _, Down,   Up,  Down, _, _, _, _
 ),
 };
