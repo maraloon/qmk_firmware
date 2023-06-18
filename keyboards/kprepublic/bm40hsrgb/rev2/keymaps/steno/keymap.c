@@ -11,6 +11,7 @@ enum layers {
   _TG,
   _MOUSE,
   _APP,
+  _APP2,
   _RECTANGLE,
 };
 
@@ -195,24 +196,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
   return true;
 }
 
-const uint16_t PROGMEM alfred[] =     {KC_H, KC_Z, KC_Q, COMBO_END};
-const uint16_t PROGMEM buffer[] =     {KC_X, KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM reset[] =      {MO(_NUMBER), KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM app_layer[] =  {MO(_NUMBER), KC_W, KC_F, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(alfred, Alfred),
-    COMBO(buffer, Buffer),
     COMBO(reset, QK_BOOT),
-    COMBO(app_layer, MO(_APP)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
     _, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, _,
-    _RF, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH,_RT,
-    _,  _, MO(_APP), _, MO(_NUMBER),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), Control,_,_,_
+    _, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH, _,
+    _,  _, _, MO(_APP), MO(_NUMBER),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), MO(_APP2),_,_,_
 ),
 [_NUMBER] = LAYOUT(
     _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
@@ -231,6 +226,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _, _,
     _, _, _, _,    _,   __, _, _, _, _, _
+),
+[_APP2] = LAYOUT(
+    _, _, _, _RF, _, _, _, _, _, _, _, _,
+    _, _, _, Buffer, Alfred, _, _, Tmux, _, _, _, _,
+    _, _, _, _, _RT, _, _, _, _, _, _, _,
+    _, _, _, _, _,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
