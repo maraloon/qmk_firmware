@@ -155,16 +155,17 @@ enum layers {
 #define WinLeft LCTL(Left)
 #define WinRight LCTL(Right)
 
-#define PrevDisplay LCAG(_P)
-#define NextDisplay LCAG(_N)
+// #define PrevDisplay LCAG(_P)
+// #define NextDisplay LCAG(_N)
+// #define TopHalf LCAG(Up)
+// #define BottomHalf LCAG(Down)
+// #define Center LCAG(_C)
 #define LeftHalf LCAG(Left)
 #define RightHalf LCAG(Right)
-#define TopHalf LCAG(Up)
-#define BottomHalf LCAG(Down)
 #define Maximixe LCAG(_M)
-#define Center LCAG(_C)
 #define WinSmaller LCAG(Minus)
 #define WinLarger LCAG(Equal)
+#define Fullscreen LCMD(LCTL(_F))
 
 #define _RF LALT(KC_1) // ф
 #define _RY LALT(KC_2) // ю
@@ -245,9 +246,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _,      _,      _,          __,    _, _, _, _, _
 ),
 [_RECTANGLE] = LAYOUT(
-    _, _,  PrevDisplay, TopHalf, NextDisplay, _,  _,  _, _, _, _, _,
-    _, _, LeftHalf, BottomHalf, RightHalf, _,  _,  _, _, _, _, _,
-    _, _,  Maximixe, Center, _, _, _, _, _, _, _, _,
+    _, _,  _,       Fullscreen, _, _,  _,  _, _, _, _, _,
+    _, _, LeftHalf, Maximixe, RightHalf, _,  _,  _, _, _, _, _,
+    _, _,  _, _, _, _, _, _, _, _, _, _,
     _,  _,  _,  WinSmaller, WinLarger,   __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
