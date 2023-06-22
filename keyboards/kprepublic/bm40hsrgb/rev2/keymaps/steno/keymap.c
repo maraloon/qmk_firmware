@@ -147,6 +147,8 @@ enum layers {
 #define Paste LCMD(_V)
 
 #define Alfred HYPR(Space)
+#define AlfredP HYPR(_P)
+#define AlfredL HYPR(_L)
 #define Buffer HYPR(_V)
 #define Tmux LCTL(_A)
 #define Smaller LCMD(Minus)
@@ -212,13 +214,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NUMBER] = LAYOUT(
     _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
     _, KC_LBRC, _1, _2, _3, _, _, _5, _6, _7, KC_RBRC, _,
-    _, KC_LT, _,  _, _4, _, _, _8, _, _, KC_GT, _,
-    _,  _,  _,  _, _,  Control,  MO(_SYMBOL), _, _, _, _
+    _, _, _,  KC_LT, _4, _, _, _8, KC_GT, _, _, _,
+    _,  _,  _,  _, _,  Command,  MO(_SYMBOL), _, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, _, Minus, Slash, Asterisk,   _, _,   Exlm, Question, Underscore, _,_,
-    _, Tilda, BackSlash, Hash, At, _, Ampersand,   Dot, Comma, Quote, DQuote,_,
-    _, Percent, Grave, Caret, Dollar, _, Pipe,   Colon, Semicolon, Plus, Equal,_,
+    _, Tilda, BackSlash, Caret, Dollar, _, Ampersand,   Dot, Comma, Quote, DQuote,_,
+    _, Percent, Grave, Hash, At, _, Pipe,   Colon, Semicolon, Plus, Equal,_,
     _, _, _, _, _,  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
@@ -228,9 +230,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, _, _, _RF, _, _, _, _, _, _, _, _,
-    _, _, _, Buffer, Alfred, _, _, Tmux, _, _, _, _,
-    _, _, _, _, _RT, _, _, _, _, _, _, _,
+    _, _, _, _RF, _RT, _, _, _, _, _, _, _,
+    _, _, _, Alfred, Buffer, _, _, Tmux, _, _, _, _,
+    _, _, _, AlfredP, AlfredL, _, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
@@ -238,7 +240,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Home, PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
     _, DelWord, Left, Down,      Right,   _,  _, Esc, Tab, PrevApp, ChangeApp,_,
     _, Lang, WheelDown, WheelUp, Enter,  NewLine, _,           Shift, Alt,  Command,  _,_,
-    _,         _,    _,         _, Backspace,    Command, _, _, _, _, _
+    _,         _,    _,         _, Backspace,    Control, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
@@ -254,8 +256,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_MOUSE] = LAYOUT(
     _, _,       _,     MUp,   _,         _, _, _, _, _, _, _,
-    _, _, MLeft, MDown, MRight,    _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE), _,
-    _, _,       _,     _,     _,  _, _, _, _, _, _, _,
-    _,       _,     _,     LeftClick, WheelUp, __, WheelDown, RightClick, _, _, _
+    _, RightClick, MLeft, MDown, MRight, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE), _,
+    _, _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _,
+    _,       _,     _,     _, _, __, _, _, _, _, _
 ),
 };
