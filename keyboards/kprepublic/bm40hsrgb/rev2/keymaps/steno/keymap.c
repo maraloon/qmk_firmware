@@ -213,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NUMBER] = LAYOUT(
     _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
-    _, KC_LBRC, _1, _2, _3, _, _, _5, _6, _7, KC_RBRC, _,
+    _, KC_LBRC, _1, _2, _3, Tmux, _, _5, _6, _7, KC_RBRC, _,
     _, _, _,  KC_LT, _4, _, _, _8, KC_GT, _, _, _,
     _,  _,  _,  _, _,  Command,  MO(_SYMBOL), _, _, _, _
 ),
@@ -225,14 +225,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_APP] = LAYOUT(
     _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
-    _, _, _, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
+    _, _, _, _, Tmux, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _, _,
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
     _, _, _, _RF, _RT, _, _, _, _, _, _, _,
-    _, _, _, Alfred, Buffer, _, _, Tmux, _, _, _, _,
-    _, _, _, AlfredP, AlfredL, _, _, _, _, _, _, _,
+    _, _, _, _, Alfred, _, _, Tmux, _, _, _, _,
+    _, _, _, AlfredP, AlfredL, Buffer, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
