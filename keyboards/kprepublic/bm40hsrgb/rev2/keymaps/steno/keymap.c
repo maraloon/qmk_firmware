@@ -177,33 +177,6 @@ enum layers {
 #define _RT LALT(KC_5) // ъ
 #define _RI LALT(KC_6) // э
 
-enum custom_keycodes {
-  CODE_ARRAY = SAFE_RANGE,
-  CODE_TO,
-  CODE_NOT_EQ,
-  CODE_START,
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  switch (keycode) {
-    case CODE_ARRAY:
-      if (record->event.pressed) { SEND_STRING(" => "); } return false;
-    case CODE_TO:
-      if (record->event.pressed) { SEND_STRING("->"); } return false;
-    case CODE_NOT_EQ:
-      if (record->event.pressed) { SEND_STRING(" !== "); } return false;
-    case CODE_START:
-      if (record->event.pressed) { SEND_STRING("<?php\n"); } return false;
-  }
-  return true;
-}
-
-const uint16_t PROGMEM reset[] =      {MO(_NUMBER), KC_R, KC_T, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-    COMBO(reset, QK_BOOT),
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
@@ -224,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _, _,  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
-    _, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
+    _, _, QK_BOOT, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
     _, _, _, _, Tmux, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
     _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _, _,
     _, _, _, _,    _,   __, _, _, _, _, _
