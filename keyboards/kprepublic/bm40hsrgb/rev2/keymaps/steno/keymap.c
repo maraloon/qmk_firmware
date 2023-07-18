@@ -174,58 +174,61 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
-    _, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, _,
-    _, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH, _,
-    _,  _, _, MO(_APP), LT(_NUMBER, Backspace),   MT(MOD_LSFT, Space),   LT(_NAVIGATION, Enter), MO(_APP2),_,_,_
+    _RI, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
+    _N, _R, _S, _T, _G, _, _, _M, _A, _E, _I, _O,
+    _RY, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _RH,
+    _, _,
+    MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
+    __,
+    LT(_SYMBOL, Space), LT(_NAVIGATION, Enter), MO(_APP2), _, _
 ),
 [_NUMBER] = LAYOUT(
-    _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
-    _, KC_LBRC, _1, _2, _3, Tmux, _, _5, _6, _7, KC_RBRC, _,
-    _, _, _,  KC_LT, _4, _, _, _8, KC_GT, _, _, _,
-    _,  _,  _,  _, _,  Command,   MO(_SYMBOL), _, _, _, _
+    _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
+    KC_LBRC, _1, _2, _3, Tmux, _, _, _, _5, _6, _7, KC_RBRC,
+    _, _,  KC_LT, _4, _, _, _, _, _8, KC_GT, _, _,
+    _,  _,  _, _,  _, __, Command, Control, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
-    _, _, Minus, Slash, Asterisk,   _, _,   Exlm, Question, Underscore, _,_,
-    _, Tilda, BackSlash, Caret, Dollar, _, Ampersand,   Dot, Comma, Quote, DQuote,_,
-    _, Percent, Grave, Hash, At, _, Pipe,   Colon, Semicolon, Plus, Equal,_,
+    _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
+    Tilda, BackSlash, Caret, Dollar, _, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
+    Percent, Grave, Hash, At, _, _, _, Pipe,   Colon, Semicolon, Plus, Equal,
     _, _, _, _, _,  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
-    _, _, QK_BOOT, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _, _,
-    _, _, _, _, Tmux, _, _, LightDec, LightInc, SoundDec, SoundInc, _,
-    _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _, _,
+    _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
+    _, _, _, Tmux, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
+    _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, _, _, _RF, _RT, _, _, _, _, _, _, _,
-    _, _, _, _, Alfred, _, _, Tmux, _, _, _, _,
-    _, _, _, AlfredP, AlfredL, Buffer, _, _, _, _, _, _,
+    _, _, _RF, _RT, _, _, _, _, _, _, _, _,
+    _, _, _, Alfred, _, _, _, _, Tmux, _, _, _,
+    _, _, AlfredP, AlfredL, Buffer, _, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
-    _, Home, PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
-    _, _, Left, Down,      Right,   _,  _, Esc, Tab, PrevApp, ChangeApp,_,
-    _, Lang, WheelDown, WheelUp, _,  NewLine, _,           Shift, Alt,  Command,  _,_,
-    _,         _,    _,         _, DelWord,    Control, _, _, _, _, _
+    Home, PgUp, Up,        PgDn,    End, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
+    _, Left, Down,      Right,   _,  _, _, _, Esc, Tab, PrevApp, ChangeApp,
+    _, WheelDown, WheelUp, Lang,  NewLine, _, _, _,           Shift, Alt,  Command,  _,
+             _,    _,         _, DelWord,    _, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
-    _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
-    _, _, SCLeft, SCDown, SCRight,   _, _,   _, _, _, _, _,
+    _, _,      SCUp,   _,         _, _, _, _,   _, _, _, _,
+    _, SCLeft, SCDown, SCRight,   _, _, _, _,   _, _, _, _,
     _, _, _,      _,      _,         _, _,   _, _, _, _, _,
     _, _, _,      _,      _,          __,    _, _, _, _, _
 ),
 [_RECTANGLE] = LAYOUT(
-    _, _,  _,       Fullscreen, _, _,  _,  _, _, _, _, _,
-    _, _, LeftHalf, Maximixe, RightHalf, _,  _,  _, _, _, _, _,
+    _,  _,       Fullscreen, _, _,  _, _, _,  _, _, _, _,
+    _, LeftHalf, Maximixe, RightHalf, _,  _, _, _,  _, _, _, _,
     _, _,  _, _, _, _, _, _, _, _, _, _,
-    _,  _,  _,  WinSmaller, WinLarger,   __, _, _, _,  _,  _
+    _,  _,  WinSmaller, WinLarger, _,   __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
-    _, _,       _,     MUp,   _,         _, _, _, _, _, _, _,
-    _, RightClick, MLeft, MDown, MRight, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE), _,
-    _, _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _,
+    _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
+    RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
+    _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _, _,
     _,       _,     _,     _, _, __, _, _, _, _, _
 ),
 };
