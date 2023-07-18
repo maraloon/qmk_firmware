@@ -158,11 +158,6 @@ enum layers {
 #define WinLeft LCTL(Left)
 #define WinRight LCTL(Right)
 
-// #define PrevDisplay LCAG(_P)
-// #define NextDisplay LCAG(_N)
-// #define TopHalf LCAG(Up)
-// #define BottomHalf LCAG(Down)
-// #define Center LCAG(_C)
 #define LeftHalf LCAG(Left)
 #define RightHalf LCAG(Right)
 #define Maximixe LCAG(_M)
@@ -182,13 +177,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _RI, _W, _F, _P, _B, _J,_L,_U, _Y, _RZ, _,
     _, _N, _R, _S, _T, _G, _M, _A, _E, _I, _O, _,
     _, _RY, _X, _C, _D, _V , _K, _H, _Z, _Q, _RH, _,
-    _,  _, _, MO(_APP), MO(_NUMBER),   MT(MOD_LSFT, Space),   MO(_NAVIGATION), MO(_APP2),_,_,_
+    _,  _, _, MO(_APP), LT(_NUMBER, Backspace),   MT(MOD_LSFT, Space),   LT(_NAVIGATION, Enter), MO(_APP2),_,_,_
 ),
 [_NUMBER] = LAYOUT(
     _, _, KC_LCBR,  _0, KC_LPRN, _, _, KC_RPRN, _9, KC_RCBR, _, _,
     _, KC_LBRC, _1, _2, _3, Tmux, _, _5, _6, _7, KC_RBRC, _,
     _, _, _,  KC_LT, _4, _, _, _8, KC_GT, _, _, _,
-    _,  _,  _,  _, _,  Command,  MO(_SYMBOL), _, _, _, _
+    _,  _,  _,  _, _,  Command,   MO(_SYMBOL), _, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, _, Minus, Slash, Asterisk,   _, _,   Exlm, Question, Underscore, _,_,
@@ -211,9 +206,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
     _, Home, PgUp, Up,        PgDn,    End, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,_,
-    _, DelWord, Left, Down,      Right,   _,  _, Esc, Tab, PrevApp, ChangeApp,_,
-    _, Lang, WheelDown, WheelUp, Enter,  NewLine, _,           Shift, Alt,  Command,  _,_,
-    _,         _,    _,         _, Backspace,    Control, _, _, _, _, _
+    _, _, Left, Down,      Right,   _,  _, Esc, Tab, PrevApp, ChangeApp,_,
+    _, Lang, WheelDown, WheelUp, _,  NewLine, _,           Shift, Alt,  Command,  _,_,
+    _,         _,    _,         _, DelWord,    Control, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _, _,      SCUp,   _,         _, _,   _, _, _, _, _,
