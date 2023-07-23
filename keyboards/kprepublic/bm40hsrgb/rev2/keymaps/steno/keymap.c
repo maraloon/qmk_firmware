@@ -90,6 +90,7 @@ enum my_keycodes {
 #define Backspace KC_BSPC
 #define Delete KC_DEL
 #define Command KC_LCMD
+#define NextWindow LCMD(KC_GRV)
 #define Lang LCMD(Space)
 #define Control KC_LCTL
 #define Alt KC_LALT
@@ -221,11 +222,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
-    LT(_SYMBOL, Esc), LT(_NAVIGATION, Enter), MO(_APP2), _, _
+    LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
 ),
 [_NUMBER] = LAYOUT(
     _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
-    KC_LBRC, _1, _2, _3, Tmux, _, _, _, _5, _6, _7, KC_RBRC,
+    KC_LBRC, _1, _2, _3, _, _, _, _, _5, _6, _7, KC_RBRC,
     _, _,  KC_LT, _4, _, _, _, _, _8, KC_GT, _, _,
     _,  _,  _, _,  _, __, _, Tab, _, _, _
 ),
@@ -250,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
     Home, PgUp, Up,        PgDn,    End, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   _,  _, _, _, CHANGE_APP, _, _, _,
+    _, Left, Down,      Right,   _,  _, _, _, CHANGE_APP, NextWindow, _, _,
     _, WheelDown, WheelUp, Lang,  NewLine, _, _, _,           Shift, Alt,  Command,  _,
              _,    _,         _, DelWord,    _, __, _, _, _, _, _
 ),
