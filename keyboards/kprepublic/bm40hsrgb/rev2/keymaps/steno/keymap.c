@@ -15,6 +15,10 @@ enum layers {
   _RECTANGLE,
 };
 
+enum my_keycodes {
+  CHANGE_APP = SAFE_RANGE
+};
+
 #undef _______
 #define _ KC_NO
 #define __ KC_NO
@@ -86,8 +90,6 @@ enum layers {
 #define Backspace KC_BSPC
 #define Delete KC_DEL
 #define Command KC_LCMD
-#define ChangeApp RSFT(RALT(KC_RCMD))
-#define PrevApp LCMD(KC_TAB)
 #define Lang LCMD(Space)
 #define Control KC_LCTL
 #define Alt KC_LALT
@@ -186,6 +188,31 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+uint16_t change_app_timer = 0;
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case CHANGE_APP:
+      if (record->event.pressed) {
+        register_code(KC_RSFT);
+        register_code(KC_RALT);
+        register_code(KC_RCMD);
+        change_app_timer = timer_read();
+      } else {
+        unregister_code(KC_RSFT);
+        unregister_code(KC_RALT);
+        unregister_code(KC_RCMD);
+        if (timer_elapsed(change_app_timer) < 100) {
+          register_code(KC_LCMD);
+          tap_code(KC_TAB);
+          unregister_code(KC_LCMD);
+        }
+      }
+      return false; // Skip all further processing of this key
+    default:
+      return true; // Process all other keycodes normally
+  }
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RI, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
@@ -223,7 +250,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
     Home, PgUp, Up,        PgDn,    End, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   _,  _, _, _, ChangeApp, PrevApp, _, _,
+    _, Left, Down,      Right,   _,  _, _, _, CHANGE_APP, _, _, _,
     _, WheelDown, WheelUp, Lang,  NewLine, _, _, _,           Shift, Alt,  Command,  _,
              _,    _,         _, DelWord,    _, __, _, _, _, _, _
 ),
