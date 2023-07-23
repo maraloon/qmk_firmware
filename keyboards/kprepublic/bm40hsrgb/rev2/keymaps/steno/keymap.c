@@ -31,10 +31,10 @@ enum layers {
 #define _L KC_L
 #define _Y KC_Y
 #define _U KC_U
-#define _A KC_A
+#define _A CTL_T(KC_A)
 #define _R KC_R
 #define _S KC_S
-#define _T KC_T
+#define _T CTL_T(KC_T)
 #define _G KC_G
 #define _M KC_M
 #define _N KC_N
@@ -44,10 +44,10 @@ enum layers {
 #define _Z KC_Z
 #define _X KC_X
 #define _C KC_C
-#define _D KC_D
+#define _D CMD_T(KC_D)
 #define _V KC_V
 #define _K KC_K
-#define _H KC_H
+#define _H CMD_T(KC_H)
 
 #define _0 KC_P0
 #define _1 KC_P1
@@ -139,18 +139,18 @@ enum layers {
 #define NewLine LSFT(Enter)
 #define DelWord LALT(Backspace)
 
-#define Quit LCMD(_Q)
-#define Close LCMD(_W)
-#define SelectAll LCMD(_A)
-#define Cut LCMD(_X)
-#define Copy LCMD(_C)
-#define Paste LCMD(_V)
+// #define Quit LCMD(_Q)
+// #define Close LCMD(_W)
+// #define SelectAll LCMD(_A)
+// #define Cut LCMD(_X)
+// #define Copy LCMD(_C)
+// #define Paste LCMD(_V)
 
 #define Alfred HYPR(Space)
 #define AlfredP HYPR(_P)
 #define AlfredL HYPR(_L)
 #define Buffer HYPR(_V)
-#define Tmux LCTL(_A)
+#define Tmux LCTL(KC_A)
 #define Smaller LCMD(Minus)
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
@@ -172,6 +172,20 @@ enum layers {
 #define _RT LALT(KC_5) // ъ
 #define _RI LALT(KC_6) // э
 
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case _T:
+        case _D:
+        case _A:
+        case _H:
+            // Do not select the hold action when another key is pressed.
+            return false;
+        default:
+            // Immediately select the hold action when another key is pressed.
+            return true;
+    }
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RI, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
@@ -180,13 +194,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
-    LT(_SYMBOL, Space), LT(_NAVIGATION, Enter), MO(_APP2), _, _
+    LT(_SYMBOL, Esc), LT(_NAVIGATION, Enter), MO(_APP2), _, _
 ),
 [_NUMBER] = LAYOUT(
     _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
     KC_LBRC, _1, _2, _3, Tmux, _, _, _, _5, _6, _7, KC_RBRC,
     _, _,  KC_LT, _4, _, _, _, _, _8, KC_GT, _, _,
-    _,  _,  _, _,  _, __, Command, Control, _, _, _
+    _,  _,  _, _,  _, __, _, _, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
@@ -209,7 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
     Home, PgUp, Up,        PgDn,    End, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   _,  _, _, _, Esc, Tab, PrevApp, ChangeApp,
+    _, Left, Down,      Right,   _,  _, _, _, ChangeApp, Tab, PrevApp, _,
     _, WheelDown, WheelUp, Lang,  NewLine, _, _, _,           Shift, Alt,  Command,  _,
              _,    _,         _, DelWord,    _, __, _, _, _, _, _
 ),
