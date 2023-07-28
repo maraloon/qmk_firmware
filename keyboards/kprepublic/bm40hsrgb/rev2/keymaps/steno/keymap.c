@@ -215,7 +215,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
     _RI, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
     _N, _R, _S, _T, _G, _, _, _M, _A, _E, _I, _O,
-    _RY, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _RH,
+    _, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
     _, _,
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
@@ -229,20 +229,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
-    Tilda, BackSlash, Caret, Dollar, _, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
-    Percent, Grave, Hash, At, _, _, _, Pipe,   Colon, Semicolon, Plus, Equal,
+    Equal, BackSlash, Caret, Dollar, Tilda, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
+    _, Percent, Hash, At, Grave, _, _, Pipe,   Colon, Semicolon, Plus, _,
     _, _, _, MO(_NUMBER), _,  _,  _, _,  _, _, _
 ),
+
 [_APP] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
-    _, _, _, Tmux, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
-    _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
+    _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
+    _, _, AlfredP, AlfredL, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
     _, _, _RF, _RT, _, _, _, _, _, _, _, _,
-    _, _RI, _RZ, Alfred, _, _, _, _, Tmux, _, _, _,
-    _, _, AlfredP, AlfredL, Buffer, _, _, _, _, _, _, _,
+    _RH, _, _, _RZ, _, _, _, _, Tmux, _, _, _,
+    _, _RY, _, _RI, _, _, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
