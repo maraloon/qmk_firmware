@@ -3,9 +3,6 @@
 enum layers {
   _ALPHA,
   _SYMBOL,
-  _SYMBOL2,
-  _BRACKET,
-  _LAYER,
   _NUMBER,
   _NAVIGATION,
   _TG,
@@ -202,7 +199,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_RSFT);
         unregister_code(KC_RALT);
         unregister_code(KC_RCMD);
-        if (timer_elapsed(change_app_timer) < 100) {
+        if (timer_elapsed(change_app_timer) < 200) {
           register_code(KC_LCMD);
           tap_code(KC_TAB);
           unregister_code(KC_LCMD);
@@ -234,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
     Tilda, BackSlash, Caret, Dollar, _, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
     Percent, Grave, Hash, At, _, _, _, Pipe,   Colon, Semicolon, Plus, Equal,
-    _, _, _, _, _,  _,  _, _,  _, _, _
+    _, _, _, MO(_NUMBER), _,  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
@@ -244,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_APP2] = LAYOUT(
     _, _, _RF, _RT, _, _, _, _, _, _, _, _,
-    _, _, _, Alfred, _, _, _, _, Tmux, _, _, _,
+    _, _RI, _RZ, Alfred, _, _, _, _, Tmux, _, _, _,
     _, _, AlfredP, AlfredL, Buffer, _, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
 ),
