@@ -225,7 +225,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
     KC_LBRC, _1, _2, _3, _, _, _, _, _5, _6, _7, KC_RBRC,
     _, _,  KC_LT, _4, _, _, _, _, _8, KC_GT, _, _,
-    _,  _,  _, _,  _, __, _, Tab, _, _, _
+    _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
@@ -233,7 +233,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Percent, Hash, At, Grave, _, _, Pipe,   Colon, Semicolon, Plus, _,
     _, _, _, MO(_NUMBER), _,  _,  _, _,  _, _, _
 ),
-
 [_APP] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
@@ -248,9 +247,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
-    Home, PgUp, Up,        PgDn,    End, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   _,  _, _, _, CHANGE_APP, NextWindow, _, _,
-    _, WheelDown, WheelUp, Lang,  NewLine, _, _, _,           Shift, Alt,  Command,  _,
+    _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
+    _, Left, Down,      Right,   Home,  _, _, _, CHANGE_APP, NextWindow, _, _,
+    _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, Alt,  Command,  _,
              _,    _,         _, DelWord,    _, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
