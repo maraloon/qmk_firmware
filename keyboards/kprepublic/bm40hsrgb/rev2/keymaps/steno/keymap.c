@@ -266,8 +266,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_MOUSE] = LAYOUT(
     _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
-    RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
+    RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, _,
     _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _, _,
-    _,       _,     _,     _, _, __, _, _, _, _, _
+    _,       _,     _,     _, _, __, _, TG(_MOUSE), _, _, _
 ),
 };
