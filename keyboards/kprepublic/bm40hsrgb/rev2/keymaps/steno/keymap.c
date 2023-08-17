@@ -138,6 +138,7 @@ enum my_keycodes {
 
 #define NewLine LSFT(Enter)
 #define DelWord LALT(Backspace)
+#define DelLine LCMD(Backspace)
 
 // #define Quit LCMD(_Q)
 // #define Close LCMD(_W)
@@ -151,6 +152,7 @@ enum my_keycodes {
 #define AlfredL HYPR(_L)
 #define Buffer HYPR(_V)
 #define Tmux LCTL(KC_A)
+#define ViW LCTL(KC_W)
 #define Smaller LCMD(Minus)
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
@@ -240,7 +242,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, _, _RF, _RT, _, _, _, _, _, _, _, _,
+    _, ViW, _RF, _RT, _, _, _, _, _, _, _, _,
     _RH, _, _, _RZ, _, _, _, _, Tmux, _, _, _,
     _, _RY, _, _RI, _, _, _, _, _, _, _, _,
     _, _, _, _, _,  __, _,  _, _, _, _
@@ -248,9 +250,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   Home,  _, _, _, CHANGE_APP, NextWindow, _, _,
-    _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, Alt,  Command,  _,
-             _,    _,         _, DelWord,    _, __, _, _, _, _, _
+    _, Left, Down,      Right,   Home,  _, _, _, CHANGE_APP, NextWindow, Alt,  Command,
+    _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
+             _,    _,         _, DelWord,    DelLine, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _,      SCUp,   _,         _, _, _, _,   _, _, _, _,
