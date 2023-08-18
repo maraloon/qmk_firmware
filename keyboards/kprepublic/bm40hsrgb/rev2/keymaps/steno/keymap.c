@@ -140,13 +140,6 @@ enum my_keycodes {
 #define DelWord LALT(Backspace)
 #define DelLine LCMD(Backspace)
 
-// #define Quit LCMD(_Q)
-// #define Close LCMD(_W)
-// #define SelectAll LCMD(_A)
-// #define Cut LCMD(_X)
-// #define Copy LCMD(_C)
-// #define Paste LCMD(_V)
-
 #define Alfred HYPR(Space)
 #define AlfredP HYPR(_P)
 #define AlfredL HYPR(_L)
