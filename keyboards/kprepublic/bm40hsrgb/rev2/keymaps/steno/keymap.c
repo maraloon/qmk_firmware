@@ -13,7 +13,9 @@ enum layers {
 };
 
 enum my_keycodes {
-  CHANGE_APP = SAFE_RANGE
+  CHANGE_APP = SAFE_RANGE,
+  CODE_ARRAY,
+  CODE_TO,
 };
 
 #undef _______
@@ -184,6 +186,10 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 uint16_t change_app_timer = 0;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case CODE_ARRAY:
+      if (record->event.pressed) { SEND_STRING(" => "); } return false;
+    case CODE_TO:
+      if (record->event.pressed) { SEND_STRING("->"); } return false;
     case CHANGE_APP:
       if (record->event.pressed) {
         register_code(KC_RSFT);
@@ -219,7 +225,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NUMBER] = LAYOUT(
     _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
     KC_LBRC, _1, _2, _3, _, _, _, _, _5, _6, _7, KC_RBRC,
-    _, _,  KC_LT, _4, _, _, _, _, _8, KC_GT, _, _,
+    _, _,  KC_LT, _4, _, _, _, CODE_ARRAY, _8, KC_GT, CODE_TO, _,
     _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
