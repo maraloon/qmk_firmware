@@ -232,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
     Equal, BackSlash, Caret, Dollar, Tilda, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
     _, Percent, Hash, At, Grave, _, _, Pipe,   Colon, Semicolon, Plus, _,
-    _, _, _, MO(_NUMBER), _,  _,  _, _,  _, _, _
+    _, _, _, MO(_NUMBER), MT(MOD_LSFT, Space),  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
     _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, ViW, _RF, _RT, _, _, _, _, _, _, _, _,
     _RH, _, _, _RZ, _, _, _, _, Tmux, _, _, _,
     _, _RY, _, _RI, _, _, _, _, _, _, _, _,
-    _, _, _, _, _,  __, _,  _, _, _, _
+    _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
         // WinLeft, WinRight, LeftClick, RightClick
