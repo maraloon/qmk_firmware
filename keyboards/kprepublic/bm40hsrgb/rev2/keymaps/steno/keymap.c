@@ -223,9 +223,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
 ),
 [_NUMBER] = LAYOUT(
-    _, KC_LCBR,  _0, KC_LPRN, _, _, _, _, KC_RPRN, _9, KC_RCBR, _,
-    KC_LBRC, _1, _2, _3, _, _, _, _, _5, _6, _7, KC_RBRC,
-    _, _,  KC_LT, _4, _, _, _, CODE_ARRAY, _8, KC_GT, CODE_TO, _,
+    /*
+     * KC_LBRC [ ] KC_RBRC
+     * KC_LPRN ( ) KC_RPRN
+     * KC_LCBR { } KC_RCBR
+     * KC_LT [ ] KC_GT
+     */
+    _, _,  KC_LPRN, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
+    _0, _1, _2, _3, _, _, _, KC_LBRC, _5, _6, _7, _9,
+    _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_ARRAY, CODE_TO, _,
     _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
