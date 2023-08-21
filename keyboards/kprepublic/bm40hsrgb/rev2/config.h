@@ -121,6 +121,9 @@
 // #define TAPPING_TERM_PER_KEY
 // #define RETRO_TAPPING
 
+// TODO: replace with QUICK_TAP_TERM
+#define TAPPING_FORCE_HOLD 0
+
 #define NO_AUTO_SHIFT_SPECIAL
 #define NO_AUTO_SHIFT_NUMERIC
 
@@ -129,7 +132,7 @@
 
 #define COMBO_TERM 30
 #define COMBO_ONLY_FROM_LAYER 0
-#define COMBO_COUNT 4
+#define COMBO_COUNT 0
 
 #define MOUSEKEY_DELAY 5
 #define MOUSEKEY_INTERVAL 16
