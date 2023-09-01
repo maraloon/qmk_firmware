@@ -152,8 +152,6 @@ enum my_keycodes {
 #define Bigger LCMD(Plus)
 #define Settings LCMD(Comma)
 #define MoveToBin LCMD(Backspace)
-#define WinLeft LCTL(Left)
-#define WinRight LCTL(Right)
 
 #define LeftHalf LCAG(Left)
 #define RightHalf LCAG(Right)
@@ -227,12 +225,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * KC_LBRC [ ] KC_RBRC
      * KC_LPRN ( ) KC_RPRN
      * KC_LCBR { } KC_RCBR
-     * KC_LT [ ] KC_GT
+     * KC_LT < > KC_GT
      */
     _, _,  KC_LPRN, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
     _0, _1, _2, _3, _, _, _, KC_LBRC, _5, _6, _7, _9,
-    _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_ARRAY, CODE_TO, _,
-    _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
+    _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_TO, CODE_ARRAY, _,
+    _,  _,  _, _,  _, __, NewLine, Tab, TG(_NUMBER), _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
@@ -247,14 +245,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, ViW, _RF, _RT, _, _, _, _, _, _, _, _,
-    _RH, _, _, _RZ, _, _, _, _, Tmux, _, _, _,
+    _, ViW, KC_LBRC, _RF, _, _, _, _, _, _, _, _,
+    _RH, _RT, KC_RBRC, _RZ, _, _, _, _, Tmux, _, _, _,
     _, _RY, _, _RI, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-        // WinLeft, WinRight, LeftClick, RightClick
-    _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
+    _, PgUp, Up,        PgDn,    _, _, _, TG(_NUMBER), TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     _, Left, Down,      Right,   Home,  _, _, _, CHANGE_APP, NextWindow, Alt,  Command,
     _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
              _,    _,         _, DelWord,    DelLine, __, _, _, _, _, _
