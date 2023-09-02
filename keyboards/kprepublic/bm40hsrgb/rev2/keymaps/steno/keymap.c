@@ -143,9 +143,12 @@ enum my_keycodes {
 #define DelLine LCMD(Backspace)
 
 #define Alfred HYPR(Space)
-#define AlfredP HYPR(_P)
-#define AlfredL HYPR(_L)
-#define Buffer HYPR(_V)
+#define AlfredP HYPR(KC_P)
+#define AlfredL HYPR(KC_L)
+#define AlfredPrev HYPR(KC_F)
+#define AlfredActions HYPR(KC_A)
+#define Buffer HYPR(KC_V)
+
 #define Tmux LCTL(KC_A)
 #define ViW LCTL(KC_W)
 #define Smaller LCMD(Minus)
@@ -239,7 +242,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, MO(_NUMBER), MT(MOD_LSFT, Space),  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
-    _, QK_BOOT, _, _, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
+    _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     _, _, AlfredP, AlfredL, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
     _, _, _, _,    _,   __, _, _, _, _, _
