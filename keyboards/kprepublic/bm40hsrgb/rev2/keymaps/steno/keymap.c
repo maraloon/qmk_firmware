@@ -215,9 +215,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _RI, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
+    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _,
     _N, _R, _S, _T, _G, _, _, _M, _A, _E, _I, _O,
-    _, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
+    _Z, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
     _, _,
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
