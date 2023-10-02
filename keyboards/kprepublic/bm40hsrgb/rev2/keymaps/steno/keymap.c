@@ -163,13 +163,6 @@ enum my_keycodes {
 #define WinLarger LCAG(Equal)
 #define Fullscreen LCMD(LCTL(_F))
 
-#define _RF LALT(KC_1) // ф
-#define _RY LALT(KC_2) // ю
-#define _RH LALT(KC_3) // ш
-#define _RZ LALT(KC_4) // щ
-#define _RT LALT(KC_5) // ъ
-#define _RI LALT(KC_6) // э
-
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case _T:
@@ -213,11 +206,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
+#define _RF LALT(KC_1)  // ф
+#define _RYA LALT(KC_2) // я
+#define _RJ LALT(KC_3)  // ж
+#define _RZ LALT(KC_4)  // з
+#define _RT LALT(KC_5)  // ъ
+#define _RE LALT(KC_6)  // э
+#define _RB LALT(KC_7)  // б
+#define _RYU LALT(KC_8)  // ю
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ALPHA] = LAYOUT(
-    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _,
+    _Q, _W, _F, _P, _B, _, _, _J, _L, _U, _Y, _RZ,
     _N, _R, _S, _T, _G, _, _, _M, _A, _E, _I, _O,
-    _Z, _X, _C, _D, _V, _, _, _K, _H, _Z, _Q, _,
+    _Z, _X, _C, _D, _V, _, _, _K, _H, _RB, _RYU, _RJ,
     _, _,
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
@@ -248,9 +250,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, ViW, KC_LBRC, _RF, _, _, _, _, _, _, _, _,
-    _RH, _RT, KC_RBRC, _RZ, _, _, _, _, Tmux, _, _, _,
-    _, _RY, _, _RI, _, _, _, _, _, _, _, _,
+    _, ViW, KC_LBRC, _, _, _, _, _, _, _, _, _,
+    _, _RT, KC_RBRC, _RF, _, _, _, _, Tmux, _, _, _,
+    _, _, _, _, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
