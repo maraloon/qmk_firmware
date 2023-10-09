@@ -2,6 +2,7 @@
 
 enum layers {
   _ALPHA,
+  _GAME,
   _SYMBOL,
   _NUMBER,
   _NAVIGATION,
@@ -225,6 +226,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     __,
     LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
 ),
+[_GAME] = LAYOUT(
+    Esc, LeftClick, _W, RightClick, _, _, _, _1, _2, _3, _4, TG(_GAME),
+    Tab, KC_A, _S, KC_D, _, _, _, _, Space, _, _I, _O,
+    _, _, _, _, Backspace, _, _, _, _, _, _, _,
+    _, _,
+    MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
+    __,
+    LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
+),
 [_NUMBER] = LAYOUT(
     /*
      * KC_LBRC [ ] KC_RBRC
@@ -257,7 +267,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NAVIGATION] = LAYOUT(
     _, PgUp, Up,        PgDn,    _, _, _, TG(_NUMBER), TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   Home,  _, _, _, CHANGE_APP, NextWindow, Alt,  Command,
+    _, Left, Down,      Right,   Home,  _, _, TG(_GAME), CHANGE_APP, NextWindow, Alt,  Command,
     _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
              _,    _,         _, DelWord,    DelLine, __, _, _, _, _, _
 ),
