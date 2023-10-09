@@ -235,7 +235,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,  KC_LPRN, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
     _0, _1, _2, _3, _, _, _, KC_LBRC, _5, _6, _7, _9,
     _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_TO, CODE_ARRAY, _,
-    _,  _,  _, _,  _, __, NewLine, Tab, TG(_NUMBER), _, _
+    _,  _,  _, TG(_NUMBER),  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
