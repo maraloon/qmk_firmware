@@ -20,15 +20,15 @@ NKRO_ENABLE = no            # Enable N-Key Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 AUDIO_ENABLE = no           # Audio output
 MUSIC_ENABLE = no
-RGB_MATRIX_ENABLE = no
+RGB_MATRIX_ENABLE = yes
 RGB_MATRIX_DRIVER = custom
 WS2812_DRIVER_REQUIRED = yes
 
-# COMMON_VPATH += $(DRIVER_PATH)/led/issi
+COMMON_VPATH += $(DRIVER_PATH)/led/issi
 SRC += is31fl3733.c
 QUANTUM_LIB_SRC += i2c_master.c
 
-LAYOUTS_HAS_RGB = no
+LAYOUTS_HAS_RGB = yes
 
 LTO_ENABLE = yes
 AUTO_SHIFT_ENABLE = no

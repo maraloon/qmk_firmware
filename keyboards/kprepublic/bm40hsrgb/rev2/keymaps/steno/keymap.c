@@ -245,7 +245,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _,  KC_LPRN, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
     _0, _1, _2, _3, _, _, _, KC_LBRC, _5, _6, _7, _9,
     _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_TO, CODE_ARRAY, _,
-    _,  _,  _, TG(_NUMBER),  _, __, NewLine, Tab, _, _, _
+    _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
@@ -260,13 +260,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, _,    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, ViW, KC_LBRC, _, _, _, _, _, _, _, _, _,
+    _, ViW, KC_LBRC, _, _, _, _, _, _, RGB_TOG, _, _,
     _, _RT, KC_RBRC, _RF, _, _, _, _, Tmux, _, _, _,
     _, _, _, _, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
-    _, PgUp, Up,        PgDn,    _, _, _, TG(_NUMBER), TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
+    _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     _, Left, Down,      Right,   Home,  _, _, TG(_GAME), CHANGE_APP, NextWindow, Alt,  Command,
     _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
              _,    _,         _, DelWord,    DelLine, __, _, _, _, _, _
@@ -284,9 +284,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,  _,  WinSmaller, WinLarger, _,   __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
-    _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
+    _,       _,     MUp,   _,         _, _, _, _, _, _, _, TG(_MOUSE),
     RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, _,
     _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _, _,
-    _,       _,     _,     _, _, __, _, TG(_MOUSE), _, _, _
+    _,       _,     _,     _, _, __, _, _, _, _, _
 ),
 };
+
+void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state);
+
+    for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+        for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+            uint8_t index = g_led_config.matrix_co[row][col];
+
+            if (index >= led_min && index < led_max && index != NO_LED) {
+
+                uint8_t status = g_led_config.matrix_co[0][5];
+                switch (layer) {
+                case _GAME:
+                    rgb_matrix_set_color(status, 0, 20, 20);
+                    break;
+                case _MOUSE:
+                    rgb_matrix_set_color(status, 20, 20, 0);
+                    break;
+                }
+
+                if (col == 5 || col == 6) {
+                    rgb_matrix_set_color(index, 0, 0, 0);
+                } else if (row == 3) {
+                    if (col == 0 || col == 1 || col == 5 || col == 10 || col == 11) {
+                        rgb_matrix_set_color(index, 0, 0, 0);
+                    } else {
+                        rgb_matrix_set_color(index, 40, 20, 0);
+                    }
+                } else {
+                    rgb_matrix_set_color(index, 40, 0, 40);
+                }
+
+            }
+        }
+    }
+}
