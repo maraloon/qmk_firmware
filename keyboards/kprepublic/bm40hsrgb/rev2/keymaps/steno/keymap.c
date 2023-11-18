@@ -153,7 +153,7 @@ enum my_keycodes {
 #define Tmux LCTL(KC_A)
 #define ViW LCTL(KC_W)
 #define Smaller LCMD(Minus)
-#define Bigger LCMD(Plus)
+#define Bigger LCMD(Equal)
 #define Settings LCMD(Comma)
 #define MoveToBin LCMD(Backspace)
 
@@ -242,9 +242,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * KC_LCBR { } KC_RCBR
      * KC_LT < > KC_GT
      */
-    _, _,  KC_LPRN, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _, _,
-    _0, _1, _2, _3, _, _, _, KC_LBRC, _5, _6, _7, _9,
-    _, KC_LT,  KC_GT, _4, _, _, _, KC_RBRC, _8, CODE_TO, CODE_ARRAY, _,
+    _, KC_LPRN,  _0, KC_RPRN, _, _, _, _, KC_LCBR, KC_RCBR, _9, _,
+    KC_LBRC, _1, _2, _3, _, _, _, _, _5, _6, _8, KC_RBRC,
+    _, KC_LT,  KC_GT, _4, _, _, _, _, _7, CODE_TO, CODE_ARRAY, _,
     _,  _,  _, _,  _, __, NewLine, Tab, _, _, _
 ),
 [_SYMBOL] = LAYOUT(
