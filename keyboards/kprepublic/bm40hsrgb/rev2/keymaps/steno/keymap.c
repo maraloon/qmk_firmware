@@ -257,7 +257,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     _, _, AlfredP, AlfredL, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
-    _, _, _, _,    _,   __, _, _, _, _, _
+    _, _, _, TG(_APP),    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
     _, ViW, KC_LBRC, _, _, _, _, _, _, RGB_TOG, _, _,
