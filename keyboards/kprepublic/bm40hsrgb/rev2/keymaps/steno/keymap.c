@@ -156,6 +156,9 @@ enum my_keycodes {
 #define Bigger LCMD(Equal)
 #define Settings LCMD(Comma)
 #define MoveToBin LCMD(Backspace)
+#define Homerow LCMD(LSFT(Space))
+#define Scroll LCMD(LSFT(KC_J))
+#define kindaVim HYPR(KC_N)
 
 #define LeftHalf LCAG(Left)
 #define RightHalf LCAG(Right)
@@ -163,6 +166,7 @@ enum my_keycodes {
 #define WinSmaller LCAG(Minus)
 #define WinLarger LCAG(Equal)
 #define Fullscreen LCMD(LCTL(_F))
+#define WezTermFs LALT(Enter)
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -261,8 +265,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_APP2] = LAYOUT(
     _, ViW, KC_LBRC, _, _, _, _, _, _, RGB_TOG, _, _,
-    _, _RT, KC_RBRC, _RF, _, _, _, _, Tmux, _, _, _,
-    _, _, _, _, _, _, _, _, _, _, _, _,
+    kindaVim, _RT, KC_RBRC, _RF, _, _, _, _, Tmux, _, _, _,
+    _, _, Scroll, Homerow, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
@@ -278,14 +282,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _,      _,      _,          __,    _, _, _, _, _
 ),
 [_RECTANGLE] = LAYOUT(
-    _,  _,       Fullscreen, _, _,  _, _, _,  _, _, _, _,
+    _,  _,       Fullscreen, WezTermFs, _,  _, _, _,  _, _, _, _,
     _, LeftHalf, Maximixe, RightHalf, _,  _, _, _,  _, _, _, _,
     _, _,  _, _, _, _, _, _, _, _, _, _,
     _,  _,  WinSmaller, WinLarger, _,   __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
-    _,       _,     MUp,   _,         _, _, _, _, _, _, _, TG(_MOUSE),
-    RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, _,
+    _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
+    RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
     _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _, _,
     _,       _,     _,     _, _, __, _, _, _, _, _
 ),
