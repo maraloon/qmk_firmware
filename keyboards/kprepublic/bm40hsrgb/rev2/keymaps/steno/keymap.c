@@ -144,11 +144,13 @@ enum my_keycodes {
 #define DelLine LCMD(Backspace)
 
 #define Alfred HYPR(Space)
-#define AlfredP HYPR(KC_P)
-#define AlfredL HYPR(KC_L)
+// #define AlfredP HYPR(KC_P)
+// #define AlfredL HYPR(KC_L)
 #define AlfredPrev HYPR(KC_F)
 #define AlfredActions HYPR(KC_A)
 #define Buffer HYPR(KC_V)
+// #define Dmenu LCTL(LCMD(KC_SPC))
+// #define Dmenu HYPR(KC_D)
 
 #define Tmux LCTL(KC_A)
 #define ViW LCTL(KC_W)
@@ -260,7 +262,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_APP] = LAYOUT(
     _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
     _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
-    _, _, AlfredP, AlfredL, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
+    _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
     _, _, _, TG(_APP),    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
@@ -273,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     _, Left, Down,      Right,   Home,  _, _, TG(_GAME), CHANGE_APP, NextWindow, Alt,  Command,
     _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
-             _,    _,         _, DelWord,    DelLine, __, _, _, _, _, _
+             _,    _,         Delete, DelWord,    DelLine, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
     _, _,      SCUp,   _,         _, _, _, _,   _, _, _, _,
