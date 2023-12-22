@@ -2,6 +2,7 @@
 
 enum layers {
   _ALPHA,
+  _PS1,
   _GAME,
   _SYMBOL,
   _NUMBER,
@@ -170,6 +171,29 @@ enum my_keycodes {
 #define Fullscreen LCMD(LCTL(_F))
 #define WezTermFs LALT(Enter)
 
+// PS1
+#define L1 KC_W
+#define L2 KC_F
+#define R2 KC_P
+#define PU KC_B
+#define R1 KC_N
+#define PL KC_R
+#define PD KC_S
+#define PR KC_T
+#define LSC KC_G
+#define LSU KC_Z
+#define Select KC_X
+#define Start KC_C
+#define RSU KC_D
+#define RSC KC_V
+#define LSL KC_J
+#define LSD KC_L
+#define LSR KC_U
+#define RSL KC_Y
+#define RSD KC_M
+#define RSR KC_A
+#define Analog KC_E
+
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case _T:
@@ -214,11 +238,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 #define _RF LALT(KC_1)  // ф
-#define _RYA LALT(KC_2) // я
+// #define _RYA LALT(KC_2) // я
 #define _RJ LALT(KC_3)  // ж
 #define _RZ LALT(KC_4)  // з
 #define _RT LALT(KC_5)  // ъ
-#define _RE LALT(KC_6)  // э
+// #define _RE LALT(KC_6)  // э
 #define _RB LALT(KC_7)  // б
 #define _RYU LALT(KC_8)  // ю
 
@@ -240,6 +264,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
     __,
     LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
+),
+[_PS1] = LAYOUT(
+    Analog, L1, Up, L2, _, _, _, _,    R2, PU, R1, _,
+    _, Left, Down, Right, _, _, _, PU, PL, PD, PR, TG(_PS1),
+    _, _, LSC, LSU, Select, _, _, Start, RSU, RSC, _, _,
+    _, _, LSL, LSD, LSR, __,        RSL, RSD, RSR, _, _
 ),
 [_NUMBER] = LAYOUT(
     /*
@@ -274,7 +304,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     _, Left, Down,      Right,   Home,  _, _, TG(_GAME), CHANGE_APP, NextWindow, Alt,  Command,
-    _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, _,  _,  _,
+    _, WheelDown, WheelUp, Lang, End, _, _, TG(_PS1),           Shift, _,  _,  _,
              _,    _,         Delete, DelWord,    DelLine, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
@@ -325,7 +355,14 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         rgb_matrix_set_color(index, 40, 20, 0);
                     }
                 } else {
-                    rgb_matrix_set_color(index, 40, 0, 40);
+                    switch (layer) {
+                    case _PS1:
+                        // Silent Hill mode
+                        rgb_matrix_set_color(index, 40, 0, 0);
+                    break;
+                    default:
+                        rgb_matrix_set_color(index, 40, 0, 40);
+                    }
                 }
 
             }
