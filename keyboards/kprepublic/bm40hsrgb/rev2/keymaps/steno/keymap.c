@@ -165,9 +165,13 @@ enum my_keycodes {
 
 #define LeftHalf LCAG(Left)
 #define RightHalf LCAG(Right)
-#define Maximixe LCAG(_M)
 #define WinSmaller LCAG(Minus)
 #define WinLarger LCAG(Equal)
+#define TopLeft LCAG(KC_4)
+#define TopRight LCAG(KC_5)
+#define BottomLeft LCAG(KC_6)
+#define BottomRight LCAG(KC_7)
+#define Maximixe LCAG(_M)
 #define Fullscreen LCMD(LCTL(_F))
 #define WezTermFs LALT(Enter)
 
@@ -314,10 +318,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _,      _,      _,          __,    _, _, _, _, _
 ),
 [_RECTANGLE] = LAYOUT(
-    _,  _,       Fullscreen, WezTermFs, _,  _, _, _,  _, _, _, _,
+    _, TopLeft,  Fullscreen, TopRight, _,  _, _, _,  _, _, _, _,
     _, LeftHalf, Maximixe, RightHalf, _,  _, _, _,  _, _, _, _,
-    _, _,  _, _, _, _, _, _, _, _, _, _,
-    _,  _,  WinSmaller, WinLarger, _,   __, _, _, _,  _,  _
+    _, BottomLeft, WezTermFs, BottomRight, _, _, _, _, _, _, _, _,
+    _,  _, _, WinSmaller, WinLarger, __, _, _, _,  _,  _
 ),
 [_MOUSE] = LAYOUT(
     _,       _,     MUp,   _,         _, _, _, _, _, _, _, _,
