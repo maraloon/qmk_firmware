@@ -135,9 +135,8 @@ enum my_keycodes {
 #define SoundDec KC_F11
 #define SoundInc KC_F12
 
-#define PrntSc1 LCAG(KC_1)
-#define PrntSc2 LCAG(KC_2)
-#define PrntSc3 LCAG(KC_3)
+#define PrntSc1 HYPR(KC_1)
+#define PrntSc2 HYPR(KC_2)
 
 #define NewLine LSFT(Enter)
 #define DelWord LALT(Backspace)
