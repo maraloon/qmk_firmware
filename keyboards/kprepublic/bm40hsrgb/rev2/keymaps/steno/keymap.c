@@ -15,8 +15,7 @@ enum layers {
 };
 
 enum my_keycodes {
-  CHANGE_APP = SAFE_RANGE,
-  CODE_ARRAY,
+  CODE_ARRAY = SAFE_RANGE,
   CODE_TO,
 };
 
@@ -145,13 +144,14 @@ enum my_keycodes {
 #define DelLine LCMD(Backspace)
 
 #define Alfred HYPR(Space)
-// #define AlfredP HYPR(KC_P)
-// #define AlfredL HYPR(KC_L)
 #define AlfredPrev HYPR(KC_F)
 #define AlfredActions HYPR(KC_A)
 #define Buffer HYPR(KC_V)
-// #define Dmenu LCTL(LCMD(KC_SPC))
-// #define Dmenu HYPR(KC_D)
+#define OpenTerm HYPR(KC_S)
+#define OpenBrowser HYPR(KC_B)
+#define OpenMpv HYPR(KC_M)
+#define OpenTg HYPR(KC_G)
+#define PrevApp LCMD(KC_TAB)
 
 #define Tmux LCTL(KC_A)
 #define ViW LCTL(KC_W)
@@ -219,23 +219,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) { SEND_STRING(" => "); } return false;
     case CODE_TO:
       if (record->event.pressed) { SEND_STRING("->"); } return false;
-    case CHANGE_APP:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-        register_code(KC_RALT);
-        register_code(KC_RCMD);
-        change_app_timer = timer_read();
-      } else {
-        unregister_code(KC_RSFT);
-        unregister_code(KC_RALT);
-        unregister_code(KC_RCMD);
-        if (timer_elapsed(change_app_timer) < 200) {
-          register_code(KC_LCMD);
-          tap_code(KC_TAB);
-          unregister_code(KC_LCMD);
-        }
-      }
-      return false; // Skip all further processing of this key
     default:
       return true; // Process all other keycodes normally
   }
@@ -300,14 +283,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, TG(_APP),    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, ViW, KC_LBRC, _, _, _, _, _, _, RGB_TOG, _, _,
-    kindaVim, _RT, KC_RBRC, _RF, _, _, _, _, Tmux, _, _, _,
+    _, ViW, OpenBrowser, OpenMpv, _, _, _, _, _, RGB_TOG, _, _,
+    kindaVim, _RT, OpenTerm, OpenTg, _RF, _, _, _, Tmux, _, _, _,
     _, _, Scroll, Homerow, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   Home,  _, _, TG(_GAME), CHANGE_APP, NextWindow, Alt,  Command,
+    _, Left, Down,      Right,   Home,  _, _, TG(_GAME), PrevApp, NextWindow, Alt,  Command,
     _, WheelDown, WheelUp, Lang, End, _, _, TG(_PS1),           Shift, _,  _,  _,
              _,    _,         Delete, DelWord,    DelLine, __, _, _, _, _, _
 ),
