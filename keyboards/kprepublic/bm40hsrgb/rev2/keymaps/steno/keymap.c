@@ -147,6 +147,7 @@ enum my_keycodes {
 #define AlfredPrev HYPR(KC_F)
 #define AlfredActions HYPR(KC_A)
 #define Buffer HYPR(KC_V)
+#define FPiP LCMD(LSFT(LALT(KC_RBRC))) // Firefox. Picture-in-Picture
 #define OpenTerm HYPR(KC_S)
 #define OpenBrowser HYPR(KC_B)
 #define OpenMpv HYPR(KC_M)
@@ -277,7 +278,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, MO(_NUMBER), MT(MOD_LSFT, Space),  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
-    _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, PrntSc3, _,
+    _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, FPiP, _,
     _, _, Buffer, Alfred, _, _, _, _, LightDec, LightInc, SoundDec, SoundInc,
     _, _, _, _, _, _, _, MoveToBin, Smaller, Bigger, Settings, _,
     _, _, _, TG(_APP),    _,   __, _, _, _, _, _
