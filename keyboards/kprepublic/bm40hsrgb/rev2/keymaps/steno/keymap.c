@@ -53,16 +53,16 @@ enum my_keycodes {
 #define _K KC_K
 #define _H CMD_T(KC_H)
 
-#define _0 KC_P0
-#define _1 KC_P1
-#define _2 KC_P2
-#define _3 KC_P3
-#define _4 KC_P4
-#define _5 KC_P5
-#define _6 KC_P6
-#define _7 KC_P7
-#define _8 KC_P8
-#define _9 KC_P9
+#define _0 KC_0
+#define _1 KC_1
+#define _2 KC_2
+#define _3 KC_3
+#define _4 KC_4
+#define _5 KC_5
+#define _6 KC_6
+#define _7 KC_7
+#define _8 KC_8
+#define _9 KC_9
 
 #define Up KC_UP
 #define Down KC_DOWN
@@ -130,10 +130,10 @@ enum my_keycodes {
 #define Caret KC_CIRC
 #define Dollar KC_DLR
 
-#define LightDec KC_F1
-#define LightInc KC_F2
-#define SoundDec KC_F11
-#define SoundInc KC_F12
+#define LightDec HYPR(KC_3)
+#define LightInc HYPR(KC_4)
+#define SoundDec HYPR(KC_5)
+#define SoundInc HYPR(KC_6)
 
 #define PrntSc1 HYPR(KC_1)
 #define PrntSc2 HYPR(KC_2)
