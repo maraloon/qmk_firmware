@@ -4,6 +4,7 @@ enum layers {
   _ALPHA,
   _PS1,
   _GAME,
+  _FN,
   _SYMBOL,
   _NUMBER,
   _NAVIGATION,
@@ -37,12 +38,12 @@ enum my_keycodes {
 #define _U KC_U
 #define _A CTL_T(KC_A)
 #define _R KC_R
-#define _S KC_S
+#define _S ALT_T(KC_S)
 #define _T CTL_T(KC_T)
 #define _G KC_G
 #define _M KC_M
 #define _N KC_N
-#define _E KC_E
+#define _E ALT_T(KC_E)
 #define _I KC_I
 #define _O KC_O
 #define _Z KC_Z
@@ -200,12 +201,27 @@ enum my_keycodes {
 #define RSR KC_A
 #define Analog KC_E
 
+#define FN1 KC_F1
+#define FN2 KC_F2
+#define FN3 KC_F3
+#define FN4 KC_F4
+#define FN5 KC_F5
+#define FN6 KC_F6
+#define FN7 KC_F7
+#define FN8 KC_F8
+#define FN9 KC_F9
+#define FN10 KC_F10
+#define FN11 KC_F11
+#define FN12 KC_F12
+
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case _T:
         case _D:
         case _A:
         case _H:
+        case _S:
+        case _E:
             // Do not select the hold action when another key is pressed.
             return false;
         default:
@@ -293,7 +309,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
     _, Left, Down,      Right,   Home,  _, _, TG(_GAME), PrevApp, NextWindow, Alt,  Command,
-    _, WheelDown, WheelUp, Lang, End, _, _, TG(_PS1),           Shift, _,  _,  _,
+    _, WheelDown, WheelUp, Lang, End, _, _, TG(_PS1),           Shift, TG(_FN),  _,  _,
              _,    _,         Delete, DelWord,    DelLine, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
@@ -313,6 +329,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RightClick, MLeft, MDown, MRight, _, _, _, _, MSpeed0, MSpeed1, MSpeed2, TG(_MOUSE),
     _, WheelUp, WheelDown, LeftClick,  _, _, _, _, _, _, _, _,
     _,       _,     _,     _, _, __, _, _, _, _, _
+),
+[_FN] = LAYOUT(
+    KC_LALT, _, FN10, _, _, _, _, _, _, FN9, _, _,
+    KC_LCTL, FN1, FN2, FN3, _, _, _, _, FN5, FN6, FN8, TG(_FN),
+    KC_LSFT, FN11, FN12, FN4, _, _, _, _, FN7, _, _, _,
+    _, _,
+    MO(_APP), LT(_NUMBER, Backspace), MT(MOD_LSFT, Space),
+    __,
+    LT(_SYMBOL, Enter), LT(_NAVIGATION, Esc), MO(_APP2), _, _
 ),
 };
 
@@ -348,6 +373,8 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     case _PS1:
                         // Silent Hill mode
                         rgb_matrix_set_color(index, 40, 0, 0);
+                    case _FN:
+                        rgb_matrix_set_color(index, 20, 20, 0);
                     break;
                     default:
                         rgb_matrix_set_color(index, 40, 0, 40);
