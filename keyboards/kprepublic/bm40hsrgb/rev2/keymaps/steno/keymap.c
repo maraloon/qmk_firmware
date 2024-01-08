@@ -175,6 +175,7 @@ enum my_keycodes {
 #define NudgeUp LCAG(KC_8)
 #define NudgeDown LCAG(KC_9)
 #define Maximixe LCAG(_M)
+#define Last LCAG(_L)
 #define Fullscreen LCMD(LCTL(_F))
 #define WezTermFs LALT(Enter)
 
@@ -290,9 +291,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_SYMBOL] = LAYOUT(
     _, Minus, Slash, Asterisk,   _, _, _, _,   Exlm, Question, Underscore, _,
-    Equal, BackSlash, Caret, Dollar, Tilda, _, _, Ampersand,   Dot, Comma, Quote, DQuote,
-    _, Percent, Hash, At, Grave, _, _, Pipe,   Colon, Semicolon, Plus, _,
-    _, _, _, MO(_NUMBER), MT(MOD_LSFT, Space),  _,  _, _,  _, _, _
+    Equal, BackSlash, Caret, Dollar, Ampersand, _, _, Tilda,   Dot, Comma, Quote, DQuote,
+    _, Percent, Hash, At, Pipe, _, _, Grave,   Colon, Semicolon, Plus, _,
+    _, _, _, _, _,  _,  _, _,  _, _, _
 ),
 [_APP] = LAYOUT(
     _, QK_BOOT, AlfredActions, AlfredPrev, _, _, _, _, PrntSc1, PrntSc2, FPiP, _,
@@ -320,7 +321,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_RECTANGLE] = LAYOUT(
     _, TopLeft,  Fullscreen, TopRight, _,  _, _, _,  _, _, _, _,
-    _, LeftHalf, Maximixe, RightHalf, NudgeUp,  _, _, _,  _, _, _, _,
+    Last, LeftHalf, Maximixe, RightHalf, NudgeUp,  _, _, _,  _, _, _, _,
     _, BottomLeft, WezTermFs, BottomRight, NudgeDown, _, _, _, _, _, _, _,
     _,  _, _, WinSmaller, WinLarger, __, _, _, _,  _,  _
 ),
