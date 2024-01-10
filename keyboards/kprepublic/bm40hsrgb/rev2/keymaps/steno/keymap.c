@@ -131,10 +131,14 @@ enum my_keycodes {
 #define Caret KC_CIRC
 #define Dollar KC_DLR
 
-#define LightDec HYPR(KC_3)
-#define LightInc HYPR(KC_4)
-#define SoundDec HYPR(KC_5)
-#define SoundInc HYPR(KC_6)
+// #define LightDec HYPR(KC_3)
+// #define LightInc HYPR(KC_4)
+// #define SoundDec HYPR(KC_5)
+// #define SoundInc HYPR(KC_6)
+#define LightDec KC_F1
+#define LightInc KC_F2
+#define SoundDec KC_F11
+#define SoundInc KC_F12
 
 #define PrntSc1 HYPR(KC_1)
 #define PrntSc2 HYPR(KC_2)
