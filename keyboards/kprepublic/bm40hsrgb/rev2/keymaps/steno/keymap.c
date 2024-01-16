@@ -306,9 +306,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, _, TG(_APP),    _,   __, _, _, _, _, _
 ),
 [_APP2] = LAYOUT(
-    _, ViW, OpenBrowser, OpenMpv, _, _, _, _, _, RGB_TOG, _, _,
-    kindaVim, _RT, OpenTerm, OpenTg, _RF, _, _, _, Tmux, _, _, _,
-    _, _, Scroll, Homerow, _, _, _, _, _, _, _, _,
+    _, ViW, _, OpenMpv, _, _, _, _, _, RGB_TOG, _, _,
+    kindaVim, _RT, OpenTerm, OpenTg, Homerow, _, _, _, Tmux, _, _, _,
+    _, _, Scroll, _RF, _, _, _, _, _, _, _, _,
     _, _, _, _, KC_LSFT,  __, _,  _, _, _, _
 ),
 [_NAVIGATION] = LAYOUT(
