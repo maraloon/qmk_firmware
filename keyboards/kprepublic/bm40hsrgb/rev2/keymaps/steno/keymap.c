@@ -313,8 +313,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 [_NAVIGATION] = LAYOUT(
     _, PgUp, Up,        PgDn,    _, _, _, _, TG(_MOUSE),       MO(_TG), MO(_RECTANGLE),   _,
-    _, Left, Down,      Right,   Home,  _, _, TG(_GAME), PrevApp, NextWindow, Alt,  Command,
-    _, WheelDown, WheelUp, Lang, End, _, _, TG(_PS1),           Shift, TG(_FN),  _,  _,
+    _, Left, Down,      Right,   Home,  _, _, _, PrevApp, NextWindow, Alt,  Command,
+    _, WheelDown, WheelUp, Lang, End, _, _, _,           Shift, TG(_FN),  _,  _,
              _,    _,         Delete, DelWord,    DelLine, __, _, _, _, _, _
 ),
 [_TG] = LAYOUT(
