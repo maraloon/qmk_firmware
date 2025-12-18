@@ -201,8 +201,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [NUM] = LAYOUT_ortho_4x12_1x2uC(
     _,     W,     _0,   _,    B,     _,              _,      _,   Left,   _9, Right,    _,
-    Tab,  _1,     _2,  _3,    _,     _,              _,      _,     _5,   _6,    _8,   Up,
-    _,     _,      _,  _4,    _,     _,              _,      _,     _7, PgUp,  PgDn,    _,
+    _,    _1,     _2,  _3,    _,     _,              _,      _,     _5,   _6,    _8,   Up,
+    _,     _,    Tab,  _4,    _,     _,              _,      _,     _7, PgUp,  PgDn,    _,
     _, _, rT, SpaceShift, rF, _, Enter, Down, _, _, _
   ),
 
