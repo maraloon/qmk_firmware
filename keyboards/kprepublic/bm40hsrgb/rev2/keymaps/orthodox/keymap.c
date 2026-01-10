@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [RTR] = LAYOUT_ortho_4x12_1x2uC(
     Q,     W,     F,     P,     B,     _,            _,     J,     L,     U,     Y, CtrlZ,
     N,     R,    St,     T,     G, _,  Compose,             M,     A,     E,     I,     O,
-    Z,     X,     C,     D,     V,     TG(RTR), TG(RTR),     K,     H,     Alt, Ctrl, Leader,
+    Z,     X,     C,     D,     V,     TG(RTR), TG(RTR),    K,     H,     Alt, Ctrl, Leader,
     _, MO(BSYM), DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
   ),
 
@@ -208,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [SYM] = LAYOUT_ortho_4x12_1x2uC(
     Star, Slash, Caret, Dollar, _, _,    _, _,  Bracket, bracket, Borrow, borrow,
-    Hash,   At, Quote, DQuote,  _, _,    _, _,  Dot,   Comma,  Array,  array,
+    Hash,   At,  DQuote, Quote, _, _,    _, _,  Dot,   Comma,  Array,  array,
     Equal, Plus,  Unds,  Minus, _, _,    _, _,  DDot,   DComm,   Quest,   Exlm,
     _, _, _, BSpace, Space, _, _, _, _, _, _
   ),
