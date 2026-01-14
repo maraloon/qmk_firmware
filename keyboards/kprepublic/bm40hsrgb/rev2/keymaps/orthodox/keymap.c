@@ -174,14 +174,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Q, W,  F_FN, P, B, _, _,         J, L, U, Y, CtrlZ,
     N, R, St, T, G,    _, Compose,   M, A_CMD, E, I, O,
     Z, X,     C, D, V, TG(RTR), TG(GRP),         K, H,     Alt, Ctrl, Leader,
-    _, MO(BSYM), DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
+    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
 ),
 
   [RTR] = LAYOUT_ortho_4x12_1x2uC(
     Q,     W,     F,     P,     B,     _,            _,     J,     L,     U,     Y, CtrlZ,
     N,     R,    St,     T,     G, _,  Compose,             M,     A,     E,     I,     O,
     Z,     X,     C,     D,     V,     TG(RTR), TG(RTR),    K,     H,     Alt, Ctrl, Leader,
-    _, MO(BSYM), DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
+    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
   ),
 
 
@@ -189,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     B,     L,     D,     W,     Z,      _,           _,     Quote, F_FN,  O,     U,     J,
     N,     R, T,     St, G,      _,         _,     Y,     H_CMD, A_CMD, E,     I,
     Q,     X,     M,     C,     V,       TG(GRP), TG(GRP),     K,     P,     Alt, Ctrl, Leader,
-    _, MO(BSYM), DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
+    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
   ),
 
   [RUS] = LAYOUT_ortho_4x12_1x2uC(
@@ -210,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Star, Slash, Caret, Dollar, _, _,    _, _,  Bracket, bracket, Borrow, borrow,
     Hash,   At,  DQuote, Quote, _, _,    _, _,  Dot,   Comma,  Array,  array,
     Equal, Plus,  Unds,  Minus, _, _,    _, _,  DDot,   DComm,   Quest,   Exlm,
-    _, _, _, BSpace, Space, _, _, _, _, _, _
+    _, _, BSpace, Space, _, _, _, _, _, _, _
   ),
 
   [BSYM] = LAYOUT_ortho_4x12_1x2uC(
@@ -517,26 +517,26 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     } else {
                         switch (layer) {
                             case RTR:
-                                rgb_matrix_set_color(index, 40, 20, 0);
+                                rgb_matrix_set_color(index, 100, 10, 0);
                                 break;
                             case GRP:
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
                             default:
-                                rgb_matrix_set_color(index, 100, 10, 0);
+                                rgb_matrix_set_color(index, 40, 20, 0);
                                 break;
                         }
                     }
                 } else {
                         switch (layer) {
                             case RTR:
-                                rgb_matrix_set_color(index, 40, 20, 0);
+                                rgb_matrix_set_color(index, 100, 10, 0);
                                 break;
                             case GRP:
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
                             default:
-                                rgb_matrix_set_color(index, 100, 10, 0);
+                                rgb_matrix_set_color(index, 40, 20, 0);
                                 break;
                         }
                 }
