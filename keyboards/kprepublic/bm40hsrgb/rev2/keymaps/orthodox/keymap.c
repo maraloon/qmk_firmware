@@ -172,7 +172,7 @@ enum my_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [ABC] = LAYOUT_ortho_4x12_1x2uC(
     Q, W,  F_FN, P, B, _, _,         J, L, U, Y, CtrlZ,
-    N, R, St, T, G,    _, Compose,   M, A_CMD, E, I, O,
+    N, R,  T,   St, G, _, Compose,   M, A_CMD, E, I, O,
     Z, X,     C, D, V, TG(RTR), TG(GRP),         K, H,     Alt, Ctrl, Leader,
     _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
 ),
@@ -187,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [GRP] = LAYOUT_ortho_4x12_1x2uC(
     B,     L,     D,     W,     Z,      _,           _,     Quote, F_FN,  O,     U,     J,
-    N,     R, T,     St, G,      _,         _,     Y,     H_CMD, A_CMD, E,     I,
+    N,     R,     T,    St,     G,      _,           _,     Y,     H_CMD, A_CMD, E,     I,
     Q,     X,     M,     C,     V,       TG(GRP), TG(GRP),     K,     P,     Alt, Ctrl, Leader,
     _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
   ),
