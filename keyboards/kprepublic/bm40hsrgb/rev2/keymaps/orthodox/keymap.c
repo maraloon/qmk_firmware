@@ -62,6 +62,7 @@ enum my_keycodes {
 #define Y KC_Y
 #define N KC_N
 #define R KC_R
+#define S_BSYM LT(BSYM, KC_S)
 #define St KC_S
 #define F KC_F
 #define T KC_T
@@ -172,9 +173,9 @@ enum my_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [ABC] = LAYOUT_ortho_4x12_1x2uC(
     Q, W,  F_FN, P, B, _, _,         J, L, U, Y, CtrlZ,
-    N, R,  T,   St, G, _, Compose,   M, A_CMD, E, I, O,
+    N, R,  T, S_BSYM, G, _, Compose, M, A_CMD, E, I, O,
     Z, X,     C, D, V, TG(RTR), TG(GRP),         K, H,     Alt, Ctrl, Leader,
-    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
+    _, _, DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
 ),
 
   [RTR] = LAYOUT_ortho_4x12_1x2uC(
@@ -184,12 +185,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
   ),
 
-
   [GRP] = LAYOUT_ortho_4x12_1x2uC(
     B,     L,     D,     W,     Z,      _,           _,     Quote, F_FN,  O,     U,     J,
-    N,     R,     T,    St,     G,      _,           _,     Y,     H_CMD, A_CMD, E,     I,
+    N,     R,     T, S_BSYM,    G,      _,           _,     Y,     H_CMD, A_CMD, E,     I,
     Q,     X,     M,     C,     V,       TG(GRP), TG(GRP),     K,     P,     Alt, Ctrl, Leader,
-    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
+    _, _, DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
   ),
 
   [RUS] = LAYOUT_ortho_4x12_1x2uC(
@@ -210,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Star, Slash, Caret, Dollar, _, _,    _, _,  Bracket, bracket, Borrow, borrow,
     Hash,   At,  DQuote, Quote, _, _,    _, _,  Dot,   Comma,  Array,  array,
     Equal, Plus,  Unds,  Minus, _, _,    _, _,  DDot,   DComm,   Quest,   Exlm,
-    _, _, BSpace, Space, _, _, _, _, _, _, _
+    _, _, BSpace, BSpace, _, _, _, _, _, _, _
   ),
 
   [BSYM] = LAYOUT_ortho_4x12_1x2uC(
