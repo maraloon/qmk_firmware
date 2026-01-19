@@ -329,6 +329,7 @@ void send_os_osm_state(uint16_t osm_key_state, bool hold) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case S_BSYM:
         case F_FN:
         case A_CMD:
         case H_CMD:
@@ -523,7 +524,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
                             default:
-                                rgb_matrix_set_color(index, 40, 20, 0);
+                                rgb_matrix_set_color(index, 80, 20, 0);
                                 break;
                         }
                     }
@@ -536,7 +537,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
                             default:
-                                rgb_matrix_set_color(index, 40, 20, 0);
+                                rgb_matrix_set_color(index, 80, 20, 0);
                                 break;
                         }
                 }
