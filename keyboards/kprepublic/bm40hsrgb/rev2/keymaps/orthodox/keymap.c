@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [GRP] = LAYOUT_ortho_4x12_1x2uC(
-    B,     L,     D,     W,     Z,      _,           _,     Quote, F_FN,  O,     U,     J,
+    B,     L,     D,     W,     Z,      _,           _,     CtrlZ, F_FN,  O,     U,     J,
     N,     R,     T, S_BSYM,    G,      _,           _,     Y,     H_CMD, A_CMD, E,     I,
     Q,     X,     M,     C,     V,       TG(GRP), TG(GRP),     K,     P,     Alt, Ctrl, Leader,
     _, _, DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
@@ -200,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [NUM] = LAYOUT_ortho_4x12_1x2uC(
-    _,     W,     _0,   _,    B,     _,              _,      _,   Left,   _9, Right,    _,
+    B,     _,     _0,   W,    _,     _,              _,      _,   Left,   _9, Right,    _,
     _,    _1,     _2,  _3,    _,     _,              _,      _,     _5,   _6,    _8,   Up,
     _,     _,    Tab,  _4,    _,     _,              _,      _,     _7, PgUp,  PgDn,    _,
     _, _, rT, SpaceShift, rF, _, Enter, Down, _, _, _
@@ -273,7 +273,7 @@ void with_mods_state_recover(void (*callback)(void)) {
 
 void switch_to_english(void) {
     SEND_STRING(SS_TAP(X_F13));
-    layer_move(ABC);
+    layer_move(GRP);
 };
 void switch_to_russian(void) {
     SEND_STRING(SS_TAP(X_F14));
@@ -518,26 +518,28 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     } else {
                         switch (layer) {
                             case RTR:
-                                rgb_matrix_set_color(index, 100, 10, 0);
-                                break;
-                            case GRP:
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
-                            default:
+                            case GRP:
                                 rgb_matrix_set_color(index, 80, 20, 0);
+                                break;
+                            default:
+                                rgb_matrix_set_color(index, 100, 10, 0);
                                 break;
                         }
                     }
                 } else {
                         switch (layer) {
                             case RTR:
-                                rgb_matrix_set_color(index, 100, 10, 0);
-                                break;
-                            case GRP:
+
                                 rgb_matrix_set_color(index, RGB_MAGENTA);
                                 break;
-                            default:
+                            case GRP:
                                 rgb_matrix_set_color(index, 80, 20, 0);
+                                break;
+                            default:
+                                rgb_matrix_set_color(index, 100, 10, 0);
+
                                 break;
                         }
                 }
