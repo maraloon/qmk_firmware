@@ -155,7 +155,7 @@ enum my_keycodes {
 #define VolUp KC_KB_VOLUME_UP
 #define VolDn KC_KB_VOLUME_DOWN
 
-#define Leader LCMD(KC_L)
+#define Leader LCMD(KC_F)
 // #define WS12 LCMD(KC_1)
 // #define WS04 LCMD(KC_0)
 
