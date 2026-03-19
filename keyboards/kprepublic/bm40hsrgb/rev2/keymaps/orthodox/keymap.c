@@ -1,42 +1,29 @@
 #include QMK_KEYBOARD_H
 
-// Represents the four states a oneshot key can be in
-typedef enum {
-    os_up_unqueued,
-    os_up_queued,
-    os_down_unused,
-    os_down_used,
-} oneshot_state;
-
 enum layers {
     ABC = 0,
-    RTR, // RetroArch
-    GRP, // Graphite
     RUS,
     NUM,
     SYM,
-    BSYM,
     FN,
+    CAL,
+    CTL,
 };
 
 enum my_keycodes {
-    CODE_ARRAY = SAFE_RANGE,
-    CODE_TO,
-    CODE_BR,
-    CODEBLOCK,
-    ARM_MICRO,
-    DELETE_LINE,
-    LANG,
+    LANG = SAFE_RANGE,
+    VOLTR,
+    SCALE,
 
     CommaS,
     DotNS,
     QuesNS,
     ExlmNS,
 
-    OS_SHFT,
-    OS_CTRL,
-    OS_ALT,
-    OS_CMD,
+    SMART_NUM, // smart num lock
+    DUMB_NUM,
+
+    RESET,
 };
 
 #undef _______
@@ -47,13 +34,11 @@ enum my_keycodes {
 #undef G
 #undef A
 #undef X
-#undef C
 
 #define Q KC_Q
 #define W KC_W
 
 #define F KC_F
-#define F_FN LT(FN, KC_F)
 #define P KC_P
 #define B KC_B
 #define J KC_J
@@ -62,21 +47,18 @@ enum my_keycodes {
 #define Y KC_Y
 #define N KC_N
 #define R KC_R
-#define S_BSYM LT(BSYM, KC_S)
 #define St KC_S
-#define F KC_F
 #define T KC_T
+
 #define G KC_G
 #define M KC_M
 #define A KC_A
-#define A_CMD MT(MOD_LGUI, KC_A)
-#define H_CMD MT(MOD_LGUI, KC_H)
 #define E KC_E
 #define I KC_I
 #define O KC_O
 #define Z KC_Z
 #define X KC_X
-#define C KC_C
+#define Ct KC_C
 #define D KC_D
 #define V KC_V
 #define K KC_K
@@ -108,18 +90,9 @@ enum my_keycodes {
 #define tag KC_GT
 
 #define Space KC_SPC
-#define BSpace KC_BSPC
-#define DelWord LCTL(KC_BSPC)
-#define Enter KC_ENT
 #define Esc KC_ESC
+#define Ent KC_ENT
 #define Tab KC_TAB
-
-#define Shift OS_SHFT
-#define SpaceShift SFT_T(KC_SPC)
-#define Ctrl OS_CTRL
-#define Cmd OS_CMD
-#define Alt OS_ALT
-#define Compose KC_RCTL
 
 #define PgDn KC_PGDN
 #define PgUp KC_PGUP
@@ -152,12 +125,8 @@ enum my_keycodes {
 #define Caret KC_CIRC
 #define Dollar KC_DLR
 
-#define VolUp KC_KB_VOLUME_UP
-#define VolDn KC_KB_VOLUME_DOWN
-
-#define Leader LCMD(KC_F)
-// #define WS12 LCMD(KC_1)
-// #define WS04 LCMD(KC_0)
+#define Lets KC_F12
+#define Type QK_LEAD
 
 #define rF KC_KP_1 // ф
 #define rJ KC_KP_2 // ж
@@ -166,333 +135,259 @@ enum my_keycodes {
 #define rH KC_KP_5 // х
 #define rU KC_KP_6 // ю
 
-#define SpaceNUM LT(NUM, KC_SPC)
-#define EscSYM LT(SYM, KC_ESC)
-#define CtrlZ LCTL(KC_Z)
+#define oS OSM(MOD_LSFT)
+#define oC OSM(MOD_LCTL)
+#define oA OSM(MOD_LALT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [ABC] = LAYOUT_ortho_4x12_1x2uC(
-    Q, W,  F_FN, P, B, _, _,         J, L, U, Y, CtrlZ,
-    N, R,  T, S_BSYM, G, _, Compose, M, A_CMD, E, I, O,
-    Z, X,     C, D, V, TG(RTR), TG(GRP),         K, H,     Alt, Ctrl, Leader,
-    _, _, DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
+    _,     B,     L,     D,    W,      Z,            _,     F,     O,     U,     J,   _,
+    oS,    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   oS,
+    _,     Q,     X,     M,    Ct,     V,            K,     P,    oA, OSL(CTL), Lets, _,
+    _, _, _,     SMART_NUM, Space,  RESET,  OSL(SYM), LANG,    _, _, _
 ),
 
-  [RTR] = LAYOUT_ortho_4x12_1x2uC(
-    Q,     W,     F,     P,     B,     _,            _,     J,     L,     U,     Y, CtrlZ,
-    N,     R,    St,     T,     G, _,  Compose,             M,     A,     E,     I,     O,
-    Z,     X,     C,     D,     V,     TG(RTR), TG(RTR),    K,     H,     Alt, Ctrl, Leader,
-    _, _, DelWord, SpaceNUM, Shift, MO(BSYM), Enter, EscSYM, LANG, _, _
-  ),
-
-  [GRP] = LAYOUT_ortho_4x12_1x2uC(
-    B,     L,     D,     W,     Z,      _,           _,     CtrlZ, F_FN,  O,     U,     J,
-    N,     R,     T, S_BSYM,    G,      _,           _,     Y,     H_CMD, A_CMD, E,     I,
-    Q,     X,     M,     C,     V,       TG(GRP), TG(GRP),     K,     P,     Alt, Ctrl, Leader,
-    _, _, DelWord, SpaceNUM, Shift, _, Enter, EscSYM, LANG, _, _
-  ),
-
   [RUS] = LAYOUT_ortho_4x12_1x2uC(
-    Q,     W,  F_FN,     P,     B,     _,            _,     J,     L,     U,     Y,    rZ,
-    N,     R,  KC_S,     T,     G,     _,            _,     M,  A_CMD,    E,     I,    rH,
-    Z,     X,     C,     D,     V,     _,            _,     K,     H,     O,    rU,    rJ,
-    _, _, rT, SpaceShift, rF, _, Enter, _, _, _, _
+    //     Э      Ц     У       К      Е             Н      Г      Ш      Й      З
+    _,     Q,     W,    F,      P,     B,            J,     L,     U,     Y,    rZ,    _,
+    //     Щ      Ы      В      А      П             Р      О      Л      Д      Х
+    rF,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    rH,  QuesNS,
+    //     Я      Ч      С      М      И             Т      Ь      Б      Ю      Ж
+    rT,    Z,     X,    Ct,     D,     V,            K,     H,     O,    rU,    rJ,  ExlmNS,
+    _, _, _,     _, Space,  OSM(MOD_LSFT),  _, _,    _, _, _
   ),
 
   [NUM] = LAYOUT_ortho_4x12_1x2uC(
-    B,     _,     _0,   W,    _,     _,              _,      _,   Left,   _9, Right,    _,
-    _,    _1,     _2,  _3,    _,     _,              _,      _,     _5,   _6,    _8,   Up,
-    _,     _,    Tab,  _4,    _,     _,              _,      _,     _7, PgUp,  PgDn,    _,
-    _, _, rT, SpaceShift, rF, _, Enter, Down, _, _, _
+    _,     _,     _,     _0,   _,    _,       _,   _,      _9,     _,    _, _,
+    _,     Left, _1,     _2,  _3,    G,       _,     _5,   _6,    _8,   Up, _,
+    _,     _,     _,    Right, _4,   _,       _,     _7, Down, OSL(CTL), _, _,
+    _, _, _,     RESET, Space,    RESET,    OSL(SYM), DUMB_NUM,    _, _, _
   ),
 
   [SYM] = LAYOUT_ortho_4x12_1x2uC(
-    Star, Slash, Caret, Dollar, _, _,    _, _,  Bracket, bracket, Borrow, borrow,
-    Hash,   At,  DQuote, Quote, _, _,    _, _,  Dot,   Comma,  Array,  array,
-    Equal, Plus,  Unds,  Minus, _, _,    _, _,  DDot,   DComm,   Quest,   Exlm,
-    _, _, BSpace, BSpace, _, _, _, _, _, _, _
+    _,     Star, Slash, Caret, Dollar, _,     _, Bracket, bracket, Borrow, borrow,  _,
+   BSlash, Hash,   At,  DQuote, Minus, Tag,   _,     Dot,   Comma,  Array,  array,  _,
+    _,     Equal, Plus,  Unds,  Quote, tag,   _,    DDot,   DComm,  Quest,   Exlm,  _,
+    _, _, _,     OSL(NUM), SMART_NUM,    RESET,    QK_LLCK, _,    _, _, _
   ),
 
-  [BSYM] = LAYOUT_ortho_4x12_1x2uC(
-    _, _, _, _, _,  _, _,  _, Amp, Pipe, Percent, BSlash,
-    _, _, _, _, _,  _, _,  _, Equal, Tag, tag, Tilda,
-    _, _, _, _, _,  _, _,  _, Grave, CODEBLOCK, CODE_BR, _,
-    _, _, _, _, _, _, TG(RTR), TG(GRP), _, _, _
+  [CTL] = LAYOUT_ortho_4x12_1x2uC(
+    _,  PgUp,  C(L),  PgDn, C(KC_BSPC), _,           _,  C(F),  C(O),  C(U),  C(J),   _,
+    C(Z), C(N), C(R), Type, KC_TAB, C(G),      C(Y),  KC_BSPC,  C(A),  C(E),  C(I),   _,
+    _,   C(Q),  C(X), Ent, Esc, C(V),     C(K),  C(P),   OSL(CAL),  oC, _, _,
+    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
+  ),
+
+  [CAL] = LAYOUT_ortho_4x12_1x2uC(
+    _, LCA(B), LCA(L), LCA(D), LCA(W),     _,            _, LCA(F), LCA(O), LCA(U), LCA(J),   _,
+    LCA(Z), LCA(N), LCA(R), LCA(T), LCA(St), LCA(G),   LCA(Y), LCA(H), LCA(A), LCA(E), LCA(I),   _,
+    _, LCA(Q), LCA(X), LCA(M), LCA(Ct), LCA(V),       LCA(K), LCA(P),   _,   _, _, _,
+    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
   ),
 
   [FN] = LAYOUT_ortho_4x12_1x2uC(
-    QK_BOOT, _, _, _, _,  _, _,  _, KC_F1, KC_F2, KC_F3, KC_F4,
-    _, _, _, _, _,  _, _,  _, KC_F5, KC_F6, KC_F7, KC_F8,
-    _, _, _, _, _,  _, _,  _, KC_F9, KC_F10, KC_F11, KC_F12,
-    _, _, _, _, _, _, TG(RTR), TG(GRP), _, _, _
+    _, KC_F1,   KC_F2,  KC_F3,  KC_F4, KC_F5,      KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10, _,
+    _, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15,    KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, _,
+    _, KC_F21, KC_F22, KC_F23, KC_F24, _,         _, _, _, _, _, _,
+    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
   ),
 
 };
 
-
-bool is_oneshot_cancel_key(uint16_t keycode) {
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case EscSYM:
-            return true;
+        case OSM(MOD_LSFT):
+            return TAPPING_TERM + 1250;
         default:
-            return false;
+            return TAPPING_TERM;
+    }
+}
+void leader_end_user(void) {
+    if (leader_sequence_two_keys(KC_H, KC_O)) {
+        SEND_STRING("~");
+    } else if (leader_sequence_two_keys(KC_P, KC_R)) {
+        SEND_STRING("%");
+    } else if (leader_sequence_two_keys(KC_G, KC_R)) {
+        SEND_STRING("`");
+    } else if (leader_sequence_two_keys(KC_C, KC_B)) {
+        SEND_STRING("```");
+    } else if (leader_sequence_three_keys(KC_A, KC_R, KC_R)) {
+        SEND_STRING("=>");
+    } else if (leader_sequence_two_keys(KC_G, KC_T)) {
+        SEND_STRING(">=");
+    } else if (leader_sequence_two_keys(KC_L, KC_T)) {
+        SEND_STRING("<=");
+    } else if (leader_sequence_two_keys(KC_E, KC_Q)) {
+        SEND_STRING("===");
+    } else if (leader_sequence_three_keys(KC_N, KC_E, KC_Q)) {
+        SEND_STRING("!==");
+    } else if (leader_sequence_two_keys(KC_A, KC_M)) {
+        SEND_STRING("&");
+    } else if (leader_sequence_two_keys(KC_P, KC_I)) {
+        SEND_STRING("|");
+    } else if (leader_sequence_two_keys(KC_A, KC_N)) {
+        SEND_STRING("&&");
+    } else if (leader_sequence_two_keys(KC_O, KC_R)) {
+        SEND_STRING("||");
+    } else if (leader_sequence_two_keys(KC_A, KC_L)) {
+        SEND_STRING("<-");
+    } else if (leader_sequence_two_keys(KC_A, KC_R)) {
+        SEND_STRING("->");
+    } else if (leader_sequence_three_keys(KC_E, KC_A, KC_H)) {
+        SEND_STRING("{");
+        SEND_STRING(SS_TAP(X_ENT));
+        SEND_STRING(SS_TAP(X_ENT));
+        SEND_STRING("}");
+        SEND_STRING(SS_TAP(X_UP));
+        SEND_STRING(SS_TAP(X_TAB));
+    } else if (leader_sequence_two_keys(KC_M, KC_M)) {
+        SEND_STRING("mara@the-witch.ru");
+    } else if (leader_sequence_two_keys(KC_M, KC_Y)) {
+        SEND_STRING("zeroly@ya.ru");
+    } else if (leader_sequence_two_keys(KC_M, KC_S)) {
+        SEND_STRING("sdvk1369@gmail.com");
+    }
+    // else if (leader_sequence_two_keys(KC_A, KC_Z)) {
+    //     // Leader, a, s => GUI+S
+    //     tap_code16(LGUI(KC_S));
+    // }
+}
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case C(KC_BSPC):
+        case KC_DEL:
+        case KC_UNDS:
+        case KC_MINS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
     }
 }
 
-bool is_oneshot_ignored_key(uint16_t keycode) {
-    switch (keycode) {
-        case LANG:
-        case EscSYM:
-        case OS_SHFT:
-        case OS_CTRL:
-        case OS_ALT:
-        case OS_CMD:
-            return true;
-        default:
-            return false;
-    }
-}
-
-oneshot_state os_shft_state = os_up_unqueued;
-oneshot_state os_ctrl_state = os_up_unqueued;
-oneshot_state os_alt_state  = os_up_unqueued;
-oneshot_state os_cmd_state  = os_up_unqueued;
-bool oneshot_tab_toggle = false;
-
-void with_mods_state_recover(void (*callback)(void)) {
-    uint8_t mod_state    = get_mods();
-    uint8_t os_mod_state = get_oneshot_mods();
-    clear_mods();
-    clear_oneshot_mods();
-
-    callback();
-
-    set_mods(mod_state);
-    set_oneshot_mods(os_mod_state);
-}
+bool          smart_num_on     = true;
+bool trackball_volume = false;
+bool trackball_scale = false;
 
 void switch_to_english(void) {
+    clear_oneshot_mods(); // In case shift is osm'ed (see DotNS, etc)
     SEND_STRING(SS_TAP(X_F13));
-    layer_move(GRP);
+    layer_move(ABC);
 };
 void switch_to_russian(void) {
     SEND_STRING(SS_TAP(X_F14));
     layer_move(RUS);
 };
 
-void send_os_alt_hold(void) {
-    SEND_STRING(SS_TAP(X_F15));
-}
-void send_os_alt_release(void) {
-    SEND_STRING(SS_TAP(X_F16));
-}
-void send_os_ctrl_hold(void) {
-    SEND_STRING(SS_TAP(X_F17));
-}
-void send_os_ctrl_release(void) {
-    SEND_STRING(SS_TAP(X_F18));
-}
-void send_os_shift_hold(void) {
-    SEND_STRING(SS_TAP(X_F22));
-}
-void send_os_shift_release(void) {
-    SEND_STRING(SS_TAP(X_F23));
-}
-
-void send_os_osm_state(uint16_t osm_key_state, bool hold) {
-    switch (osm_key_state) {
-        case KC_LALT:
-            if (hold == true) {
-                with_mods_state_recover(send_os_alt_hold);
-            } else {
-                with_mods_state_recover(send_os_alt_release);
-            }
-            break;
-        case KC_LCTL:
-            if (hold == true) {
-                with_mods_state_recover(send_os_ctrl_hold);
-            } else {
-                with_mods_state_recover(send_os_ctrl_release);
-            }
-            break;
-        case KC_LSFT:
-            if (hold == true) {
-                with_mods_state_recover(send_os_shift_hold);
-            } else {
-                with_mods_state_recover(send_os_shift_release);
-            }
-            break;
-        default:
-            break;
+void reset_kb_state(void) {
+    if (is_layer_locked(RUS)) {
+        layer_lock_off(RUS);
     }
-}
+    if (is_layer_locked(NUM)) {
+        layer_lock_off(NUM);
+    }
+    if (is_layer_locked(SYM)) {
+        layer_lock_off(SYM);
+    }
+    if (is_layer_locked(FN)) {
+        layer_lock_off(FN);
+    }
+    if (is_layer_locked(CAL)) {
+        layer_lock_off(CAL);
+    }
+    if (is_layer_locked(CTL)) {
+        layer_lock_off(CTL);
+    }
+    reset_oneshot_layer();
+    clear_oneshot_mods();
+    caps_word_off();
+    // leader_end(); // BUG: it's not for cancel leader seq
+    smart_num_on = true;
+    trackball_volume = false;
+    trackball_scale = false;
+    layer_move(ABC);
+};
 
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case S_BSYM:
-        case F_FN:
-        case A_CMD:
-        case H_CMD:
-            // Do not select the hold action when another key is pressed.
+        case LANG:
+            if (record->event.pressed) {
+                switch_to_russian();
+            } else {
+                switch_to_english();
+            }
+            return false;
+    }
+
+    if (!record->event.pressed) return true;
+    switch (keycode) {
+        case VOLTR:
+            trackball_volume = !trackball_volume;
+            return false;
+        case SCALE:
+            trackball_scale = !trackball_scale;
+            return false;
+        case CommaS:
+            SEND_STRING(", ");
+            return false;
+        case DotNS:
+            SEND_STRING(". ");
+            add_oneshot_mods(MOD_BIT(KC_LSFT));
+            return false;
+        case QuesNS:
+            SEND_STRING("? ");
+            add_oneshot_mods(MOD_BIT(KC_LSFT));
+            return false;
+        case ExlmNS:
+            SEND_STRING("! ");
+            add_oneshot_mods(MOD_BIT(KC_LSFT));
+            return false;
+        case SMART_NUM:
+            layer_lock_on(NUM);
+            return false;
+        case DUMB_NUM:
+            if (smart_num_on == false) {
+                reset_kb_state();
+            } else {
+                smart_num_on = false;
+            }
+            return false;
+        case RESET:
+            reset_kb_state();
+            return false;
+        case KC_UP:
+        case KC_DOWN:
+        case KC_LEFT:
+        case KC_RIGHT:
+        case KC_G:
+        case KC_SPC:
+        case KC_ENT:
+        case KC_ESC:
+            if (is_layer_locked(NUM) && smart_num_on) {
+                tap_code(keycode);
+                layer_lock_off(NUM);
+                layer_move(ABC);
+                return false;
+            }
+            return true;
+        case oC:
+            reset_oneshot_layer();
+            layer_move(ABC);
+            set_oneshot_mods(MOD_LCTL);
             return false;
         default:
-            // Immediately select the hold action when another key is pressed.
             return true;
     }
 }
-
-bool update_oneshot(oneshot_state *state, uint16_t mod, uint16_t trigger, uint16_t keycode, keyrecord_t *record) {
-    // State: pressed mod
-    if (keycode == trigger) {
-        // Trigger keydown
-        if (record->event.pressed) {
-            if (*state == os_up_unqueued) {
-                register_code(mod);
-                send_os_osm_state(mod, true);
-                *state = os_down_unused;
-            } else {
-                oneshot_tab_toggle = true;
-            }
-        // Trigger keyup
-        } else {
-            switch (*state) {
-                case os_down_unused:
-                    // If we didn't use the mod while trigger was held, queue it.
-                    *state = os_up_queued;
-                    break;
-                case os_down_used:
-                    // If we did use the mod while trigger was held, unregister it.
-                    *state = os_up_unqueued;
-                    unregister_code(mod);
-                    send_os_osm_state(mod, false);
-                default:
-                    break;
-            }
-        }
-    // State: pressed not mod key (a-z or else)
-    } else {
-        if (record->event.pressed) {
-            if (record->tap.count) { // Need for LT keys
-                if (is_oneshot_cancel_key(keycode) && *state != os_up_unqueued) {
-                    // Cancel oneshot on designated cancel keydown (ESC).
-                    *state = os_up_unqueued;
-                    unregister_code(mod);
-                    send_os_osm_state(mod, false);
-                    oneshot_tab_toggle = false;
-                    return false;
-                }
-            }
-        } else {
-            if (oneshot_tab_toggle == false && !is_oneshot_ignored_key(keycode)) {
-                // On non-ignored keyup, consider the oneshot used.
-                switch (*state) {
-                    case os_down_unused:
-                        *state = os_down_used;
-                        break;
-                    case os_up_queued:
-                        *state = os_up_unqueued;
-                        unregister_code(mod);
-                        send_os_osm_state(mod, false);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-    }
-    return true;
-}
-
-uint16_t change_app_timer = 0;
-bool     process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // clang-format off
-    bool result1 = update_oneshot(&os_shft_state, KC_LSFT, OS_SHFT, keycode,
-  record);
-    bool result2 = update_oneshot(&os_ctrl_state, KC_LCTL, OS_CTRL, keycode,
-  record);
-    bool result3 = update_oneshot(&os_alt_state, KC_LALT, OS_ALT, keycode,
-  record);
-    bool result4 = update_oneshot(&os_cmd_state, KC_LCMD, OS_CMD, keycode,
-  record);
-
-    if (!result1 || !result2 || !result3 || !result4) {
-        return false;
-    }
-    // clang-format on
-
-    switch (keycode) {
-        case ARM_MICRO:
-            if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_F20));
-            } else {
-                SEND_STRING(SS_TAP(X_F20));
-            }
-            return false;
-        case CODE_ARRAY:
-            if (record->event.pressed) {
-                SEND_STRING(" => ");
-            }
-            return false;
-        case CODE_TO:
-            if (record->event.pressed) {
-                SEND_STRING("->");
-            }
-            return false;
-        case CODE_BR:
-            if (record->event.pressed) {
-                SEND_STRING(" {");
-                SEND_STRING(SS_TAP(X_ENT));
-                SEND_STRING(SS_TAP(X_ENT));
-                SEND_STRING("}");
-                SEND_STRING(SS_TAP(X_UP));
-                SEND_STRING(SS_TAP(X_TAB));
-            }
-            return false;
-        case CODEBLOCK:
-            if (record->event.pressed) {
-                SEND_STRING("```");
-            }
-            return false;
-        case DELETE_LINE:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LSFT(SS_TAP(X_HOME)) SS_TAP(X_BSPC));
-            }
-            return false;
-        case CommaS:
-            if (record->event.pressed) {
-                SEND_STRING(", ");
-            }
-            return false;
-        case DotNS:
-            if (record->event.pressed) {
-                SEND_STRING(". ");
-                add_oneshot_mods(MOD_BIT(KC_LSFT));
-            }
-            return false;
-        case QuesNS:
-            if (record->event.pressed) {
-                SEND_STRING("? ");
-                add_oneshot_mods(MOD_BIT(KC_LSFT));
-            }
-            return false;
-        case ExlmNS:
-            if (record->event.pressed) {
-                SEND_STRING("! ");
-                add_oneshot_mods(MOD_BIT(KC_LSFT));
-            }
-            return false;
-        case LANG:
-            if (record->event.pressed) {
-                with_mods_state_recover(switch_to_russian);
-            } else {
-                with_mods_state_recover(switch_to_english);
-            }
-            return false;
-        default:
-            return true; // Process all other keycodes normally
-    }
-}
-
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
@@ -517,12 +412,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         rgb_matrix_set_color(index, 0, 0, 0);
                     } else {
                         switch (layer) {
-                            case RTR:
-                                rgb_matrix_set_color(index, RGB_MAGENTA);
-                                break;
-                            case GRP:
-                                rgb_matrix_set_color(index, 80, 20, 0);
-                                break;
+                            // case RTR:
+                            //     rgb_matrix_set_color(index, RGB_MAGENTA);
+                            //     break;
+                            // case GRP:
+                            //     rgb_matrix_set_color(index, 80, 20, 0);
+                            //     break;
                             default:
                                 rgb_matrix_set_color(index, 100, 10, 0);
                                 break;
@@ -530,13 +425,13 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     }
                 } else {
                         switch (layer) {
-                            case RTR:
-
-                                rgb_matrix_set_color(index, RGB_MAGENTA);
-                                break;
-                            case GRP:
-                                rgb_matrix_set_color(index, 80, 20, 0);
-                                break;
+                            // case RTR:
+                            //
+                            //     rgb_matrix_set_color(index, RGB_MAGENTA);
+                            //     break;
+                            // case GRP:
+                            //     rgb_matrix_set_color(index, 80, 20, 0);
+                            //     break;
                             default:
                                 rgb_matrix_set_color(index, 100, 10, 0);
 
