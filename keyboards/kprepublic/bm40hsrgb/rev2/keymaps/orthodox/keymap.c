@@ -5,9 +5,10 @@ enum layers {
     RUS,
     NUM,
     SYM,
+    NAV,
+    CODE,
+    TMUX,
     FN,
-    CAL,
-    CTL,
 };
 
 enum my_keycodes {
@@ -20,10 +21,46 @@ enum my_keycodes {
     QuesNS,
     ExlmNS,
 
+    oA,
+    oC,
+    oCA,
+    cA,
+    cAND,
+    cP,
+    cOR,
+    cNE,
+    cLE,
+    cLM,
+    cGE,
+    cDE,
+    cMR,
+    cSS,
+    cQQ,
+    cEE,
+    cCC,
+    cMM,
+    cLL,
+    cRR,
+    cPP,
+    cDDD,
+
+    cCode,
+    cSAA,
+    cNEE,
+    cL,
+    cE,
+    cG,
+    cEEE,
+    cTag,
+    cArr,
+    cBorrow,
+    cBorrow2,
+    cBracket,
+
     SMART_NUM, // smart num lock
     DUMB_NUM,
 
-    RESET,
+    STRES,
 };
 
 #undef _______
@@ -90,8 +127,9 @@ enum my_keycodes {
 #define tag KC_GT
 
 #define Space KC_SPC
+#define Bs KC_BSPC
 #define Esc KC_ESC
-#define Ent KC_ENT
+#define Enter KC_ENT
 #define Tab KC_TAB
 
 #define PgDn KC_PGDN
@@ -141,10 +179,10 @@ enum my_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [ABC] = LAYOUT_ortho_4x12_1x2uC(
-    _,     B,     L,     D,    W,      Z,            _,     F,     O,     U,     J,   _,
-    oS,    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   oS,
-    _,     Q,     X,     M,    Ct,     V,            K,     P,    oA, OSL(CTL), Lets, _,
-    _, _, _,     SMART_NUM, Space,  RESET,  OSL(SYM), LANG,    _, _, _
+    Tab,   B,     L,     D,    W,    Esc,            Enter, F,     O,     U,     OSL(TMUX),   OSL(CODE),
+    Bs,    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   oS,
+    _,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
+    _, _, _,     SMART_NUM, Space,  STRES,  OSL(SYM), LANG,    _, _, _
 ),
 
   [RUS] = LAYOUT_ortho_4x12_1x2uC(
@@ -158,99 +196,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [NUM] = LAYOUT_ortho_4x12_1x2uC(
-    _,     _,     _,     _0,   _,    _,       _,   _,      _9,     _,    _, _,
-    _,     Left, _1,     _2,  _3,    G,       _,     _5,   _6,    _8,   Up, _,
-    _,     _,     _,    Right, _4,   _,       _,     _7, Down, OSL(CTL), _, _,
-    _, _, _,     RESET, Space,    RESET,    OSL(SYM), DUMB_NUM,    _, _, _
+_, PgUp, Left, _0, Right, Esc,       Enter, _,   _9, _, OSL(TMUX), OSL(CODE),
+  _, _, _1, _2,      _3,  End,       _, _5, _6, _8, STRES, _,
+  _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), oC, _, _,
+    _, _, _,     STRES, Space,    STRES,    OSL(SYM), DUMB_NUM,    _, _, _
   ),
 
   [SYM] = LAYOUT_ortho_4x12_1x2uC(
-    _,     Star, Slash, Caret, Dollar, _,     _, Bracket, bracket, Borrow, borrow,  _,
-   BSlash, Hash,   At,  DQuote, Minus, Tag,   _,     Dot,   Comma,  Array,  array,  _,
-    _,     Equal, Plus,  Unds,  Quote, tag,   _,    DDot,   DComm,  Quest,   Exlm,  _,
-    _, _, _,     OSL(NUM), SMART_NUM,    RESET,    QK_LLCK, _,    _, _, _
+      _, Star, Slash, Caret, Dollar, Esc,     Enter, Bracket, bracket, Borrow, borrow,  OSL(CODE),
+    BSlash, Equal, At, Unds, Minus, Hash,     Amp, Dot,   Comma,  Array,  STRES, Pipe,
+    _,     Quest,  Exlm, DQuote, Quote, Plus,     Tilda, DDot,  DComm,  Tag, tag,  Grave,
+    _, _, _,     OSL(NUM), SMART_NUM,    STRES,    QK_LLCK, _,    _, _, _
   ),
 
-  [CTL] = LAYOUT_ortho_4x12_1x2uC(
-    _,  PgUp,  C(L),  PgDn, C(KC_BSPC), _,           _,  C(F),  C(O),  C(U),  C(J),   _,
-    C(Z), C(N), C(R), Type, KC_TAB, C(G),      C(Y),  KC_BSPC,  C(A),  C(E),  C(I),   _,
-    _,   C(Q),  C(X), Ent, Esc, C(V),     C(K),  C(P),   OSL(CAL),  oC, _, _,
-    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
+  [CODE] = LAYOUT_ortho_4x12_1x2uC(
+    _, cArr, cAND, cOR, cBracket, cQQ,    _, cLL, cRR, _, _, _,
+//  //   !=   <=   :=   >=   ++                 ...   ```
+    cCC, cNE, cLE, cDE, cGE, cPP,         _,    cDDD, cCode, _, STRES, _,
+//       --   <-   ==   ->   ''         -[]   { }       {}           <>
+    _,   cMM, cLM, cEE, cMR, cSS,       cSAA, cBorrow2, cBorrow, _, cTag, _,
+    _, _, _,     QK_LLCK, KC_BSPC,    STRES,    QK_LLCK, _,    _, _, _
   ),
 
-  [CAL] = LAYOUT_ortho_4x12_1x2uC(
-    _, LCA(B), LCA(L), LCA(D), LCA(W),     _,            _, LCA(F), LCA(O), LCA(U), LCA(J),   _,
-    LCA(Z), LCA(N), LCA(R), LCA(T), LCA(St), LCA(G),   LCA(Y), LCA(H), LCA(A), LCA(E), LCA(I),   _,
-    _, LCA(Q), LCA(X), LCA(M), LCA(Ct), LCA(V),       LCA(K), LCA(P),   _,   _, _, _,
-    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
+  [TMUX] = LAYOUT_ortho_4x12_1x2uC(
+    _, LALT(B), LALT(L), LALT(D), LALT(W),     _,            _, LALT(F), LALT(O), LALT(U), LALT(J),   _,
+    OS_LSA, LALT(N), oCA, LALT(T), LALT(St), LALT(G),   LALT(Y), LALT(H), LALT(A), LALT(E), LALT(I),   OS_LSA,
+    _, LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),       LALT(K), OSL(CODE), oCA, _, _, _,
+    _, _, _,     OSL(NUM), SMART_NUM,    STRES,    QK_LLCK, _,    _, _, _
   ),
+
 
   [FN] = LAYOUT_ortho_4x12_1x2uC(
     _, KC_F1,   KC_F2,  KC_F3,  KC_F4, KC_F5,      KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10, _,
     _, KC_F11, KC_F12, KC_F13, KC_F14, KC_F15,    KC_F16, KC_F17, KC_F18, KC_F19, KC_F20, _,
     _, KC_F21, KC_F22, KC_F23, KC_F24, _,         _, _, _, _, _, _,
-    _, _, _,     QK_LLCK, KC_BSPC,    RESET,    QK_LLCK, _,    _, _, _
+    _, _, _,     QK_LLCK, KC_BSPC,    STRES,    QK_LLCK, _,    _, _, _
   ),
 
 };
 
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    return false;
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case OSM(MOD_LSFT):
-            return TAPPING_TERM + 1250;
+            return TAPPING_TERM + 300;
         default:
             return TAPPING_TERM;
     }
-}
-void leader_end_user(void) {
-    if (leader_sequence_two_keys(KC_H, KC_O)) {
-        SEND_STRING("~");
-    } else if (leader_sequence_two_keys(KC_P, KC_R)) {
-        SEND_STRING("%");
-    } else if (leader_sequence_two_keys(KC_G, KC_R)) {
-        SEND_STRING("`");
-    } else if (leader_sequence_two_keys(KC_C, KC_B)) {
-        SEND_STRING("```");
-    } else if (leader_sequence_three_keys(KC_A, KC_R, KC_R)) {
-        SEND_STRING("=>");
-    } else if (leader_sequence_two_keys(KC_G, KC_T)) {
-        SEND_STRING(">=");
-    } else if (leader_sequence_two_keys(KC_L, KC_T)) {
-        SEND_STRING("<=");
-    } else if (leader_sequence_two_keys(KC_E, KC_Q)) {
-        SEND_STRING("===");
-    } else if (leader_sequence_three_keys(KC_N, KC_E, KC_Q)) {
-        SEND_STRING("!==");
-    } else if (leader_sequence_two_keys(KC_A, KC_M)) {
-        SEND_STRING("&");
-    } else if (leader_sequence_two_keys(KC_P, KC_I)) {
-        SEND_STRING("|");
-    } else if (leader_sequence_two_keys(KC_A, KC_N)) {
-        SEND_STRING("&&");
-    } else if (leader_sequence_two_keys(KC_O, KC_R)) {
-        SEND_STRING("||");
-    } else if (leader_sequence_two_keys(KC_A, KC_L)) {
-        SEND_STRING("<-");
-    } else if (leader_sequence_two_keys(KC_A, KC_R)) {
-        SEND_STRING("->");
-    } else if (leader_sequence_three_keys(KC_E, KC_A, KC_H)) {
-        SEND_STRING("{");
-        SEND_STRING(SS_TAP(X_ENT));
-        SEND_STRING(SS_TAP(X_ENT));
-        SEND_STRING("}");
-        SEND_STRING(SS_TAP(X_UP));
-        SEND_STRING(SS_TAP(X_TAB));
-    } else if (leader_sequence_two_keys(KC_M, KC_M)) {
-        SEND_STRING("mara@the-witch.ru");
-    } else if (leader_sequence_two_keys(KC_M, KC_Y)) {
-        SEND_STRING("zeroly@ya.ru");
-    } else if (leader_sequence_two_keys(KC_M, KC_S)) {
-        SEND_STRING("sdvk1369@gmail.com");
-    }
-    // else if (leader_sequence_two_keys(KC_A, KC_Z)) {
-    //     // Leader, a, s => GUI+S
-    //     tap_code16(LGUI(KC_S));
-    // }
 }
 
 bool caps_word_press_user(uint16_t keycode) {
@@ -262,13 +257,12 @@ bool caps_word_press_user(uint16_t keycode) {
 
         // Keycodes that continue Caps Word, without shifting.
         case KC_1 ... KC_0:
-        case KC_BSPC:
-        case C(KC_BSPC):
+        case Bs:
+        case C(Bs):
         case KC_DEL:
         case KC_UNDS:
         case KC_MINS:
             return true;
-
         default:
             return false;  // Deactivate Caps Word.
     }
@@ -301,12 +295,6 @@ void reset_kb_state(void) {
     if (is_layer_locked(FN)) {
         layer_lock_off(FN);
     }
-    if (is_layer_locked(CAL)) {
-        layer_lock_off(CAL);
-    }
-    if (is_layer_locked(CTL)) {
-        layer_lock_off(CTL);
-    }
     reset_oneshot_layer();
     clear_oneshot_mods();
     caps_word_off();
@@ -326,6 +314,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 switch_to_english();
             }
             return false;
+        case OSL(CODE):
+            if (record->event.pressed) {
+                reset_kb_state();
+                set_oneshot_layer(CODE, ONESHOT_START);
+            } else {
+                clear_oneshot_layer_state(ONESHOT_PRESSED);
+            }
+            return true;
     }
 
     if (!record->event.pressed) return true;
@@ -352,6 +348,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             add_oneshot_mods(MOD_BIT(KC_LSFT));
             return false;
         case SMART_NUM:
+            reset_kb_state();
             layer_lock_on(NUM);
             return false;
         case DUMB_NUM:
@@ -361,19 +358,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 smart_num_on = false;
             }
             return false;
-        case RESET:
+        // case OSL(SYM):
+        //     if (trackball_scale || trackball_volume) {
+        //         trackball_volume = false;
+        //         trackball_scale = false;
+        //         return false;
+        //     }
+        //     return true;
+        case Esc:
+            reset_kb_state();
+            return true;
+        case STRES:
             reset_kb_state();
             return false;
+        case KC_B:
+        case KC_W:
+        case KC_HOME:
+        case KC_END:
         case KC_UP:
         case KC_DOWN:
         case KC_LEFT:
         case KC_RIGHT:
         case KC_G:
         case KC_SPC:
-        case KC_ENT:
-        case KC_ESC:
+        case Bs:
+        case Enter:
+        // case KC_ESC:
+        case PgUp:
+        case PgDn:
             if (is_layer_locked(NUM) && smart_num_on) {
-                tap_code(keycode);
+            tap_code16(keycode);
                 layer_lock_off(NUM);
                 layer_move(ABC);
                 return false;
@@ -384,10 +398,145 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_move(ABC);
             set_oneshot_mods(MOD_LCTL);
             return false;
+        case oA:
+            reset_oneshot_layer();
+            layer_move(ABC);
+            set_oneshot_mods(MOD_LALT);
+            return false;
+        case oCA:
+            reset_oneshot_layer();
+            layer_move(ABC);
+            set_oneshot_mods(MOD_LCTL | MOD_LALT);
+            return false;
+        case cA:
+            SEND_STRING(" & ");
+            reset_kb_state();
+            return false;
+        case cAND:
+            SEND_STRING(" && ");
+            reset_kb_state();
+            return false;
+        case cP:
+            SEND_STRING(" | ");
+            reset_kb_state();
+            return false;
+        case cOR:
+            SEND_STRING(" || ");
+            reset_kb_state();
+            return false;
+        case cNE:
+            SEND_STRING(" != ");
+            reset_kb_state();
+            return false;
+        case cGE:
+            SEND_STRING(" >= ");
+            reset_kb_state();
+            return false;
+        case cLE:
+            SEND_STRING(" <= ");
+            reset_kb_state();
+            return false;
+        case cLM:
+            SEND_STRING("<-");
+            reset_kb_state();
+            return false;
+        case cDE:
+            SEND_STRING(" := ");
+            reset_kb_state();
+            return false;
+        case cMR:
+            SEND_STRING("->");
+            reset_kb_state();
+            return false;
+        case cSS:
+            SEND_STRING("''" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cQQ:
+            SEND_STRING("\"\"" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cEE:
+            SEND_STRING(" == ");
+            reset_kb_state();
+            return false;
+        case cCC:
+            SEND_STRING("// ");
+            reset_kb_state();
+            return false;
+        case cMM:
+            SEND_STRING("--");
+            reset_kb_state();
+            return false;
+        case cLL:
+            SEND_STRING("<<");
+            reset_kb_state();
+            return false;
+        case cRR:
+            SEND_STRING(">>");
+            reset_kb_state();
+            return false;
+        case cPP:
+            SEND_STRING("++");
+            reset_kb_state();
+            return false;
+        case cDDD:
+            SEND_STRING("...");
+            reset_kb_state();
+            return false;
+        case cCode:
+            SEND_STRING("```");
+            reset_kb_state();
+            return false;
+        case cSAA:
+            SEND_STRING("- [ ] ");
+            reset_kb_state();
+            return false;
+        case cNEE:
+            SEND_STRING(" !== ");
+            reset_kb_state();
+            return false;
+        case cEEE:
+            SEND_STRING(" === ");
+            reset_kb_state();
+            return false;
+        case cL:
+            SEND_STRING(" < ");
+            reset_kb_state();
+            return false;
+        case cG:
+            SEND_STRING(" > ");
+            reset_kb_state();
+            return false;
+        case cE:
+            SEND_STRING(" = ");
+            reset_kb_state();
+            return false;
+        case cTag:
+            SEND_STRING("<>" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cArr:
+            SEND_STRING("[]" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cBorrow:
+            SEND_STRING("{}" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cBracket:
+            SEND_STRING("()" SS_TAP(X_LEFT));
+            reset_kb_state();
+            return false;
+        case cBorrow2:
+            send_string_with_delay(" {\n}\eOa", 20);
+            reset_kb_state();
+            return false;
         default:
             return true;
     }
 }
+
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
