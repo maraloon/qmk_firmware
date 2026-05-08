@@ -163,7 +163,7 @@ enum my_keycodes {
 #define Caret KC_CIRC
 #define Dollar KC_DLR
 
-#define Lets KC_F12
+#define Lets LGUI(KC_F)
 #define Type QK_LEAD
 
 #define rF KC_KP_1 // ф
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Tab,   B,     L,     D,    W,    Esc,            Enter, F,     O,     U,     OSL(TMUX),   OSL(CODE),
     Bs,    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   oS,
     _,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
-    _, _, _,     SMART_NUM, Space,  STRES,  OSL(SYM), LANG,    _, _, _
+    _, _, _,     C(Bs), Space,   LANG, Z,    J, _, _, OSL(FN)
 ),
 
   [RUS] = LAYOUT_ortho_4x12_1x2uC(
@@ -199,14 +199,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 _, PgUp, Left, _0, Right, Esc,       Enter, _,   _9, _, OSL(TMUX), OSL(CODE),
   _, _, _1, _2,      _3,  End,       _, _5, _6, _8, STRES, _,
   _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), oC, _, _,
-    _, _, _,     STRES, Space,    STRES,    OSL(SYM), DUMB_NUM,    _, _, _
+    _, _, _,     STRES, DUMB_NUM,    STRES,    STRES, DUMB_NUM,    _, _, _
   ),
 
   [SYM] = LAYOUT_ortho_4x12_1x2uC(
       _, Star, Slash, Caret, Dollar, Esc,     Enter, Bracket, bracket, Borrow, borrow,  OSL(CODE),
     BSlash, Equal, At, Unds, Minus, Hash,     Amp, Dot,   Comma,  Array,  STRES, Pipe,
     _,     Quest,  Exlm, DQuote, Quote, Plus,     Tilda, DDot,  DComm,  Tag, tag,  Grave,
-    _, _, _,     OSL(NUM), SMART_NUM,    STRES,    QK_LLCK, _,    _, _, _
+    _, _, _,     _, QK_LLCK,    Percent,    STRES, _,    _, _, _
   ),
 
   [CODE] = LAYOUT_ortho_4x12_1x2uC(
@@ -215,14 +215,14 @@ _, PgUp, Left, _0, Right, Esc,       Enter, _,   _9, _, OSL(TMUX), OSL(CODE),
     cCC, cNE, cLE, cDE, cGE, cPP,         _,    cDDD, cCode, _, STRES, _,
 //       --   <-   ==   ->   ''         -[]   { }       {}           <>
     _,   cMM, cLM, cEE, cMR, cSS,       cSAA, cBorrow2, cBorrow, _, cTag, _,
-    _, _, _,     QK_LLCK, KC_BSPC,    STRES,    QK_LLCK, _,    _, _, _
+    _, _, _,     QK_LLCK, QK_LLCK,    STRES,    STRES, _,    _, _, _
   ),
 
   [TMUX] = LAYOUT_ortho_4x12_1x2uC(
     _, LALT(B), LALT(L), LALT(D), LALT(W),     _,            _, LALT(F), LALT(O), LALT(U), LALT(J),   _,
     OS_LSA, LALT(N), oCA, LALT(T), LALT(St), LALT(G),   LALT(Y), LALT(H), LALT(A), LALT(E), LALT(I),   OS_LSA,
     _, LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),       LALT(K), OSL(CODE), oCA, _, _, _,
-    _, _, _,     OSL(NUM), SMART_NUM,    STRES,    QK_LLCK, _,    _, _, _
+    _, _, _,     OSL(NUM), LALT(Space),    LALT(Z),    STRES, _,    _, _, _
   ),
 
 
