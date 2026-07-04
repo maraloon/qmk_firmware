@@ -179,8 +179,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Hash, Percent,  Slash, Esc,  Unds,  Star,        _,     _,     Enter, Comma,    oC,   OSL(FN),
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   OSL(CODE),
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
-    _,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
-                           Bs, Space, oS,            LANG, LT(NUM, Z), J
+    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
+                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Enter), J
   ),
 
   [RUS] = LAYOUT(
@@ -195,17 +195,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [NUM] = LAYOUT(
-    QK_BOOT, _, _, Esc, _, EE_CLR,           EE_CLR, _, Enter, _, _,  QK_BOOT,
-_, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
-C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, _,
+    Hash, Percent,  Slash, Esc,  Unds,  Star,        _,     _,     Enter, Comma,    oC,   OSL(FN),
+Tab, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
+C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
   _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), _, Lets, End,
-                         Bs, Space, Tab,            _, _, _
+                         Bs, Space, oS,            _, _, _
   ),
 
   [SYM] = LAYOUT(
     _, _, Tag, tag, Esc, _,                   _, _, Enter, _,   _,  _,
-_, Borrow, borrow, Caret, Dollar, Percent,    Pipe, _, _, _, _,  OSL(CODE),
-BSlash, Equal, At, Bracket, bracket, _,       Amp, Array,  array,  Star,  STRES, _,
+_, Borrow, borrow, Caret, Dollar, Percent,    _, _, _, _, _,  OSL(CODE),
+BSlash, Equal, At, Bracket, bracket, Pipe,    Amp, Array,  array,  _,  STRES, _,
  Grave, Quest,  Exlm, DQuote, Quote, Plus,    Tilda, _,  DComm,  OSL(NUM), _,  _,
                            _, QK_LLCK, _,     STRES, STRES, _
   ),
