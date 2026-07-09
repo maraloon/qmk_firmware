@@ -184,7 +184,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [RUS] = LAYOUT(
-    _,     _,     _,    _,      _,     _,            _,     _,     _,     _,     _,    _,
+    _,     _,     _,    KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, _,            _,     _,     _,     _,     _,    _,
     //     Э      Ц     У       К      Е             Н      Г      Ш      Й      З
     _,     Q,     W,    F,      P,     B,            J,     L,     U,     Y,    rZ,    _,
     //     Щ      Ы      В      А      П             Р      О      Л      Д      Х
@@ -204,7 +204,7 @@ C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
 
   [SYM] = LAYOUT(
     _, _, Tag, tag, Esc, _,                   _, _, Enter, _,   _,  _,
-_, Borrow, borrow, Caret, Dollar, Percent,    _, _, _, _, _,  OSL(CODE),
+    _, Borrow, borrow, Caret, Dollar, Percent,    _, _, _, _, _,  OSL(CODE),
 BSlash, Equal, At, Bracket, bracket, Pipe,    Amp, Array,  array,  _,  STRES, _,
  Grave, Quest,  Exlm, DQuote, Quote, Plus,    Tilda, _,  DComm,  OSL(NUM), _,  _,
                            _, QK_LLCK, _,     STRES, STRES, _
