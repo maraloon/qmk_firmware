@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
     Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
-                  Bs, oS, LT(NUM, Space),            LANG, LT(SYM, Esc), J
+                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), J
   ),
 
   [RUS] = LAYOUT(
