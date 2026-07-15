@@ -225,8 +225,8 @@ BSlash, Equal, At, Bracket, bracket, Pipe,    Amp, Array,  array,  _,  STRES, _,
     _,     LALT(Left),     LALT(Up),     LALT(Down),     LALT(Right),     _,            _,     LSA(Left),     LSA(Up),     LSA(Down),     LSA(Right),   _,
     _, LALT(B), LALT(L), LALT(D), LALT(W),     _,           oCA, OSL(CODE), LALT(O), LALT(U), LALT(J),   _,
     OS_LSA, LALT(N), LALT(R), LALT(T), LALT(St), LALT(G),   LALT(Y), LALT(H), LALT(A), LALT(E), LALT(I),   OS_LSA,
-    _, LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),        LALT(K), oCA, LALT(P), _, _, _,
-                 LALT(Z), QK_LLCK, LALT(Space),             STRES, _, _
+    LALT(Z), LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),        LALT(K), oCA, LALT(P), _, _, _,
+                 _, LALT(Space), QK_LLCK,             STRES, _, _
   ),
 
   [FN] = LAYOUT(
