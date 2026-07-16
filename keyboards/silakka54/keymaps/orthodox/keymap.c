@@ -199,15 +199,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 Tab, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
 C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
   _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), _, Lets, End,
-                         Bs, Space, oS,            _, STRES, _
+                         Bs, Space, oS,              _, STRES, _
   ),
 
   [SYM] = LAYOUT(
-    _, _, Tag, tag, _, _,                     _, _, _, _,   _,  _,
-Tilda, Borrow, borrow, Caret, Dollar, _,      _, _, _, _, _,  OSL(CODE),
-BSlash, Equal, At, Bracket, bracket, Pipe,    _, _,  _,  _,  STRES, _,
- Grave, Array,  array, DQuote, Quote, Plus,    _, DComm,  _,  OSL(NUM), _,  _,
-                          _, QK_LLCK, Amp,    STRES, STRES, _
+    _, _, Tag, tag, _, _,                            _, _, _, _,   _,  _,
+Tilda, Borrow, borrow, Caret, Dollar, _,             _, _, _, _, _,  OSL(CODE),
+BSlash, Equal, At, Bracket, bracket, Pipe,           _, _,  _,  _,  STRES, _,
+ Grave, Array,  array, DQuote, Quote, Plus,          _, DComm,  _,  OSL(NUM), _,  _,
+                          Bs, QK_LLCK, Amp,          STRES, STRES, _
   ),
 
   [CODE] = LAYOUT(
