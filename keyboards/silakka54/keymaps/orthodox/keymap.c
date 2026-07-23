@@ -176,7 +176,7 @@ enum my_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [ABC] = LAYOUT(
-    Hash, Percent,  Slash, Esc,  Unds,  Star,        Quest, Exlm,  Enter, Comma,    J,   OSL(FN),
+    Hash, Percent,  Slash, _,  Unds,  Star,          Quest, Exlm,  _, Comma,    J,   OSL(FN),
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
     Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 Tab, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
 C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
   _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), _, Lets, End,
-                         Bs, Space, oS,              _, STRES, _
+                         Bs, Space, oS,              Enter, STRES, _
   ),
 
   [SYM] = LAYOUT(
@@ -207,7 +207,7 @@ C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
 Tilda, Borrow, borrow, Caret, Dollar, _,             _, _, _, _, _,  OSL(CODE),
 BSlash, Equal, At, Bracket, bracket, Pipe,           _, _,  _,  _,  STRES, _,
  Grave, Array,  array, DQuote, Quote, Plus,          _, DComm,  _,  OSL(NUM), _,  _,
-                          Bs, QK_LLCK, Amp,          STRES, STRES, _
+                          Bs, QK_LLCK, Amp,          Enter, STRES, _
   ),
 
   [CODE] = LAYOUT(
