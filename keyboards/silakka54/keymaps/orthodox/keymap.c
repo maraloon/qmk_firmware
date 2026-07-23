@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
     Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
-                Bs, LT(NUM, Space), LANG,            Enter, LT(SYM, Esc), oS
+                  Bs, LT(NUM, Space), oS,            Enter, LT(SYM, Esc), LANG
   ),
 
   [RUS] = LAYOUT(
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     rF,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    rH,  QuesNS,
     //     Я      Ч      С      М      И             Т      Ь      Б      Ю      Ж
     rT,    Z,     X,    Ct,     D,     V,            K,     H,     O,    rU,    rJ,  ExlmNS,
-                        DotNS, Space, oS,            _, oS, oS
+                        DotNS, Space, oS,            _, _, _
   ),
 
   [NUM] = LAYOUT(
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 Tab, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
 C(Bs), DUMB_NUM, _1, _2,      _3,  _,       _, _5, _6, _8, STRES, DDot,
   _, PgDn, Up, Down, _4, _,          _, _7, OSL(SYM), _, Lets, End,
-                         Bs, Space, oS,              Enter, STRES, oS
+                         Bs, Space, oS,              Enter, STRES, _
   ),
 
   [SYM] = LAYOUT(
