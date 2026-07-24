@@ -316,7 +316,7 @@ void reset_kb_state(void) {
 
 void housekeeping_task_user(void) {
     if (enter_lang_active && !enter_lang_hold) {
-        if (timer_elapsed(enter_lang_timer) > TAPPING_TERM) {
+        if (timer_elapsed(enter_lang_timer) > 100) {
             enter_lang_hold = true;
             switch_to_russian();
         }
