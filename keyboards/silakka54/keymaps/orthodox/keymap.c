@@ -205,7 +205,7 @@ C(Bs), DUMB_NUM, _1, _2,      _3,  PgUp,       _, _5, _6, _8, STRES, DDot,
 
   [SYM] = LAYOUT(
     _, _, Tag, tag, _, _,                            _, _, _, _,   _,  _,
-Tilda, Borrow, borrow, Caret, Dollar, _,             _, _, _, _, _,  OSL(CODE),
+Tilda, Borrow, borrow, Caret, Dollar, _,             _, _, _, _, KC_LALT,  OSL(CODE),
 BSlash, Equal, At, Bracket, bracket, Pipe,           _, _,  _,  _,  STRES, _,
  Grave, Array,  array, DQuote, Quote, Plus,          _, DComm,  _,  OSL(NUM), _,  _,
                           Bs, QK_LLCK, Amp,          LANG, STRES, _
