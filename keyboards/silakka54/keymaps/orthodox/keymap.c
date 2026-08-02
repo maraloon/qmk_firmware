@@ -161,7 +161,7 @@ enum my_keycodes {
 #define Caret KC_CIRC
 #define Dollar KC_DLR
 
-#define Lets LGUI(KC_F)
+#define Win LGUI(KC_F)
 #define WinArrange LGUI(KC_W)
 
 #define rF KC_KP_1 // ф
@@ -181,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Hash, Percent,  Slash, Comma, Unds,  Star,       WinArrange, Exlm,  Enter, Quest,    J,   _,
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
-    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
+    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Win, End,
                   Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), WinArrange
   ),
 
@@ -200,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Hash, Percent,  Slash, Comma, Unds,  Star,       _, Exlm,  Enter, Quest,    _,   OSL(FN),
 Tab, PgUp, Left, _0, Right, Dot,       Minus, _,   _9, _, OSL(TMUX), OSL(CODE),
 C(Bs), DUMB_NUM, _1, _2,      _3,  PgUp,       _, _5, _6, _8, STRES, DDot,
-  _, PgDn, Up, Down, _4, PgDn,          _, _7, OSL(SYM), _, Lets, End,
+  _, PgDn, Up, Down, _4, PgDn,          _, _7, OSL(SYM), _, Win, End,
                          Bs, Space, oS,              LANG, STRES, _
   ),
 
