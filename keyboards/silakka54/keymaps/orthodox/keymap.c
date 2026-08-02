@@ -162,6 +162,7 @@ enum my_keycodes {
 #define Dollar KC_DLR
 
 #define Lets LGUI(KC_F)
+#define WinArrange LGUI(KC_W)
 
 #define rF KC_KP_1 // ф
 #define rJ KC_KP_2 // ж
@@ -177,11 +178,11 @@ enum my_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [ABC] = LAYOUT(
-    Hash, Percent,  Slash, Comma, Unds,  Star,       _, Exlm,  Enter, Quest,    _,   _,
+    Hash, Percent,  Slash, Comma, Unds,  Star,       WinArrange, Exlm,  Enter, Quest,    J,   _,
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
  C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
     Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Lets, End,
-                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), J
+                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), WinArrange
   ),
 
   [RUS] = LAYOUT(
