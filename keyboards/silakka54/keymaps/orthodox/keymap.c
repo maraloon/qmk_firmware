@@ -278,7 +278,7 @@ bool caps_word_press_user(uint16_t keycode) {
 }
 
 bool smart_num_on = true;
-bool number_not_pressed = true;
+bool number_pressed = false;
 
 void switch_to_english(void) {
     clear_oneshot_mods(); // In case shift is osm'ed (see DotNS, etc)
@@ -307,6 +307,7 @@ void reset_kb_state(void) {
     clear_oneshot_mods();
     caps_word_off();
     smart_num_on = true;
+    number_pressed = false;
     layer_move(ABC);
 };
 
@@ -383,8 +384,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_RIGHT:
             if (is_layer_locked(NUM) && smart_num_on) {
                 tap_code16(keycode);
-                if (!number_not_pressed) {
-                    number_not_pressed = true;
+                if (number_pressed) {
+                    number_pressed = false;
                     layer_lock_off(NUM);
                     layer_move(ABC);
                 }
@@ -401,8 +402,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_7:
         case KC_8:
         case KC_9:
-            if (is_layer_locked(NUM) && smart_num_on && number_not_pressed) {
-                number_not_pressed = false;
+            number_pressed = true;
+            if (is_layer_locked(NUM) && smart_num_on && !number_pressed) {
+                number_pressed = true;
                 tap_code16(keycode);
                 return false;
             }
