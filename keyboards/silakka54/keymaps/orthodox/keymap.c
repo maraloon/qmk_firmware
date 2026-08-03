@@ -12,7 +12,6 @@ enum charybdis_keymap_layers {
 
 enum my_keycodes {
     LANG = SAFE_RANGE,
-    ENTER_LANG,
 
     CommaS,
     DotNS,
@@ -281,10 +280,6 @@ bool caps_word_press_user(uint16_t keycode) {
 bool smart_num_on = true;
 bool number_not_pressed = true;
 
-static uint16_t enter_lang_timer;
-static bool     enter_lang_active = false;
-static bool     enter_lang_hold   = false;
-
 void switch_to_english(void) {
     clear_oneshot_mods(); // In case shift is osm'ed (see DotNS, etc)
     SEND_STRING(SS_TAP(X_F13));
@@ -315,33 +310,8 @@ void reset_kb_state(void) {
     layer_move(ABC);
 };
 
-void housekeeping_task_user(void) {
-    if (enter_lang_active && !enter_lang_hold) {
-        if (timer_elapsed(enter_lang_timer) > 100) {
-            enter_lang_hold = true;
-            switch_to_russian();
-        }
-    }
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case ENTER_LANG:
-            if (record->event.pressed) {
-                enter_lang_timer    = timer_read();
-                enter_lang_active   = true;
-                enter_lang_hold     = false;
-            } else {
-                if (enter_lang_active) {
-                    if (!enter_lang_hold) {
-                        tap_code16(KC_ENT);
-                    } else {
-                        switch_to_english();
-                    }
-                    enter_lang_active = false;
-                }
-            }
-            return false;
         case LANG:
             if (record->event.pressed) {
                 switch_to_russian();
@@ -357,11 +327,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 clear_oneshot_layer_state(ONESHOT_PRESSED);
             }
             return true;
-    }
-
-    if (enter_lang_active && !enter_lang_hold && keycode != ENTER_LANG && record->event.pressed) {
-        tap_code16(KC_ENT);
-        enter_lang_active = false;
     }
 
     if (!record->event.pressed) return true;
