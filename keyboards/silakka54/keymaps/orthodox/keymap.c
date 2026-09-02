@@ -177,38 +177,38 @@ enum my_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [ABC] = LAYOUT(
-    Hash, Percent,  Slash, Comma, Unds,  Star,       _, Exlm,  Enter, Quest,    _,   End,
+    Hash, Percent, Slash, Unds, Comma, Star,         DUMB_NUM, Exlm, Enter, Quest, J, End,
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
- C(Bs),    N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
-    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Win, Lets,
+    C(Bs), N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
+    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Win, _,
                   Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), J
   ),
 
   [RUS] = LAYOUT(
     _,     _,     _,    KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, _,            _,     _,     _,     _,     _,    _,
     //     Э      Ц     У       К      Е             Н      Г      Ш      Й      З
-    _,     Q,     W,    F,      P,     B,            J,     L,     U,     Y,    rZ,    _,
+   rT,     Q,     W,    F,      P,     B,            J,     L,     U,     Y,    rZ,    _,
     //     Щ      Ы      В      А      П             Р      О      Л      Д      Х
-    rF,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    rH,  QuesNS,
+CommaS,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    rH,  QuesNS,
     //     Я      Ч      С      М      И             Т      Ь      Б      Ю      Ж
-    rT,    Z,     X,    Ct,     D,     V,            K,     H,     O,    rU,    rJ,  ExlmNS,
-                        DotNS, Space, oS,            _, _, _
+ DotNS,    Z,     X,    Ct,     D,     V,            K,     H,     O,    rU,    rJ,  ExlmNS,
+                           rF, Space, oS,            _, _, _
   ),
 
   [NUM] = LAYOUT(
-    Hash, Percent,  Slash, Comma, Unds,  Star,     _, Exlm,  Enter, Quest,    _,   OSL(FN),
-Tab, Left, Up, _0, Down, Dot,                      Minus, _, _9, _, OSL(TMUX), OSL(CODE),
-C(Bs), DUMB_NUM, _1, _2,      _3,  Right,              _, _5, _6, _8, Right, DDot,
-  _, Left, PgUp, PgDn, _4, STRES,                         _, _7, OSL(SYM), _, Win, End,
-                         Bs, Space, oS,            Left, STRES, STRES
+    Hash, Percent,  Slash, _, Unds,  Star,           _, Exlm, Enter, Quest, _, OSL(FN),
+    Tab, _, Left, _0, Right, Dot,                    Minus, _, _9, _, OSL(TMUX), oC,
+    C(Bs), DUMB_NUM, _1, _2, _3, DUMB_NUM,           STRES, _5, _6, _8, STRES, DDot,
+    _, Left, Up, Down, _4, Right,                    _, _7, OSL(SYM), _, Win, End,
+                           Bs, Space, oS,            _, Esc, STRES
   ),
 
   [SYM] = LAYOUT(
-    _, _, Tag, tag, _, _,                            _, _, _, _,   _,  _,
-Tilda, Borrow, borrow, Caret, Dollar, _,             _, _, _, _, KC_LALT,  OSL(CODE),
-BSlash, Equal, At, Bracket, bracket, Pipe,           _, _,  _,  _,  STRES, _,
- Grave, Array,  array, DQuote, Quote, Plus,          _, DComm,  _,  OSL(NUM), _,  _,
-                          Bs, QK_LLCK, Amp,          LANG, STRES, _
+    _, BSlash, Tag, tag, _, _,                       _, Exlm,  Enter, Quest,   _,  _,
+Tilda, Borrow, borrow, Caret, Dollar, Amp,           _, _, _, _, KC_LALT,  OSL(CODE),
+DComm, Equal, At, Up, Down, Pipe,                    STRES, _, _,  _,  STRES, _,
+Grave, Array, array, Bracket, bracket, Plus,         _, Quote, DQuote,  OSL(NUM), _,  _,
+                            Bs, PgDn, PgUp,          LANG, Esc, QK_LLCK
   ),
 
   [CODE] = LAYOUT(
@@ -224,9 +224,9 @@ BSlash, Equal, At, Bracket, bracket, Pipe,           _, _,  _,  _,  STRES, _,
 
   [TMUX] = LAYOUT(
     _,     LALT(Left),     LALT(Up),     LALT(Down),     LALT(Right),     _,            _,     LSA(Left),     LSA(Up),     LSA(Down),     LSA(Right),   _,
-    _, LALT(B), LALT(L), LALT(D), LALT(W),     _,           oCA, OSL(CODE), LALT(O), LALT(U), LALT(J),   _,
+    _, LALT(B), LALT(L), LALT(D), LALT(W),     _,           _, OSL(CODE), LALT(O), LALT(U), LALT(J),   _,
     OS_LSA, LALT(N), LALT(R), LALT(T), LALT(St), LALT(G),   LALT(Y), LALT(H), LALT(A), LALT(E), LALT(I),   OS_LSA,
-    LALT(Z), LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),        LALT(K), oCA, LALT(P), _, _, _,
+    LALT(Z), LALT(Q), LALT(X), LALT(M), LALT(Ct), LALT(V),        LALT(K), LALT(P), LALT(P), _, _, _,
                  LALT(Space), oCA, QK_LLCK,             STRES, _, _
   ),
 
@@ -352,25 +352,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_lock_on(NUM);
             return false;
         case DUMB_NUM:
-            if (smart_num_on == false) {
+            if (!is_layer_locked(NUM)) {
                 reset_kb_state();
-            } else {
+                layer_lock_on(NUM);
+            }
+            if (smart_num_on == true) {
                 smart_num_on = false;
             }
             return false;
+        case LT(SYM, Esc):
         case Esc:
             reset_kb_state();
-            return true;
+            tap_code16(keycode);
+            return false;
         case STRES:
             reset_kb_state();
             return false;
         case KC_HOME:
         case KC_END:
-        case KC_G:
+        case KC_UP:
+        case KC_DOWN:
+        case KC_LEFT:
+        case KC_RIGHT:
+        // case KC_G:
         case Enter:
-        // case KC_ESC:
-        case PgUp:
-        case PgDn:
+        // case Esc:
+        // case PgUp:
+        // case PgDn:
             if (is_layer_locked(NUM) && smart_num_on) {
                 tap_code16(keycode);
                 layer_lock_off(NUM);
@@ -378,20 +386,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             return true;
-        case KC_UP:
-        case KC_DOWN:
-        case KC_LEFT:
-        case KC_RIGHT:
-            if (is_layer_locked(NUM) && smart_num_on) {
-                tap_code16(keycode);
-                if (number_pressed) {
-                    number_pressed = false;
-                    layer_lock_off(NUM);
-                    layer_move(ABC);
-                }
-                return false;
-            }
-            return true;
+        // case KC_UP:
+        // case KC_DOWN:
+        // case KC_LEFT:
+        // case KC_RIGHT:
+        //     if (is_layer_locked(NUM) && smart_num_on) {
+        //         tap_code16(keycode);
+        //         if (number_pressed) {
+        //             number_pressed = false;
+        //             layer_lock_off(NUM);
+        //             layer_move(ABC);
+        //         }
+        //         return false;
+        //     }
+        //     return true;
         case KC_0:
         case KC_1:
         case KC_2:
