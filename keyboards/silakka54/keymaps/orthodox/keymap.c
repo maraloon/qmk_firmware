@@ -360,7 +360,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 smart_num_on = false;
             }
             return false;
-        case LT(SYM, Esc):
+        // case LT(SYM, Esc):
         case Esc:
             reset_kb_state();
             tap_code16(keycode);
