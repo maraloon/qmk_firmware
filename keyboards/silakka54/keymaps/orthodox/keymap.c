@@ -180,8 +180,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     Hash, Percent, Slash, Unds, Comma, Star,         DUMB_NUM, Exlm, Enter, Quest, J, End,
     Tab,   B,     L,     D,    W,    Dot,            Minus, F,     O,     U,     OSL(TMUX),   oC,
     C(Bs), N,     R,     T,    St,     G,            Y,     H,     A,     E,     I,   DDot,
-    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Win, _,
-                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), J
+    Z,     Q,     X,     M,    Ct,     V,            K,     P,  OSL(SYM), SMART_NUM, Win, DQuote,
+                  Bs, LT(NUM, Space), oS,            LANG, LT(SYM, Esc), Quote
   ),
 
   [RUS] = LAYOUT(
@@ -197,17 +197,17 @@ CommaS,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    
 
   [NUM] = LAYOUT(
     Hash, Percent,  Slash, _, Unds,  Star,           _, Exlm, Enter, Quest, _, OSL(FN),
-    Tab, _, Left, _0, Right, Dot,                    Minus, _, _9, _, OSL(TMUX), oC,
-    C(Bs), DUMB_NUM, _1, _2, _3, DUMB_NUM,           STRES, _5, _6, _8, STRES, DDot,
+    Tab, PgUp, Left, _0, Right, Dot,                 Minus, _, _9, _, OSL(TMUX), oC,
+    C(Bs), PgDn, _1, _2, _3, DUMB_NUM,               STRES, _5, _6, _8, _, DDot,
     _, Left, Up, Down, _4, Right,                    _, _7, OSL(SYM), _, Win, End,
-                           Bs, Space, oS,            _, Esc, STRES
+                           Bs, Space, oS,            _, Esc, _
   ),
 
   [SYM] = LAYOUT(
     _, BSlash, Tag, tag, _, _,                       _, Exlm,  Enter, Quest,   _,  _,
 Tilda, Borrow, borrow, Caret, Dollar, Amp,           _, _, _, _, KC_LALT,  OSL(CODE),
-DComm, Equal, At, Up, Down, Pipe,                    STRES, _, _,  _,  STRES, _,
-Grave, Array, array, Bracket, bracket, Plus,         _, Quote, DQuote,  OSL(NUM), _,  _,
+DComm, Equal, _, Up, Down, DUMB_NUM,                 STRES, Pipe, _,  _,  _, _,
+Grave, Array, array, Bracket, bracket, Plus,         _, At, DQuote,  OSL(NUM), _,  _,
                             Bs, PgDn, PgUp,          LANG, Esc, QK_LLCK
   ),
 
