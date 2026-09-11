@@ -205,9 +205,9 @@ CommaS,    N,     R,  KC_S,     T,     G,            M,     A,     E,     I,    
 
   [SYM] = LAYOUT(
     _, BSlash, Tag, tag, _, _,                       _, Exlm,  Enter, Quest,   _,  _,
-Tilda, Borrow, borrow, Caret, Dollar, Amp,           _, _, _, _, KC_LALT,  _,
-DComm, Equal, _, Up, Down, DUMB_NUM,                 STRES, Pipe, _,  _,  _, _,
-Grave, Array, array, Bracket, bracket, Plus,         _, At, DQuote,  OSL(NUM), _,  _,
+Tilda, Borrow, borrow, Caret, Dollar, Amp,           _, _, _, _, KC_LALT,  OSL(CODE),
+DComm, Equal, At, Up, Down, Pipe,                    STRES, VOLTR, SCALE,  _,  STRES, _,
+Grave, Array, array, Bracket, bracket, Plus,         _, Quote, DQuote,  OSL(NUM), _,  _,
                             Bs, PgDn, PgUp,          LANG, Esc, QK_LLCK
   ),
 
